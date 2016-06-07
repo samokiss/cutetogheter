@@ -1,0 +1,20 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <table>
+        <tr>
+            <th>Photo</th>
+            <th>Titre</th>
+            <th>Description</th>
+        </tr>
+        {% for story in stories %}
+        <tr>
+            <td><td><img class="img-responsive" src={{ asset('uploads/pictures/'~story.image) }}></td>
+            <td>{{ story.title }}</td>
+            <td>{{ story.description }}</td>
+            <td><a href={{ path('story_new', {'id': story.id}) }}><button>edit</button></a></td>
+            <td><a href={{ path('story_delete', {'id': story.id}) }}><button>remove</button></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

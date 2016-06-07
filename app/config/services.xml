@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="user.manager" class="AppBundle\Manager\UserManager">
+            <argument type="service" id="doctrine.orm.entity_manager"></argument>
+            <argument type="service" id="kernel"></argument>
+            <argument type="string">AppBundle:User</argument>
+        </service>
+        <service id="wedding.manager" class="AppBundle\Manager\WeddingManager">
+            <argument type="service" id="doctrine.orm.entity_manager"></argument>
+            <argument type="service" id="kernel"></argument>
+            <argument type="string">AppBundle:Wedding</argument>
+        </service>
+        <service id="lovestory.manager" class="AppBundle\Manager\LovestoryManager">
+            <argument type="service" id="doctrine.orm.entity_manager"></argument>
+            <argument type="service" id="kernel"></argument>
+            <argument type="string">AppBundle:Lovestory</argument>
+        </service>
+        <service id="gedmo.listener.translatable" class="Gedmo\Translatable\TranslatableListener">
+            <tag name="doctrine.event_subscribe" connection="default"/>
+            <call method="setAnnotationReader">
+                <argument type="service" id="annotation_reader"></argument>
+            </call>
+            <call method="setDefaultLocale">
+                <argument type="string">en</argument>
+            </call>
+            <call method="setTranslationFallback">
+                <argument type="string">true</argument>
+            </call>
+        </service>
+    </services>
+
+
+</container>

@@ -1,0 +1,48 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <section class="blog-bg">
+        <div class="color-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <div class="blog-title">
+                            <h3>Ajouter une story</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet
+                                pharetra
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.color-overlay end -->
+    </section>
+    <div class="col-sm-9">
+        <div class="contact-block">
+            <div class="row">
+                {% if entity is defined%}
+                    <button><a href={{ path("add_translation", {"entity": entity, "id": id}) }}>traduire</a></button>
+                {% endif %}
+                <div class="col-sm-offset-5 col-sm-6">
+                    {% if object is defined%}
+                        <div class="timeline-head">
+                            <h4>Titre : {{ object.title }}</h4>
+                        </div>
+                        <div class="event-body">
+                            Description : {{ object.description }}
+                        </div>
+                    {% endif %}
+                    {{ form_errors(form) }}
+                    {{ form_start(form) }}
+                    {% if form.vars.value.image is not null %}
+                    <img class="img-responsive" src={{ asset('uploads/pictures/'~form.vars.value.image) }}>
+                    {% endif %}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+        <!-- /.contact-block end -->u
+    </div>
+
+{% endblock %}

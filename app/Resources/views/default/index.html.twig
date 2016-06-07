@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <!-- Preloader -->
+    <div id="faceoff">
+        <ul id="pre-loader">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="preloader-section"></div>
+    </div>
+    <!-- Preloader end -->
+
+    {{ render(controller('AppBundle:Default:intro')) }}
+
+    {% include "::header.html.twig" %}
+
+    {% include ":default:couple.html.twig" %}
+
+    {% include ":default:story.html.twig" %}
+
+    {% include ":default:people.html.twig" %}
+
+    {% include ":default:event.html.twig" %}
+
+    <!-- .rsvpLink start -->
+    <section id="rsvpLink" class="rsvpLink">
+        <div class="color-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <span class="rsvpLink-title">We are missing your present. Don’t be late no more.</span>
+                        <a href="#contact" class="btn default-btn">RSVP</a>
+                        <a href="#map" class="btn default-btn">MAP</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.color-overlay end -->
+    </section>
+    <!-- .rsvpLink end -->
+
+    {% include ":default:gift.html.twig" %}
+
+    {% include ":default:gallery.html.twig" %}
+
+    {% include ":default:blog.html.twig" %}
+
+
+    <!-- .quote start -->
+    <section id="quote" class="quote">
+        <div class="color-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <blockquote>
+                            <p>For some people, the point of no return begins at the very <br> moment their souls become
+                                aware of each other's existence.</p>
+                        </blockquote>
+                        <!-- blockquote end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.color-overlay end -->
+    </section>
+    <!-- .quote end -->
+
+    {% include ":default:contact.html.twig" %}
+
+    {% include ":default:map.html.twig" %}
+{% endblock %}

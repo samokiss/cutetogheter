@@ -1,0 +1,37 @@
+<!-- banner start  -->
+<header id="banner" class="banner">
+    <div class="wrapper">
+        <div id="background-carousel">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="item item-no1 active"><img class="img-responsive" src={{ asset(img_url~wedding.image) }}></div>
+                    <div class="item item-no2"><img class="img-responsive" src={{ asset(img_url~wedding.image) }}></div>
+                    <div class="item item-no3"><img class="img-responsive" src={{ asset(img_url~wedding.image) }}></div>
+                </div>
+            </div>
+        </div>
+        <!-- /.background-carousel end -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+		    				<span class="banner-logo">
+		    					<h2>{{ 'Samuel et Laia'|trans  }}<small>{{ "Mr et Ms Gomis" | trans}}</small></h2>
+		    				</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-offset-3 col-sm-7">
+                    <div class="timing circle">
+                        <div id="count-down" style="height:140px;" data-date={{ wedding.date| date("Y-m-d") }}>
+
+                        </div>
+                    </div>
+                    <!-- /.timing -->
+                </div>
+            </div>
+        </div>
+        <div class="color-overlay-bg"></div>
+    </div>
+    <!-- /.color-overlay end -->
+</header>
+<!-- banner end -->

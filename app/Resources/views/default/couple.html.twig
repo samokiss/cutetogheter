@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-sm-12 text-center">
                 <div class="heading wow animated fadeInUp">
-                    <h3>{{ couple_presentation_title | trans }}</h3>
-                    <p>{{ couple_presentation_desc | trans }}</p>
+                    <h3>{{ "couple_presentation_title" | trans }}</h3>
+                    <p>{{ "couple_presentation_desc" | trans }}</p>
                 </div>
                 <!-- /.heading end -->
             </div>
@@ -13,57 +13,44 @@
         <div class="row">
             <div class="col-sm-12 love-bg">
                 <div class="row">
+                    {% for user in users %}
+                    {% if loop.first %}
                     <div class="col-sm-5">
                         <div class="thumbnail-block wow animated fadeInLeft">
-                            <div class="thumb-img">
-                                <img class="img-responsive" src="{{ asset('images/groom.png') }}" alt="Groom">
-                                <div class="thumb-hover">
-                                    <h5>JOHN DOE <small>groom</small></h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur isingelit. <br>
-                                        nunc, non scelerisque ligula. Crasveljusto nulla <br> VestibulumaPraesent sit amet phare.
-                                    </p>
-                                    <ul class="social-icon">
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                    </ul>
-                                    <!-- /.social-icon end -->
+                            {% else %}
+                            <div class="col-sm-offset-2 col-sm-5">
+                                <div class="thumbnail-block wow animated fadeInRight">
+                                    {% endif %}
+                                    <div class="thumb-img">
+                                        <img class="img-responsive" src="{{ asset(img_url~user.image) }}" alt="Groom">
+                                        <div class="thumb-hover">
+                                            <h5>{{ user.firstname }}
+                                                <small>{{ user.lastname }}</small>
+                                            </h5>
+                                            <p>
+                                                {{ user.longDescription }}
+                                            </p>
+                                            <ul class="social-icon">
+                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                            </ul>
+                                            <!-- /.social-icon end -->
+                                        </div>
+                                        <!-- /.thumb-hover -->
+                                    </div>
+                                    <!-- /.thumb-img -->
                                 </div>
-                                <!-- /.thumb-hover -->
+                                <!-- /.thumbnail-block-->
                             </div>
-                            <!-- /.thumb-img -->
+                            {% endfor %}
                         </div>
-                        <!-- /.thumbnail-block-->
                     </div>
-                    <div class="col-sm-offset-2 col-sm-5">
-                        <div class="thumbnail-block wow animated fadeInRight">
-                            <div class="thumb-img">
-                                <img class="img-responsive" src={{ asset('images/bride.png') }} alt="Bride">
-                                <div class="thumb-hover">
-                                    <h5>JANE DOE <small>bride</small></h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur isingelit. <br>
-                                        nunc, non scelerisque ligula. Crasveljusto nulla <br> VestibulumaPraesent sit amet phare.
-                                    </p>
-                                    <ul class="social-icon">
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                    </ul>
-                                    <!-- /.social-icon end -->
-                                </div>
-                                <!-- /.thumb-hover -->
-                            </div>
-                            <!-- /.thumb-img -->
-                        </div>
-                        <!-- /.thumbnail-block -->
-                    </div>
+                    <!-- /.love-bg end -->
+                </div>
+                <div id="next-arrow" class="next-arrow">
+                    <a href="#story" class="animated infinite rocket"><i class="fa fa-angle-double-down"></i></a>
                 </div>
             </div>
-            <!-- /.love-bg end -->
-        </div>
-        <div id="next-arrow" class="next-arrow">
-            <a href="#story" class="animated infinite rocket"><i class="fa fa-angle-double-down"></i></a>
-        </div>
-    </div>
 </section>
 <!-- couple end -->

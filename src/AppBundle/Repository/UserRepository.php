@@ -10,4 +10,13 @@ namespace AppBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findMarried()
+    {
+        $query = $this->createQueryBuilder('u')
+            ->where('u.role = :role')
+            ->setParameter('role', 1)
+            ->getQuery();
+
+        return $query->getResult();
+    }
 }

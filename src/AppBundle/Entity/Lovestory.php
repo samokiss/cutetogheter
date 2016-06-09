@@ -11,7 +11,6 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ORM\Table(name="lovestory")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\LovestoryRepository")
- * @Gedmo\TranslationEntity(class="Entity\LovestoryTranslation")
  */
 class Lovestory implements Translatable
 {

@@ -14,13 +14,13 @@
             <th>mail</th>
         </tr>
         <tr>
-            <td>{{ user.image }}</td>
+            <td><img class="img-responsive max_width" src={{ asset('uploads/pictures/'~user.image) }}></td>
             <td>{{ user.lastname }}</td>
             <td>{{ user.firstname }}</td>
             <td>{{ user.birthdate | date }}</td>
             <td>{{ user.shortDescription }}</td>
             <td>{{ user.longDescription }}</td>
-            <td>{{ user.eventRole }}</td>
+            <td>{{ user.role.role }}</td>
             <td>{{ user.phone }}</td>
             <td>{{ user.mail }}</td>
         </tr>

@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity\Role;
 
 /**
  * User
@@ -59,9 +60,10 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="event_role", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Role")
+     * @ORM\JoinColumn(name="role_id", referencedColumnName="id")
      */
-    private $eventRole;
+    private $role;
 
     /**
      * @var string
@@ -94,7 +96,7 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="facebook", type="string", length=255)
+     * @ORM\Column(name="facebook", type="string", length=255, nullable=true)
      */
     private $facebook;
     
@@ -236,9 +238,9 @@ class User
      *
      * @return User
      */
-    public function setEventRole($eventRole)
+    public function setRole($role)
     {
-        $this->eventRole = $eventRole;
+        $this->role = $role;
 
         return $this;
     }
@@ -248,9 +250,9 @@ class User
      *
      * @return string
      */
-    public function getEventRole()
+    public function getRole()
     {
-        return $this->eventRole;
+        return $this->role;
     }
 
     /**

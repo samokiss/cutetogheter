@@ -15,7 +15,7 @@
                 <target>Notre Présentation</target>
             </trans-unit>
             <trans-unit id="couple_presentation_desc">
-                <source>couple_presentation_title</source>
+                <source>couple_presentation_desc</source>
                 <target>Depuis notre rencontre il y a 6 ans, on a du travailler pour en arriver la ! </target>
             </trans-unit>
         </body>

@@ -10,8 +10,10 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\Entity\Lovestory;
+use AppBundle\Entity\Role;
 use AppBundle\Entity\Wedding;
 use AppBundle\Form\LovestoryType;
+use AppBundle\Form\RoleType;
 use AppBundle\Form\WeddingType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -174,5 +176,39 @@ class AdminController extends Controller
             'form' => $form->createView(),
             'object' => $object,
         ]);
+    }
+
+    /**
+     * @Route("/role", name="role")
+     */
+    public function roleAction(Request $request)
+    {
+        $roles = $this->getDoctrine()->getRepository("AppBundle:Role")->findAll();
+
+        $role = new Role();
+        $form = $this->createForm(RoleType::class, $role);
+        
+        $form->handleRequest($request);
+        
+        if( $form->isValid() ) {
+            $this->get('role.manager')->save($role);
+
+            $this->redirectToRoute('role');
+        }
+
+        return $this->render(':role:list.html.twig', [
+            'roles' => $roles,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/role/delete/{id}", name="role_delete")
+     */
+    public function roleDeleteAction(Role $role)
+    {
+        $this->get('role.manager')->delete($role);
+
+        return $this->redirectToRoute('role');
     }
 }

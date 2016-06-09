@@ -43,8 +43,10 @@ abstract class BaseManager
      */
     public function save($data)
     {
-        if( null !== $data->getImageFile()) {
-            $data = $this->uploadPicture($data);
+        if( method_exists($data , 'getImageFile')) {
+            if( $data->getImageFile() ){
+                $data = $this->uploadPicture($data);
+            }
         }
         $this->em->getRepository($this->className);
         $this->em->persist($data);

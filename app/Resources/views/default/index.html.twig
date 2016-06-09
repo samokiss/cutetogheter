@@ -24,7 +24,7 @@
 
     {% include "::header.html.twig" %}
 
-    {% include ":default:couple.html.twig" %}
+    {{ render(controller('AppBundle:Default:couple')) }}
 
     {% include ":default:story.html.twig" %}
 

@@ -3,7 +3,10 @@
 namespace AppBundle\Form;
 
 use AppBundle\Entity\User;
+use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -26,10 +29,19 @@ class UserType extends AbstractType
             )*/)
             ->add('shortDescription', TextType::class)
             ->add('longDescription', TextType::class)
-            ->add('eventRole', TextType::class)
+            ->add('role', EntityType::class, array(
+                'class' => 'AppBundle:Role',
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('u')
+                        ->orderBy('u.role', 'ASC');
+                },
+                'choice_label' => 'role',
+                ))
             ->add('phone', TextType::class)
             ->add('mail', EmailType::class)
-            ->add('facebook', TextType::class)
+            ->add('facebook', TextType::class, [
+                'required' => false,
+            ])
             ->add('imageFile', FileType::class,[
                 'data_class' => null,
                 'required' => false,

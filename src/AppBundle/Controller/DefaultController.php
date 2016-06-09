@@ -27,9 +27,19 @@ class DefaultController extends Controller
     public function introAction()
     {
         $wedding = $this->getDoctrine()->getRepository('AppBundle:Wedding')->find(1);
-        
         return $this->render(':default:intro.html.twig', [
            'wedding' => $wedding, 
+        ]);
+    }
+    
+    /**
+     * use in the view index
+     */
+    public function coupleAction()
+    {
+        $users = $this->getDoctrine()->getRepository('AppBundle:User')->findMarried();
+        return $this->render(':default:couple.html.twig', [
+            'users' => $users,
         ]);
     }
 }

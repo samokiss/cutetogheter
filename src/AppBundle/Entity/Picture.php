@@ -7,8 +7,12 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Picture
  *
+ * @ORM\Entity
  * @ORM\Table(name="picture")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PictureRepository")
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="type", type="string")
+ * @ORM\DiscriminatorMap({"picture" = "Picture", "gallery" = "Gallery"})
  */
 class Picture
 {
@@ -19,29 +23,21 @@ class Picture
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="image", type="string", length=255)
      */
-    private $title;
+    protected $image;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="url", type="string", length=255)
+     * @ORM\Column(type="string", nullable=true)
      */
-    private $url;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="type", type="string", length=255)
-     */
-    private $type;
-
+    protected $imageFile;
 
     /**
      * Get id
@@ -54,77 +50,38 @@ class Picture
     }
 
     /**
-     * Set title
-     *
-     * @param string $title
-     *
-     * @return Picture
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
      * @return string
      */
-    public function getTitle()
+    public function getImage()
     {
-        return $this->title;
+        return $this->image;
     }
 
     /**
-     * Set url
-     *
-     * @param string $url
-     *
-     * @return Picture
+     * @param string $image
      */
-    public function setUrl($url)
+    public function setImage($image)
     {
-        $this->url = $url;
-
-        return $this;
+        $this->image = $image;
     }
 
     /**
-     * Get url
-     *
      * @return string
      */
-    public function getUrl()
+    public function getImageFile()
     {
-        return $this->url;
+        return $this->imageFile;
     }
 
     /**
-     * Set type
-     *
-     * @param string $type
-     *
-     * @return Picture
+     * @param string $imageFile
      */
-    public function setType($type)
+    public function setImageFile($imageFile)
     {
-        $this->type = $type;
-
-        return $this;
+        $this->imageFile = $imageFile;
     }
 
-    /**
-     * Get type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-    
-    
+   
+
 }
 

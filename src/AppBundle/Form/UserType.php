@@ -6,8 +6,7 @@ use AppBundle\Entity\User;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -22,7 +21,7 @@ class UserType extends AbstractType
         $builder
             ->add('lastname', TextType::class)
             ->add('firstname', TextType::class)
-            ->add('birthdate', DateType::class/*, array(
+            ->add('birthdate', BirthdayType::class/*, array(
                 'widget' => 'single_text',
                 'html5' => false,
                 'attr' => ['class' => 'js-datepicker'],

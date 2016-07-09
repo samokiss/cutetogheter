@@ -1,0 +1,52 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <section class="blog-bg">
+        <div class="color-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <div class="blog-title">
+                            <h3>Ajouter une role</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.color-overlay end -->
+    </section>
+    <section class="blog-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="contact-block">
+                        <div class="row">
+                            <div class="col-sm-offset-5 col-sm-6">
+                                <table class="table">
+                                    <tr>
+                                        <th>id</th>
+                                        <th>Nom</th>
+                                    </tr>
+                                    {% for role in roles %}
+                                        <tr>
+                                            <td>{{ role.id }}</td>
+                                            <td>{{ role.role }}</td>
+                                            <td><a href={{ path('role_delete', {'id': role.id}) }}>
+                                                    <button>remove</button>
+                                                </a></td>
+                                        </tr>
+                                    {% endfor %}
+                                </table>
+                                {{ form(form) }}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.contact-block end -->u
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

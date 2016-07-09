@@ -1,0 +1,78 @@
+<!-- navigation start -->
+<section id="sticker" class="nav-block">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <h1 class="nav-logo"><a class="nav-brand" href=""> <img
+                                        src="{{ asset('images/icon/logo.png') }}" alt="BrandLogo"></a></h1>
+                    </div>
+                </div>
+                <div class="col-sm-8 text-center">
+                    <!-- Collect the nav toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="{{ path('wedding_edit') }}">{{ "Mariage"|trans }}</a></li>
+                            <li>
+                                <div class="dropdown">
+                                    <span class="drop-menu" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                        {{ "Utilisateurs"|trans }}
+                                        <span class="caret"></span>
+                                    </span>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                        <li role="presentation"><a class="droptext" role="menuitem" tabindex="-1" href="{{ path('user_new') }}">{{ "Ajouter Utilisateur"|trans }}</a></li>
+                                        <li role="presentation"><a class="droptext" role="menuitem" tabindex="-1" href="{{ path('user_list')}}">{{ "Liste Utilisateur"|trans }}</a></li>
+                                        <li role="presentation"><a class="droptext" role="menuitem" tabindex="-1" href="{{ path('role')}}">{{ "Ajouter role"|trans }}</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dropdown">
+                                    <span class="drop-menu" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                        {{ "Stories"|trans }}
+                                        <span class="caret"></span>
+                                    </span>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                        <li role="presentation"><a class="droptext" role="menuitem" tabindex="-1" href="{{ path('story_new') }}">{{ "Ajouter une story"|trans }}</a></li>
+                                        <li role="presentation"><a class="droptext" role="menuitem" tabindex="-1" href="{{ path('story_list')}}">{{ "Liste des stories"|trans }}</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dropdown">
+                                    <span class="drop-menu" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                        {{ "Blog"|trans }}
+                                        <span class="caret"></span>
+                                    </span>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                        <li role="presentation"><a class="droptext" role="menuitem" tabindex="-1" href="{{ path('blog_new') }}">{{ "Nouvel Article "|trans }}</a></li>
+                                        <li role="presentation"><a class="droptext" role="menuitem" tabindex="-1" href="{{ path('blog_list')}}">{{ "Liste des articles"|trans }}</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a href="{{ path('homepage') }}">{{ "retour"|trans }}</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div>
+                <div class="col-sm-2 mobile-pos">
+                    <ul class="social-icon pull-right">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    </ul>
+                    <!-- /.social-icon end -->
+                </div>
+            </div>
+        </div><!-- /.container -->
+    </nav>
+</section>
+<!-- navigation end -->

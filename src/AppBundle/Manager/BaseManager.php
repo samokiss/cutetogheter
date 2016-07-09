@@ -9,6 +9,7 @@
 namespace AppBundle\Manager;
 
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\PersistentCollection;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpKernel\Kernel;
 
@@ -43,6 +44,10 @@ abstract class BaseManager
      */
     public function save($data)
     {
+        if(method_exists($data , 'getPictures')) {
+            $data = $this->uploadPictures($data);
+        }
+
         if( method_exists($data , 'getImageFile')) {
             if( $data->getImageFile() ){
                 $data = $this->uploadPicture($data);
@@ -83,18 +88,26 @@ abstract class BaseManager
 
     }
 
-//    public function createForm($data, $request)
-//    {
-//        $form = $this->createForm(LovestoryType::class, $data);
-//
-//        $form->handleRequest($request);
-//
-//        if( $form->isValid() ) {
-//            $this->get('lovestory.manager')->save($data);
-//
-//            $this->redirectToRoute('story_list', [
-//                'id' => $data->getId(),
-//            ]);
-//        }
-//    }
+    public function uploadPictures($data)
+    {
+        if($data->getPictures() instanceof PersistentCollection) {
+            foreach ($data->getPictures() as $picture) {
+                if($picture->getId() == null) {
+                    $pictures[] = $picture;
+                } else {
+                    $pictures[] = $picture;
+                }
+                $data->setPictures($pictures);
+            }
+        }
+
+        foreach ($data->getPictures() as $picture) {
+            if($picture->getId() == null) {
+                $this->uploadPicture($picture);
+            }
+        }
+        return $data;
+
+    }
+
 }

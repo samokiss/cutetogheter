@@ -1,20 +1,50 @@
 {% extends "::base.html.twig" %}
 
 {% block body %}
-    <table>
-        <tr>
-            <th>Photo</th>
-            <th>Titre</th>
-            <th>Description</th>
-        </tr>
-        {% for story in stories %}
-        <tr>
-            <td><td><img class="img-responsive" src={{ asset('uploads/pictures/'~story.image) }}></td>
-            <td>{{ story.title }}</td>
-            <td>{{ story.description }}</td>
-            <td><a href={{ path('story_new', {'id': story.id}) }}><button>edit</button></a></td>
-            <td><a href={{ path('story_delete', {'id': story.id}) }}><button>remove</button></a></td>
-        </tr>
-        {% endfor %}
-    </table>
+    <section class="blog-bg">
+        <div class="color-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <div class="blog-title">
+                            <h3>liste des story</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet
+                                pharetra
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.color-overlay end -->
+    </section>
+    <section class="blog-content">
+        <div class="container">
+            <div class="row">
+                <table class="table">
+                    <tr>
+                        <th>Photo</th>
+                        <th>Titre</th>
+                        <th>Description</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    {% for story in stories %}
+                        <tr>
+                            <td><img class="img-responsive max_width" src={{ asset('uploads/pictures/'~story.image) }}>
+                            </td>
+                            <td>{{ story.title }}</td>
+                            <td>{{ story.description }}</td>
+                            <td><a href={{ path('story_new', {'id': story.id}) }}>
+                                    <button>edit</button>
+                                </a></td>
+                            <td><a href={{ path('story_delete', {'id': story.id}) }}>
+                                    <button>remove</button>
+                                </a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </section>
 {% endblock %}

@@ -89,7 +89,7 @@ class User
     /**
      * @var string
      * 
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */ 
     private $imageFile;
 
@@ -99,6 +99,11 @@ class User
      * @ORM\Column(name="facebook", type="string", length=255, nullable=true)
      */
     private $facebook;
+
+    /*
+     * @ORM\OneToMany(targetEntity="Blog", mappedBy="user")
+     */
+    private $blogs;
     
 
     /**
@@ -357,6 +362,22 @@ class User
     public function setFacebook($facebook)
     {
         $this->facebook = $facebook;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBlogs()
+    {
+        return $this->blogs;
+    }
+
+    /**
+     * @param mixed $blogs
+     */
+    public function setBlogs($blog)
+    {
+        $this->blog = $blog;
     }
     
     

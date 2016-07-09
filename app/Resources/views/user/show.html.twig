@@ -1,28 +1,51 @@
 {% extends "::base.html.twig" %}
 
 {% block body %}
-    <table class="table">
-        <tr>
-            <th>Photo</th>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Date de Naissance</th>
-            <th>Présentation</th>
-            <th>Description</th>
-            <th>Role</th>
-            <th>Téléphone</th>
-            <th>mail</th>
-        </tr>
-        <tr>
-            <td><img class="img-responsive max_width" src={{ asset('uploads/pictures/'~user.image) }}></td>
-            <td>{{ user.lastname }}</td>
-            <td>{{ user.firstname }}</td>
-            <td>{{ user.birthdate | date }}</td>
-            <td>{{ user.shortDescription }}</td>
-            <td>{{ user.longDescription }}</td>
-            <td>{{ user.role.role }}</td>
-            <td>{{ user.phone }}</td>
-            <td>{{ user.mail }}</td>
-        </tr>
-    </table>
+    <section class="blog-bg">
+        <div class="color-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <div class="blog-title">
+                            <h3>Montrer une personne</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet
+                                pharetra
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.color-overlay end -->
+    </section>
+    <section class="blog-content">
+        <div class="container">
+            <div class="row">
+                <table class="table">
+                    <tr>
+                        <th>Photo</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Date de Naissance</th>
+                        <th>Présentation</th>
+                        <th>Description</th>
+                        <th>Role</th>
+                        <th>Téléphone</th>
+                        <th>mail</th>
+                    </tr>
+                    <tr>
+                        <td><img class="img-responsive max_width" src={{ asset('uploads/pictures/'~user.image) }}></td>
+                        <td>{{ user.lastname }}</td>
+                        <td>{{ user.firstname }}</td>
+                        <td>{{ user.birthdate | date }}</td>
+                        <td>{{ user.shortDescription }}</td>
+                        <td>{{ user.longDescription }}</td>
+                        <td>{{ user.role.role }}</td>
+                        <td>{{ user.phone }}</td>
+                        <td>{{ user.mail }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
 {% endblock %}

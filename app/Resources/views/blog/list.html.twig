@@ -1,0 +1,55 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+
+<section class="blog-bg">
+    <div class="color-overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <div class="blog-title">
+                        <h3>Single Blog Post</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet
+                            pharetra
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.color-overlay end -->
+</section>
+<!-- /.blog-bg end -->
+
+<!-- blog content start -->
+<section class="blog-content">
+    <div class="container">
+        <div class="row">
+
+            <table class="table">
+                <tr>
+                    <th>Titre</th>
+                    <th>Description</th>
+                    <th>Verset</th>
+                    <th>Date</th>
+                </tr>
+                {% for article in articles %}
+                    <tr>
+                        <td>{{ article.title }}</td>
+                        <td>{{ article.description }}</td>
+                        <td>{{ article.verse }}</td>
+                        <td>{{ article.date|date }}</td>
+                        <td>{{ article.user.firstname }}</td>
+                        <td><a href={{ path('blog_edit', {'id': article.id}) }}>
+                                <button>edit</button>
+                            </a></td>
+                        <td><a href={{ path('blog_delete', {'id': article.id}) }}>
+                                <button>remove</button>
+                            </a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,114 @@
+<!-- contact start -->
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <div class="heading wow animated fadeInUp">
+                    <h3>RSVP</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra
+                        <br> nunc, non scelerisque ligula. Crasveljusto nulla Vestibuluma.</p>
+                </div>
+                <!-- /.heading end -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 divider">
+                <h5>contact info</h5>
+                <div class="contact-address">
+                    <ul>
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <div class="address-phone">
+                                <h4>address</h4>
+                                <span>63739 street lorem</span>
+                                <span>City, Country</span>
+                            </div>
+                            <!-- /.address-phone -->
+                        </li>
+                        <li>
+                            <i class="fa fa-phone"></i>
+                            <div class="address-phone">
+                                <h4>phone</h4>
+                                <span> +02 25 479336893</span>
+                                <span> +02 57 893145939</span>
+                            </div>
+                            <!-- /.address-phone -->
+                        </li>
+                        <li>
+                            <i class="fa fa-paper-plane"></i>
+                            <div class="address-phone">
+                                <h4>email</h4>
+                                <span>example@email.com</span>
+                            </div>
+                            <!-- /.address-phone -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="contact-block">
+                    <h5>Events Attending</h5>
+                    {{ form_start(form, { 'attr': {'id': 'form_rsvp'} }) }}
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    {{ form_row(form.name) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_row(form.guestNumber) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_row(form.user) }}
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    {{ form_row(form.message) }}
+                                    <div id="loader">
+                                        <img src="{{ asset('images/ajax-loader.gif') }}" alt="loader"/>
+                                    </div>
+                                    <div id="have_sent" class="alert alert-success" role="alert">Merci! Votre message a bien été envoyé.</div>
+                                </div>
+                                <div class="form-group">
+                                    {{ form_row(form.submit , { 'attr': {'class': 'btn default-btn btn-block'} }) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <a href={{ path('guestlist') }} >Voir la liste des invités</a>
+                        </div>
+                    {{ form_end(form) }}
+                </div>
+                <!-- /.contact-block end -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="{{ asset('bundles/fosjsrouting') }}"></script>
+<script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+<script charset="UTF-8">
+    $(function() {
+        alert();
+        $("#form_rsvp").submit(function(){
+            $("#loader").show();
+            name = $(this).find("input[id=rsvp_name]");
+            guestNumber = $(this).find("input[id=rsvp_guestNumber]");
+            message = $(this).find("input[id=rsvp_message]");
+
+            $.post(Routing.generate('rsvp'),{
+                name : name.val(),
+                guestNumber : guestNumber.val(),
+                message : message.val()
+            },function(data){
+                $("#loader").hide();
+                $("#have_sent").show("slow").delay(3000).hide("slow");
+                name.val("");
+                guestNumber.val("");
+                message.val("");
+            });
+
+            return false;
+        });
+    });
+</script>

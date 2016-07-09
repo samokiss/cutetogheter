@@ -25,16 +25,17 @@ class Rsvp
     /**
      * @var string
      *
-     * @ORM\Column(name="firstname", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $firstname;
+    private $name;
 
     /**
-     * @var string
+     * @var array
      *
-     * @ORM\Column(name="lastname", type="string", length=255)
+     * @ORM\Column(name="guestNumber", type="integer")
      */
-    private $lastname;
+    private $guestNumber;
+
 
     /**
      * @var string
@@ -44,11 +45,12 @@ class Rsvp
     private $message;
 
     /**
-     * @var ArrayCollection
+     * @var int
      *
-     * @ORM\ManyToMany(targetEntity="Event", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
-    private $events;
+    private $user;
 
 
     /**
@@ -62,51 +64,27 @@ class Rsvp
     }
 
     /**
-     * Set firstname
+     * Set name
      *
-     * @param string $firstname
+     * @param string $name
      *
      * @return rsvp
      */
-    public function setFirstname($firstname)
+    public function setName($name)
     {
-        $this->firstname = $firstname;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get firstname
+     * Get name
      *
      * @return string
      */
-    public function getFirstname()
+    public function getName()
     {
-        return $this->firstname;
-    }
-
-    /**
-     * Set lastname
-     *
-     * @param string $lastname
-     *
-     * @return rsvp
-     */
-    public function setLastname($lastname)
-    {
-        $this->lastname = $lastname;
-
-        return $this;
-    }
-
-    /**
-     * Get lastname
-     *
-     * @return string
-     */
-    public function getLastname()
-    {
-        return $this->lastname;
+        return $this->name;
     }
 
     /**
@@ -134,21 +112,39 @@ class Rsvp
     }
 
     /**
-     * @return ArrayCollection
+     * @return array
      */
-    public function getEvents()
+    public function getGuestNumber()
     {
-        return $this->events;
+        return $this->guestNumber;
     }
 
     /**
-     * @param ArrayCollection $events
+     * @param array $guestNumber
      */
-    public function setEvents($events)
+    public function setGuestNumber($guestNumber)
     {
-        $this->events = $events;
+        $this->guestNumber = $guestNumber;
     }
+
+    /**
+     * @return int
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param int $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
     
+
     
 }
 

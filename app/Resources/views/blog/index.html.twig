@@ -28,46 +28,40 @@
             <div class="col-sm-9">
                 <div class="single-blog-content">
                     <div class="single-blog-image">
-                        <img class="img-responsive" src="images/post_image.png" alt="blog image">
+                        <img class="img-responsive" src={{ asset('uploads/pictures/'~article.pictures.0.image) }} alt="blog image">
                     </div>
                     <!-- /.single-blog-image -->
                     <div class="single-blog-meta">
                         <ul>
-                            <li><i class="fa fa-clock-o"></i> December 14, 2014</li>
-                            <li><i class="fa fa-folder-open"></i> Party / Wedding</li>
-                            <li><i class="fa fa-tag"></i> Groom,Maid,Best man</li>
+                            <li><i class="fa fa-clock-o"></i>{{ article.date|date }}</li>
+                            {#<li><i class="fa fa-folder-open"></i> Party / Wedding</li>#}
+                            {#<li><i class="fa fa-tag"></i> Groom,Maid,Best man</li>#}
                         </ul>
                     </div>
                     <!-- /.single-blog-meta -->
                     <div class="single-blog-detail">
                         <div class="single-blog-upper">
-                            <h3>THE WEDDING LIGHT</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec congue felis, id bibendum augue. Spendisse congue ac justo quis faucibus. Donec at nulla ultrices tellus tincidunt blandit. Sed tempus risus a magna maliquam. Etiam consequat, sem in blandit bibendum, justo libero dictum turpis, vel placerat urna elit quis odio. Vivamus con dimentum elementum turpis quis faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec congue felis, id bibendum augue. Spendisse congue ac justo quis faucibus. Donec at nulla ultrices tellus tincidunt blandit. Sed tempus risus a magna maliquam. Etiam consequat, sem in blandit bibendum, justo libero dictum turpis.</p>
+                            <h3>{{ article.title }}</h3>
+                            <p>{{ article.description }}</p>
                         </div>
                         <!-- /.single-blog-lower -->
                         <blockquote>
-                            <p>For some people, the point of no return begins at the very moment their <br> sould become aware of each other's existence.</p>
+                            {{ article.verse }}
                         </blockquote>
                         <!-- blockquote end -->
                         <div class="single-blog-lower">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec congue felis, id bibendum augue. Spendisse congue ac justo quis faucibus. Donec at nulla ultrices tellus tincidunt blandit. </p>
                             <ul class="single-post-item">
-                                <li><i class="fa fa-check"></i>Duis aute irure reprehenderit in voluptate velit esse</li>
-                                <li><i class="fa fa-check"></i>Duis aute irure reprehenderit in voluptate velit esse</li>
-                                <li><i class="fa fa-check"></i>Duis aute irure reprehenderit in voluptate velit esse</li>
                                 <li><i class="fa fa-check"></i>Duis aute irure reprehenderit in voluptate velit esse</li>
                             </ul>
                             <!-- /.single-post-item -->
                             <h4>SOME WONDERFUL MOMENT</h4>
                             <ul class="single-post-thumnail">
-                                <li><a class="gallery-popup" href="images/gallery/gallery_image_08.jpg"><img class="img-thumbnail img-responsive" src="images/post_moment_01.png" alt="image"></a></li>
-                                <li><a class="gallery-popup" href="images/gallery/gallery_image_07.jpg"><img class="img-thumbnail img-responsive" src="images/post_moment_02.png" alt="image"></a></li>
-                                <li><a class="gallery-popup" href="images/gallery/gallery_image_01.jpg"><img class="img-thumbnail img-responsive" src="images/post_moment_03.png" alt="image"></a></li>
-                                <li><a class="gallery-popup" href="images/gallery/gallery_image_05.jpg"><img class="img-thumbnail img-responsive" src="images/post_moment_04.png" alt="image"></a></li>
+                                {% for picture in article.pictures %}
+                                    {% if loop.index != 1 %}
+                                        <li><a class="gallery-popup" href={{ asset('uploads/pictures/'~picture.image) }}><img class="img-thumbnail img-responsive" src={{ asset('uploads/pictures/'~picture.image) }} alt="image"></a></li>
+                                    {% endif %}
+                                {% endfor %}
                             </ul>
-                            <!-- /.single-post-thumnail -->
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec congue felis, id bibendum augue. Spendisse congue ac justo quis faucibus. Donec at nulla ultrices tellus tincidunt blandit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec congue felis, id bibendum augue. Spendisse congue ac justo quis faucibus. Donec at nulla ultrices tellus tincidunt blandit </p>
                         </div>
                         <!-- /.single-blog-lower -->
                     </div>
@@ -80,61 +74,45 @@
                         <a href="#"><i class="fa fa-share-alt"></i></a>
                     </div>
                     <div class="comment-block">
-                        <h5>COMMENTS (11)</h5>
-                        <ul class="media-list">
+                        <h5>COMMENTS</h5>
+                        <ul id="myList" class="media-list">
+                            {% for comment in article.comments %}
                             <li class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img class="media-object" src="images/avatar.png" alt="media">
-                                    </a>
-                                </div>
                                 <div class="media-body">
-                                    <h4 class="media-heading">ANDREW HILTON <small>DECEMBER 14, 2014</small></h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec congue felis, id bibendum augue. Spendisse congue ac justo quis faucibus. Donec at nulla ultrices tellus tincidunt</p>
-                                    <p><a href="" class="btn default-btn">REPLY</a></p>
+                                    <h4 class="media-heading">{{ comment.name }}<small>{{ comment.date|date }}</small></h4>
+                                    <p>{{ comment.message }}</p>
                                 </div>
                             </li>
-                        </ul>
-                        <ul>
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img class="media-object" src="images/avatar.png" alt="media">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">Andrew Hall <small>DECEMBER 14, 2014</small></h4>
-                                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
-                                    <p><a href="" class="btn default-btn">REPLY</a></p>
-                                    <!-- Nested media object -->
-                                </div>
-                            </li>
+
+                            {% endfor %}
+                            <div id="loadMore">Load more</div>
+                            <div id="showLess">Show less</div>
                         </ul>
                     </div>
                     <!-- /.comment-block -->
                     <div class="reply-block">
                         <h5>LEAVE A REPLY</h5>
                         <div class="contact">
-                            <form class="comment_form" role="form" action="#">
+                            {{ form_start(form) }}
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="name" name="name" placeholder="Your name..." required="required">
+                                            {{ form_row(form.name, {'attr': {'placeholder': 'Your name'}}) }}
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <input type="email" class="form-control" id="email" name="email" placeholder="Your email" required="required">
+                                            {{ form_row(form.email, {'attr': {'placeholder': 'Your email'}}) }}
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <textarea class="form-control" name="message" id="message" placeholder="Write your message"></textarea>
+                                            {{ form_row(form.message, {'attr': {'placeholder': 'Write your message'}}) }}
                                         </div>
                                     </div>
                                     <div class="col-sm-12 text-right">
                                         <div class="form-group">
-                                            <input type="submit" name="submit" class="btn default-btn" value="SUBMIT">
+                                            {{ form_row(form.submit, {'attr': {'class': 'btn default-btn'}}) }}
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
@@ -142,7 +120,7 @@
                                         <p class="contact-error">Error! Something went wrong!</p>
                                     </div>
                                 </div>
-                            </form>
+                            {{ form_end(form) }}
                         </div>
 
                     </div>
@@ -154,42 +132,27 @@
                 <sidebar>
                     <div class="sidebar-single-post">
                         <div class="sidebar-single-post-img">
-                            <img class="img-responsive" src="images/author.png" alt="Single post image">
+                            <img class="img-responsive" src={{ asset('uploads/pictures/'~article.user.image) }} alt="Single post image">
                         </div>
                         <!-- /.sidebar-single-post-img -->
                         <div class="sidebar-single-post-detail">
-                            <h5>THOMAS ELLEN</h5>
-                            <p>Lorem ipsum dolor sit amesectetur adip isicing elit. Vitae vero moltias obcaecati repellendus temporibus asperiores dicta nesciunt.</p>
+                            <h5>{{ article.user.firstname ~ ' ' ~ article.user.lastname  }}</h5>
+                            <p>{{ article.user.shortDescription }}</p>
                         </div>
                     </div>
                     <!-- /.sidebar-single-post -->
                     <div class="popular-post">
                         <h5>POPULAR POST</h5>
                         <ul>
+                            {% for article in articles %}
                             <li>
                                 <div class="popular-img">
-                                    <img class="img-responsive" src="images/post_thumb_01.png" alt="post image">
+                                    <img class="img-responsive" src={{ asset('uploads/pictures/'~article.pictures.0.image) }} alt="post image">
+                                    {#<img class="img-responsive" src={{ asset('uploads/pictures/0d7257aaf3983be7860ec2c4c92feb3e.jpg') }}" alt="post image">#}
                                 </div>
-                                <p> Harum quidem rerufacilis eexpedita<span> 2 hours ago </span> </p>
+                                <p class="margin">{{ article.title }}<span> {{ article.date|date }} </span> </p>
                             </li>
-                            <li>
-                                <div class="popular-img">
-                                    <img class="img-responsive" src="images/post_thumb_02.png" alt="post image">
-                                </div>
-                                <p> Harum quidem rerufacilis eexpedita<span> 2 hours ago </span> </p>
-                            </li>
-                            <li>
-                                <div class="popular-img">
-                                    <img class="img-responsive" src="images/post_thumb_03.png" alt="post image">
-                                </div>
-                                <p> Harum quidem rerufacilis eexpedita<span> 2 hours ago </span> </p>
-                            </li>
-                            <li>
-                                <div class="popular-img">
-                                    <img class="img-responsive" src="images/post_thumb_04.png" alt="post image">
-                                </div>
-                                <p> Harum quidem rerufacilis eexpedita<span> 2 hours ago </span> </p>
-                            </li>
+                            {% endfor %}
                         </ul>
                     </div>
                     <div class="wedding-video">
@@ -207,35 +170,56 @@
 </section>
 <!-- /.blog content end -->
 
-<script>
-    $(document).ready(function() {
-        "use strict";
-        $('.gallery-popup').magnificPopup({
-            type:'image',
-            closeBtnInside:true,
-            // Delay in milliseconds before popup is removed
-            removalDelay: 300,
+{% endblock %}
 
-            // Class that is added to popup wrapper and background
-            // make it unique to apply your CSS animations just to this exact popup
-            //mainClass: 'mfp-fade',
-            gallery: {
-                enabled: true, // set to true to enable gallery
+{% block javascripts %}
+    <script>
+        $(document).ready(function() {
+            "use strict";
+            $('.gallery-popup').magnificPopup({
+                type:'image',
+                closeBtnInside:true,
+                // Delay in milliseconds before popup is removed
+                removalDelay: 300,
 
-                preload: [0,2], // read about this option in next Lazy-loading section
+                // Class that is added to popup wrapper and background
+                // make it unique to apply your CSS animations just to this exact popup
+                //mainClass: 'mfp-fade',
+                gallery: {
+                    enabled: true, // set to true to enable gallery
 
-                navigateByImgClick: true,
+                    preload: [0,2], // read about this option in next Lazy-loading section
 
-                arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>', // markup of an arrow button
+                    navigateByImgClick: true,
 
-                closeMarkup: '<button title="%title%" class="mfp-close"><i class="mfp-close-icn">&times;</i></button>',
+                    arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>', // markup of an arrow button
 
-                tPrev: 'Previous (Left arrow key)', // title for left button
-                tNext: 'Next (Right arrow key)', // title for right button
-                //tCounter: '<span class="mfp-counter">%curr% of %total%</span>' // markup of counter
-            }
+                    closeMarkup: '<button title="%title%" class="mfp-close"><i class="mfp-close-icn">&times;</i></button>',
+
+                    tPrev: 'Previous (Left arrow key)', // title for left button
+                    tNext: 'Next (Right arrow key)', // title for right button
+                    //tCounter: '<span class="mfp-counter">%curr% of %total%</span>' // markup of counter
+                }
+            });
+
+            $('#myList li:lt(3)').show();
+            $('#showLess').hide();
+            var items =  25;
+            var shown =  3;
+            $('#loadMore').click(function () {
+                $('#showLess').show();
+                shown = $('#myList li:visible').size()+5;
+                if(shown< items) {$('#myList li:lt('+shown+')').show();}
+                else {$('#myList li:lt('+items+')').show();
+                    $('#loadMore').hide();
+                }
+            });
+            $('#showLess').click(function () {
+                $('#myList li').not(':lt(3)').hide();
+            });
+
         });
-    });
-</script>
 
+
+    </script>
 {% endblock %}

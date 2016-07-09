@@ -19,10 +19,25 @@
             <argument type="service" id="kernel"></argument>
             <argument type="string">AppBundle:Lovestory</argument>
         </service>
+        <service id="blog.manager" class="AppBundle\Manager\BlogManager">
+            <argument type="service" id="doctrine.orm.entity_manager"></argument>
+            <argument type="service" id="kernel"></argument>
+            <argument type="string">AppBundle:Blog</argument>
+        </service>
         <service id="role.manager" class="AppBundle\Manager\RoleManager">
             <argument type="service" id="doctrine.orm.entity_manager"></argument>
             <argument type="service" id="kernel"></argument>
             <argument type="string">AppBundle:Role</argument>
+        </service>
+        <service id="gallery.manager" class="AppBundle\Manager\GalleryManager">
+            <argument type="service" id="doctrine.orm.entity_manager"></argument>
+            <argument type="service" id="kernel"></argument>
+            <argument type="string">AppBundle:Gallery</argument>
+        </service>
+        <service id="rsvp.manager" class="AppBundle\Manager\RsvpManager">
+            <argument type="service" id="doctrine.orm.entity_manager"></argument>
+            <argument type="service" id="kernel"></argument>
+            <argument type="string">AppBundle:Rsvp</argument>
         </service>
         <service id="gedmo.listener.translatable" class="Gedmo\Translatable\TranslatableListener">
             <tag name="doctrine.event_subscribe" connection="default"/>

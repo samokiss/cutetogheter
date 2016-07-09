@@ -21,16 +21,11 @@
     <!-- Preloader end -->
 
     {{ render(controller('AppBundle:Default:intro')) }}
-
     {% include "::header.html.twig" %}
-
     {{ render(controller('AppBundle:Default:couple')) }}
-
-    {% include ":default:story.html.twig" %}
-
+    {{ render(controller('AppBundle:Default:story')) }}
     {% include ":default:people.html.twig" %}
-
-    {% include ":default:event.html.twig" %}
+    {{ render(controller('AppBundle:Default:event')) }}
 
     <!-- .rsvpLink start -->
     <section id="rsvpLink" class="rsvpLink">
@@ -49,12 +44,7 @@
     </section>
     <!-- .rsvpLink end -->
 
-    {% include ":default:gift.html.twig" %}
-
-    {% include ":default:gallery.html.twig" %}
-
-    {% include ":default:blog.html.twig" %}
-
+    {{ render(controller('AppBundle:Default:gallery')) }}
 
     <!-- .quote start -->
     <section id="quote" class="quote">
@@ -75,7 +65,15 @@
     </section>
     <!-- .quote end -->
 
-    {% include ":default:contact.html.twig" %}
+    {{ render(controller('AppBundle:Default:rsvp', {'request':app.request})) }}
 
     {% include ":default:map.html.twig" %}
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(document).ready(function() {
+
+        });
+    </script>
 {% endblock %}

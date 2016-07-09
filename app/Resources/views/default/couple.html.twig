@@ -16,30 +16,26 @@
                     {% for user in users %}
                     {% if loop.first %}
                     <div class="col-sm-5">
-                        <div class="thumbnail-block wow animated fadeInLeft">
+                        <div class="thumbnail-block-content wow animated fadeInLeft">
                             {% else %}
                             <div class="col-sm-offset-2 col-sm-5">
-                                <div class="thumbnail-block wow animated fadeInRight">
+                                <div class="thumbnail-block-content wow animated fadeInRight">
                                     {% endif %}
-                                    <div class="thumb-img">
-                                        <img class="img-responsive" src="{{ asset(img_url~user.image) }}" alt="Groom">
-                                        <div class="thumb-hover">
-                                            <h5>{{ user.firstname }}
-                                                <small>{{ user.lastname }}</small>
-                                            </h5>
-                                            <p>
-                                                {{ user.longDescription }}
-                                            </p>
-                                            <ul class="social-icon">
-                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                            </ul>
-                                            <!-- /.social-icon end -->
-                                        </div>
-                                        <!-- /.thumb-hover -->
+                                    <div class="thumb-img-content couple-content">
+                                        <img class="img-responsive couple-img" src={{ asset(img_url~user.image) }} alt="Groom">
+                                        <h5>{{ user.firstname ~ ' ' ~user.lastname }}</h5>
                                     </div>
                                     <!-- /.thumb-img -->
+                                    <div class="thumbnail-detail">
+                                        {{ user.longDescription }}
+                                        <ul class="social-icon">
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                        </ul>
+                                        <!-- /.social-icon end -->
+                                    </div>
+                                    <!-- /.thumbnail-detail -->
                                 </div>
                                 <!-- /.thumbnail-block-->
                             </div>
@@ -52,5 +48,7 @@
                     <a href="#story" class="animated infinite rocket"><i class="fa fa-angle-double-down"></i></a>
                 </div>
             </div>
+        </div>
+    </div>
 </section>
 <!-- couple end -->

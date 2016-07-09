@@ -18,19 +18,25 @@
         </div>
         <!-- /.color-overlay end -->
     </section>
-    <div class="col-sm-9">
-        <div class="contact-block">
+    <section class="blog-content">
+        <div class="container">
             <div class="row">
-                <div class="col-sm-offset-5 col-sm-6">
-                    {{ form_errors(form) }}
-                    {{ form_start(form) }}
-                    <img class="img-responsive" src={{ asset('uploads/pictures/'~form.vars.value.image) }}>
+                <div class="col-sm-9">
+                    <div class="contact-block">
+                        <div class="row">
+                            <div class="col-sm-offset-5 col-sm-6">
+                                {{ form_errors(form) }}
+                                {{ form_start(form) }}
+                                <img class="img-responsive" src={{ asset('uploads/pictures/'~form.vars.value.image) }}>
 
-                    {{ form_end(form) }}
+                                {{ form_end(form) }}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.contact-block end -->u
                 </div>
             </div>
         </div>
-        <!-- /.contact-block end -->u
-    </div>
+    </section>
 
 {% endblock %}

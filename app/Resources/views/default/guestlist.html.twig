@@ -1,0 +1,68 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <section class="blog-bg">
+        <div class="color-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <div class="blog-title">
+                            <h3>Liste des invités</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet
+                                pharetra
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.color-overlay end -->
+    </section>
+    <section class="blog-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-10">
+                    <div class="contact-block">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <table class="table">
+                                    <tr>
+                                        <th>Nom</th>
+                                        <th>Nombre</th>
+                                    </tr>
+                                    {% for guest in list %}
+                                        {% if guest.user.role.role == 'groom' %}
+                                            <tr>
+                                                <td>{{ guest.name }}</td>
+                                                <td>{{ guest.guestNumber }}</td>
+                                            </tr>
+                                        {% endif %}
+                                    {% endfor %}
+                                </table>
+                            </div>
+                            <div class="col-sm-6">
+                                <table class="table">
+                                    <tr>
+                                        <th>Nom</th>
+                                        <th>Nombre</th>
+                                    </tr>
+                                    {% for guest in list %}
+                                        {% if guest.user.role.role == 'bride' %}
+                                            <tr>
+                                                <td>{{ guest.name }}</td>
+                                                <td>{{ guest.guestNumber }}</td>
+                                            </tr>
+                                        {% endif %}
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.contact-block end -->u
+        </div>
+    </section>
+
+
+{% endblock %}

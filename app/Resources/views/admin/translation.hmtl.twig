@@ -1,0 +1,53 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    <section class="blog-bg">
+        <div class="color-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <div class="blog-title">
+                            <h3>Ajouter une traduction</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.color-overlay end -->
+    </section>
+    <div class="col-sm-9">
+        <div class="contact-block">
+            <div class="row">
+                <div class="col-sm-offset-5 col-sm-6">
+                    <table class="table">
+                        <tr>
+                            <th>Field</th>
+                            <th>Content</th>
+                            <th></th>
+                        </tr>
+                        {% for translation in translations %}
+                            <tr>
+                                <td>{{ translation.field }}</td>
+                                <td>{{ translation.Content }}</td>
+                                <td><a href="#">
+                                        <button>traduire</button>
+                                    </a></td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- /.contact-block end -->u
+    </div>
+    <script src="{{ asset('') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+    <script charset="UTF-8">
+        $(document).ready(function () {
+
+        });
+    </script>
+
+{% endblock %}
+

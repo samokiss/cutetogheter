@@ -1,0 +1,45 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <section class="blog-bg">
+        <div class="color-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <div class="blog-title">
+                            <h3>{{ 'Ajouter des photos'|trans }}</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet
+                                pharetra
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.color-overlay end -->
+    </section>
+    <section class="blog-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="contact-block">
+                        <div class="row">
+                            <div class="col-sm-offset-5 col-sm-6">
+                                {{ form_errors(form) }}
+                                {{ form_start(form) }}
+                                {{ form_end(form) }}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.contact-block end -->u
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src={{ asset("js/addpicture.js") }}></script>
+
+{% endblock %}

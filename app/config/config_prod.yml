@@ -25,3 +25,15 @@ monolog:
             level: debug
         console:
             type:  console
+
+parameters:
+    database_host: ns3297165.ip-5-135-189.eu
+    database_port: 3306
+    database_name: cutetogether
+    database_user: root
+    database_password: VJ8ieSnKeRQL
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: ThisTokenIsNotSoSecretChangeIt

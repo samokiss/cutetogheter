@@ -80,6 +80,14 @@ p.margin{margin-left: 10px;}
     text-align: center;
 }
 
+div.thumb-img-content.couple-content{
+    width:100%;
+    margin: 0 auto;
+    overflow:hidden;
+    position: relative;
+    height: 340px;
+}
+
 .couple-img{
     position: absolute;
     top: 50%;

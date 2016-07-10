@@ -6,111 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb0c6b60-fc88-4aa4-84a2-a806eeefbf09" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/images/ajax-loader.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/uploads/pictures/IMG_9242.JPG" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/blog/list.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/blog/new.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/default/guestlist.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/gallery/new.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/header_admin.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/login.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/security/login.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/SecurityController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/LoadUserData.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Gallery.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Manager/BlogManager.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Manager/GalleryManager.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Manager/RsvpManager.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/BaseRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/GalleryRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/addpicture.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Event.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/logs/.gitkeep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/sessions/.gitkeep" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Resources/views/default/blog.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/not used/blog.html.twig" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Resources/views/default/gift.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/not used/gift.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/uploads/pictures/033aa147f570d1ed048d541cb5d82d3b.jpg" afterPath="$PROJECT_DIR$/web/uploads/pictures/033aa147f570d1ed048d541cb5d82d3b.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/uploads/pictures/04eb2465f7ed2bac5f20bced05e5e320.jpg" afterPath="$PROJECT_DIR$/web/uploads/pictures/04eb2465f7ed2bac5f20bced05e5e320.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/uploads/pictures/0e5435969911c4371588ff29a77868af.jpg" afterPath="$PROJECT_DIR$/web/uploads/pictures/0e5435969911c4371588ff29a77868af.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/uploads/pictures/194e344f65f0dfb98cfa79e41c475dca.png" afterPath="$PROJECT_DIR$/web/uploads/pictures/194e344f65f0dfb98cfa79e41c475dca.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/uploads/pictures/1d9536c43c97bdf3f414be6ab495ba41.png" afterPath="$PROJECT_DIR$/web/uploads/pictures/1d9536c43c97bdf3f414be6ab495ba41.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/uploads/pictures/3c0506189e970180626834c7d2d95530.jpg" afterPath="$PROJECT_DIR$/web/uploads/pictures/3c0506189e970180626834c7d2d95530.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/uploads/pictures/3e2836b473a08e4922314195e5ccdc71.png" afterPath="$PROJECT_DIR$/web/uploads/pictures/3e2836b473a08e4922314195e5ccdc71.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/uploads/pictures/64b8fdf2fa9fba6eb792e5838e9f6283.png" afterPath="$PROJECT_DIR$/web/uploads/pictures/64b8fdf2fa9fba6eb792e5838e9f6283.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/uploads/pictures/7fed6b94280d351c5305c85062dbda4c.jpg" afterPath="$PROJECT_DIR$/web/uploads/pictures/7fed6b94280d351c5305c85062dbda4c.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/uploads/pictures/87ac57881306d812a949d3f5f4b7b814.jpg" afterPath="$PROJECT_DIR$/web/uploads/pictures/87ac57881306d812a949d3f5f4b7b814.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/uploads/pictures/87c19524db7c1b7fa0ebe39041eb4f55.jpg" afterPath="$PROJECT_DIR$/web/uploads/pictures/87c19524db7c1b7fa0ebe39041eb4f55.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/uploads/pictures/8886fab93b8a4a46adc781bfb45f0961.png" afterPath="$PROJECT_DIR$/web/uploads/pictures/8886fab93b8a4a46adc781bfb45f0961.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/uploads/pictures/9063229a1e837b94a29ad83616ad443d.jpg" afterPath="$PROJECT_DIR$/web/uploads/pictures/9063229a1e837b94a29ad83616ad443d.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/uploads/pictures/996f29ca14bf9c44160b60054ba79688.JPG" afterPath="$PROJECT_DIR$/web/uploads/pictures/996f29ca14bf9c44160b60054ba79688.JPG" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/uploads/pictures/9cfc45465e0d92fc5b7964df86071584.png" afterPath="$PROJECT_DIR$/web/uploads/pictures/9cfc45465e0d92fc5b7964df86071584.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/uploads/pictures/aea6b38f8e1861df4fbbd922a8bcdc63.png" afterPath="$PROJECT_DIR$/web/uploads/pictures/aea6b38f8e1861df4fbbd922a8bcdc63.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/uploads/pictures/c85341f6773e4a054aef982ae9422d91.jpg" afterPath="$PROJECT_DIR$/web/uploads/pictures/c85341f6773e4a054aef982ae9422d91.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/uploads/pictures/f0eec19325e7f536ff97c59a1e456163.png" afterPath="$PROJECT_DIR$/web/uploads/pictures/f0eec19325e7f536ff97c59a1e456163.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/uploads/pictures/f3a6ee894c416d7fba189b601d934943.jpg" afterPath="$PROJECT_DIR$/web/uploads/pictures/f3a6ee894c416d7fba189b601d934943.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/uploads/pictures/wax.jpg" afterPath="$PROJECT_DIR$/web/uploads/pictures/wax.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.bowerrc" afterPath="$PROJECT_DIR$/.bowerrc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/cutetogether.iml" afterPath="$PROJECT_DIR$/.idea/cutetogether.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/symfony2.xml" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/translations/messages.ct.xlf" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.ct.xlf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/translations/messages.fr.xlf" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.fr.xlf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/blog/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/blog/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/contact.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/contact.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/couple.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/couple.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/event.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/event.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/gallery.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/gallery.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/rsvp.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/rsvp.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/story.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/story.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/header.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/header.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/user/list.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/user/list.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/user/new.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/user/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/user/show.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/user/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/wedding/new.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/wedding/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config_dev.yml" afterPath="$PROJECT_DIR$/app/config/config_dev.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/security.yml" afterPath="$PROJECT_DIR$/app/config/security.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/services.xml" afterPath="$PROJECT_DIR$/app/config/services.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/BlogController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/BlogController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Blog.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Blog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Lovestory.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Lovestory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Picture.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Picture.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Rsvp.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Rsvp.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/WebsiteText.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/WebsiteText.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/LovestoryType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/LovestoryType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/UserType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/UserType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/WeddingType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/WeddingType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Manager/BaseManager.php" afterPath="$PROJECT_DIR$/src/AppBundle/Manager/BaseManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Manager/LovestoryManager.php" afterPath="$PROJECT_DIR$/src/AppBundle/Manager/LovestoryManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Manager/UserManager.php" afterPath="$PROJECT_DIR$/src/AppBundle/Manager/UserManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Manager/WeddingManager.php" afterPath="$PROJECT_DIR$/src/AppBundle/Manager/WeddingManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Repository/BlogRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/BlogRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Repository/EventRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/EventRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Repository/LovestoryRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/LovestoryRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Repository/PictureRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/PictureRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Repository/UserRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/UserRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Repository/WebsiteTextRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/WebsiteTextRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Repository/rsvpRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/rsvpRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/bootstrap.php.cache" afterPath="$PROJECT_DIR$/var/bootstrap.php.cache" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/logs/dev.log" afterPath="$PROJECT_DIR$/var/logs/dev.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/app_dev.php" afterPath="$PROJECT_DIR$/web/app_dev.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/config.php" afterPath="$PROJECT_DIR$/web/config.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/default.css" afterPath="$PROJECT_DIR$/web/css/default.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/style.js" afterPath="$PROJECT_DIR$/web/js/style.js" />
     </list>
     <ignored path="cutetogether.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -152,8 +49,8 @@
       <file leaf-file-name="default.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/css/default.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="83" column="23" selection-start-line="83" selection-start-column="23" selection-end-line="83" selection-end-column="23" />
+            <state relative-caret-position="555">
+              <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="94" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -224,8 +121,8 @@
         <option value="$PROJECT_DIR$/app/Resources/views/wedding/new.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/user/list.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-        <option value="$PROJECT_DIR$/web/css/default.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/couple.html.twig" />
+        <option value="$PROJECT_DIR$/web/css/default.css" />
       </list>
     </option>
   </component>
@@ -624,12 +521,12 @@
       <workItem from="1467222797159" duration="14193000" />
       <workItem from="1467371704528" duration="106000" />
       <workItem from="1467371850435" duration="4986000" />
-      <workItem from="1467571653278" duration="34586000" />
+      <workItem from="1467571653278" duration="35153000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185003000" />
+    <option name="totallyTimeSpent" value="185570000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -1136,8 +1033,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/css/default.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="83" column="23" selection-start-line="83" selection-start-column="23" selection-end-line="83" selection-end-column="23" />
+        <state relative-caret-position="555">
+          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="94" selection-end-column="1" />
           <folding />
         </state>
       </provider>

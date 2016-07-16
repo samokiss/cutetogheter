@@ -21,22 +21,49 @@
     <section class="blog-content">
         <div class="container">
             <div class="row">
+                <div class="col-sm-3">
+                    {% for picture in form.vars.value.pictures %}
+                        <img class="img-responsive img_bo" src={{ asset('uploads/pictures/'~picture.image) }}>
+                    {% endfor %}
+                </div>
                 <div class="col-sm-9">
                     <div class="contact-block">
                         <div class="row">
-                            <div class="col-sm-offset-5 col-sm-6">
+                            <div class="col-sm-offset-1 col-sm-6">
                                 {{ form_errors(form) }}
                                 {{ form_start(form) }}
-                                <img class="img-responsive" src={{ asset('uploads/pictures/'~form.vars.value.image) }}>
-
+                                {{ form_row(form.pictures, {'attr':{'length':form.pictures|length}}) }}
                                 {{ form_end(form) }}
                             </div>
                         </div>
                     </div>
-                    <!-- /.contact-block end -->u
+                    <!-- /.contact-block end -->
                 </div>
             </div>
         </div>
     </section>
+
+{% endblock %}
+{% block javascripts %}
+    <script>
+        $(document).ready(function(){
+            var $container = $('div#wedding_pictures');
+            var i = $container.attr('length');
+            while(i < 4) {
+                addPicture($container);
+            }
+
+            function addPicture($container) {
+                var template = $container.attr('data-prototype')
+                                .replace(/__name__label__/g, 'Photo n°' + (i + 1))
+                                .replace(/__name__/g, i)
+                        ;
+                var $prototype = $(template);
+                $container.append($prototype);
+                i++
+
+            }
+        });
+    </script>
 
 {% endblock %}

@@ -70,13 +70,13 @@ p.margin{margin-left: 10px;}
 
 #loader{
     display: none;
-    margin: -180px auto;
+    /*margin: -180px auto;*/
     text-align: center;
 }
 
 #have_sent{
     display: none;
-    margin: -180px auto;
+    /*margin: -180px auto;*/
     text-align: center;
 }
 
@@ -94,6 +94,38 @@ div.thumb-img-content.couple-content{
     -webkit-transform: translateY(-50%);
 }
 
+.img_background {
+    background-size: 100%!important;
+    background-position: center!important;
+    background-repeat: repeat;
+    text-align: center;
+}
+
+.img_background_footer {
+    background-size: 100%!important;
+    background-position: bottom!important;
+    text-align: center;
+}
+
+
+.img_bo {
+    height: 117px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.img_bo_blog {
+    max-height: 167px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+#banner .img-responsive{
+    min-height: 682px;
+    min-width: 1160px;
+}
 
 /*
 ========================================================================

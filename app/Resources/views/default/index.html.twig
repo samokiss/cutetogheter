@@ -24,16 +24,18 @@
     {% include "::header.html.twig" %}
     {{ render(controller('AppBundle:Default:couple')) }}
     {{ render(controller('AppBundle:Default:story')) }}
-    {% include ":default:people.html.twig" %}
+    {{ render(controller('AppBundle:Default:people')) }}
     {{ render(controller('AppBundle:Default:event')) }}
 
     <!-- .rsvpLink start -->
-    <section id="rsvpLink" class="rsvpLink">
+    <section id="rsvpLink" class="rsvpLink img_background"
+             style="background:url({{ asset(img_url~wedding.pictures.2.image) }}) repeat fixed center center;"
+    >
         <div class="color-overlay">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 text-center">
-                        <span class="rsvpLink-title">We are missing your present. Don’t be late no more.</span>
+                        <span class="rsvpLink-title">{{ wedding.presence }}</span>
                         <a href="#contact" class="btn default-btn">RSVP</a>
                         <a href="#map" class="btn default-btn">MAP</a>
                     </div>
@@ -47,14 +49,15 @@
     {{ render(controller('AppBundle:Default:gallery')) }}
 
     <!-- .quote start -->
-    <section id="quote" class="quote">
+    <section id="quote" class="quote img_background"
+             style="background:url({{ asset(img_url~wedding.pictures.1.image) }}) repeat fixed center center;"
+    >
         <div class="color-overlay">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
                         <blockquote>
-                            <p>For some people, the point of no return begins at the very <br> moment their souls become
-                                aware of each other's existence.</p>
+                            <p>{{ wedding.verse }}</p>
                         </blockquote>
                         <!-- blockquote end -->
                     </div>
@@ -71,9 +74,33 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script>
-        $(document).ready(function() {
+    {% include ":default:mapjs.html.twig" %}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
 
+    <script charset="UTF-8">
+        $(function() {
+            $("#form_rsvp").submit(function(e){
+                e.preventDefault();
+                $("#loader").show();
+                name = $("#rsvp_name").val();
+                guestNumber = $("#rsvp_guestNumber").val();
+                message = $("#rsvp_message").val();
+                user = $("#rsvp_user").val();
+                $.post(Routing.generate('rsvp'),{
+                    name : name,
+                    guestNumber : guestNumber,
+                    message : message,
+                    user : user
+                },function(data){
+
+                    $("#loader").hide();
+                    $("#have_sent").show("slow").delay(3000).hide("slow");
+                    name.val("");
+                    guestNumber.val("");
+                    message.val("");
+                });
+            });
         });
     </script>
 {% endblock %}

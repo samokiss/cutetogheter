@@ -1,5 +1,11 @@
 <!-- footer start -->
-<footer>
+<footer class="img_background_footer"
+        {% if wedding is defined %}
+            style="background:url({{ asset(img_url~wedding.pictures.3.image) }}) no-repeat fixed center center;"
+            {% else %}
+            style="background: black"
+        {% endif %}
+>
     <div class="color-overlay">
         <div class="container">
             <div class="row">
@@ -12,9 +18,9 @@
                     <a href="#" class="wow animated rollIn"><i class="fa fa-facebook"></i></a>
                     <a href="#" class="wow animated rollIn"><i class="fa fa-twitter"></i></a>
                     <a href="#" class="wow animated rollIn"><i class="fa fa-google"></i></a>
-                    <a href="#" class="wow animated rollIn"><i class="fa fa-share-alt"></i></a>
+                    {#<a href="#" class="wow animated rollIn"><i class="fa fa-share-alt"></i></a>#}
                     <a href="#" class="wow animated rollIn"><i class="fa fa-instagram"></i></a>
-                    <a href="#" class="wow animated rollIn"><i class="fa fa-whatsapp"></i></a>
+                    {#<a href="#" class="wow animated rollIn"><i class="fa fa-whatsapp"></i></a>#}
                 </div>
             </div>
             <div class="row">

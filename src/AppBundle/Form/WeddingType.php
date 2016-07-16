@@ -4,6 +4,7 @@ namespace AppBundle\Form;
 
 use AppBundle\Entity\Wedding;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -20,10 +21,12 @@ class WeddingType extends AbstractType
             ->add('address', TextType::class)
             ->add('city', TextType::class)
             ->add('country', TextType::class)
-            ->add('imageFile', FileType::class,[
-                'data_class' => null,
-                'required' => false,
-            ])
+            ->add('presence', TextType::class)
+            ->add('verse', TextType::class)
+            ->add('pictures', CollectionType::class, array(
+                'entry_type'   => PictureType::class,
+                'allow_add'    => true,
+            ))
             ->add('save', SubmitType::class)
         ;
     }

@@ -27,8 +27,8 @@ monolog:
             type:  console
 
 parameters:
-    database_host: ns3297165.ip-5-135-189.eu
-    database_port: 3306
+    database_host: 127.0.0.1
+    database_port: ~
     database_name: cutetogether
     database_user: root
     database_password: VJ8ieSnKeRQL

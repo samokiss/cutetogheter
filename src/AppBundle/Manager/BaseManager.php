@@ -8,6 +8,7 @@
  */
 namespace AppBundle\Manager;
 
+use AppBundle\Entity\Wedding;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\PersistentCollection;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -44,12 +45,12 @@ abstract class BaseManager
      */
     public function save($data)
     {
-        if(method_exists($data , 'getPictures')) {
+        if (method_exists($data, 'getPictures')) {
             $data = $this->uploadPictures($data);
         }
 
-        if( method_exists($data , 'getImageFile')) {
-            if( $data->getImageFile() ){
+        if (method_exists($data, 'getImageFile')) {
+            if ($data->getImageFile()) {
                 $data = $this->uploadPicture($data);
             }
         }
@@ -68,16 +69,20 @@ abstract class BaseManager
         $this->em->flush();
     }
 
+    /**
+     * @param UploadedFile $file
+     * @return mixed
+     */
     public function uploadPicture($data)
     {
         // $file stores the uploaded PDF file
         $file = $data->getImageFile();
 
         // Generate a unique name for the file before saving it
-        $fileName = md5(uniqid()).'.'.$file->getClientOriginalExtension();
+        $fileName = md5(uniqid()) . '.' . $file->getClientOriginalExtension();
 
         // Move the file to the directory where brochures are stored
-        $picturesDir = $this->kernel->getRootDir().'/../web/uploads/pictures';
+        $picturesDir = $this->kernel->getRootDir() . '/../web/uploads/pictures';
         $file->move($picturesDir, $fileName);
 
         // Update the 'brochure' property to store the PDF file name
@@ -90,19 +95,18 @@ abstract class BaseManager
 
     public function uploadPictures($data)
     {
-        if($data->getPictures() instanceof PersistentCollection) {
+        if ($data->getPictures() instanceof PersistentCollection && !$data instanceof Wedding) {
             foreach ($data->getPictures() as $picture) {
-                if($picture->getId() == null) {
-                    $pictures[] = $picture;
+                if ($picture->getId() == null) {
+                    $data->addPicture($picture);
                 } else {
-                    $pictures[] = $picture;
+                    $data->addPicture($picture);
                 }
-                $data->setPictures($pictures);
             }
         }
 
         foreach ($data->getPictures() as $picture) {
-            if($picture->getId() == null) {
+            if ($picture->getImageFile() != null) {
                 $this->uploadPicture($picture);
             }
         }

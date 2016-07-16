@@ -5,9 +5,12 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Rsvp;
 use AppBundle\Entity\User;
 use AppBundle\Form\RsvpType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
@@ -17,9 +20,11 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $wedding = $this->getDoctrine()->getRepository('AppBundle:Wedding')->find(1);
         $user = $this->getDoctrine()->getRepository("AppBundle:User")->findAll();
         return $this->render('default/index.html.twig', [
             'user' => $user,
+            'wedding' => $wedding,
         ]);
     }
 
@@ -83,8 +88,10 @@ class DefaultController extends Controller
     }
 
     /**
-     * render controller use in the view 
-     * @Route(name="rsvp")
+     * render controller use in the view
+     * @param Request $request
+     * @Route("/sendajaxrsvp", name="rsvp", options={"expose"=true})
+     * @Method("POST"))
      */
     public function rsvpAction(Request $request)
     {
@@ -93,23 +100,44 @@ class DefaultController extends Controller
 
         $form->handleRequest($request);
 
-        if( $form->isValid() ) {
-            $this->get('rsvp.manager')->save($rsvp);
+        if( $request->isMethod('POST') ) {
+            $data = $request->request->all();
+            
+            $this->get('rsvp.manager')->save($data);
+
+            return new Response(json_encode(array('status'=>'success')));
         }
         
         return $this->render(':default:rsvp.html.twig',[
             'form' => $form->createView(),
         ]);
     }
+
+
     
     /**
      * @Route("/guestlist", name="guestlist")
      */
     public function guestlistAction()
     {
+        $couple = $this->getDoctrine()->getRepository('AppBundle:User')->findMarried();
+
         $list = $this->getDoctrine()->getRepository('AppBundle:Rsvp')->findAll();
-        
+
         return $this->render(':default:guestlist.html.twig', [
+            'list' => $list,
+            'couple' => $couple,
+        ]);
+    }    
+    
+    /**
+     * render controller use in the view
+     */
+    public function peopleAction()
+    {
+        $list = $this->getDoctrine()->getRepository('AppBundle:User')->findImportantPeople();
+        
+        return $this->render(':default:people.html.twig', [
             'list' => $list,
         ]);
     }

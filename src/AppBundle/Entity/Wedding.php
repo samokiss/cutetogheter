@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -50,19 +51,30 @@ class Wedding
     private $country;
 
     /**
-     * @var string
+     * @var ArrayCollection
      *
-     * @ORM\Column(name="image", type="string", length=255)
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Picture", cascade={"persist"})
+     * @ORM\JoinTable(name="wedding_picture",
+     *      joinColumns={@ORM\JoinColumn(name="wedding_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="picture_id", referencedColumnName="id", unique=true)}
+     *      )
      */
-    private $image;
+    private $pictures;
+
+    /**
+     * @var string
+     * 
+     * @ORM\Column(type="string")
+     */
+    private $verse;
 
     /**
      * @var string
      *
      * @ORM\Column(type="string")
      */
-    private $imageFile;
-
+    private $presence;
+    
 
     /**
      * Get id
@@ -171,45 +183,78 @@ class Wedding
     }
 
     /**
-     * Set image
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->pictures = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add picture
      *
-     * @param string $image
+     * @param \AppBundle\Entity\Picture $picture
      *
      * @return Wedding
      */
-    public function setImage($image)
+    public function addPicture(\AppBundle\Entity\Picture $picture)
     {
-        $this->image = $image;
+        $this->pictures[] = $picture;
 
         return $this;
     }
 
     /**
-     * Get image
+     * Remove picture
      *
-     * @return string
+     * @param \AppBundle\Entity\Picture $picture
      */
-    public function getImage()
+    public function removePicture(\AppBundle\Entity\Picture $picture)
     {
-        return $this->image;
+        $this->pictures->removeElement($picture);
+    }
+
+    /**
+     * Get pictures
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPictures()
+    {
+        return $this->pictures;
     }
 
     /**
      * @return mixed
      */
-    public function getImageFile()
+    public function getVerse()
     {
-        return $this->imageFile;
+        return $this->verse;
     }
 
     /**
-     * @param mixed $imageFile
+     * @param mixed $verse
      */
-    public function setImageFile($imageFile)
+    public function setVerse($verse)
     {
-        $this->imageFile = $imageFile;
+        $this->verse = $verse;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getPresence()
+    {
+        return $this->presence;
+    }
 
+    /**
+     * @param mixed $presence
+     */
+    public function setPresence($presence)
+    {
+        $this->presence = $presence;
+    }
+    
+    
 }
-

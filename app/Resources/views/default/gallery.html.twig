@@ -17,8 +17,8 @@
                     <div class="item">
                         <img src={{ asset('uploads/pictures/'~picture.image) }} alt="gallery image">
                         <a href={{ asset('uploads/pictures/'~picture.image) }} class="caption gallery-popup">
-                            <h5>Happy Moment</h5>
-                            <span class="img_category">Engagement</span>
+                            <h5>{{ picture.title }}</h5>
+                            <span class="img_category">{{ picture.description }}</span>
                         </a>
                     </div>
                     {% endfor %}

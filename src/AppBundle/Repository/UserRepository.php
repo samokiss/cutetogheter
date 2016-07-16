@@ -22,4 +22,17 @@ class UserRepository extends BaseRepository
 
         return $query->getResult();
     }
+
+    public function findImportantPeople()
+    {
+        $query = $this->createQueryBuilder('u')
+            ->join('u.role', 'r')
+            ->where('r.role != :groom')
+            ->AndWhere('r.role != :bride')
+            ->setParameter('groom', 'groom')
+            ->setParameter('bride', 'bride')
+            ->getQuery();
+
+        return $query->getResult();
+    }
 }

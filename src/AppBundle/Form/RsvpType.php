@@ -38,9 +38,12 @@ class RsvpType extends AbstractType
                 'class' => 'AppBundle:User',
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('u')
-                        ->where('u.role = :role')
+                        ->join('u.role', 'r')
+                        ->where('r.role = :groom')
+                        ->orWhere('r.role = :bride')
+                        ->setParameter('groom', 'groom')
+                        ->setParameter('bride', 'bride')
                         ->orderBy('u.firstname', 'ASC')
-                        ->setParameter('role',3)
                         ;
                 },
                 'choice_label' => 'firstname',

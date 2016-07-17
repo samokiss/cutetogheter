@@ -35,7 +35,7 @@
                             </td>
                             <td>{{ story.title }}</td>
                             <td>{{ story.description }}</td>
-                            <td><a href={{ path('story_new', {'id': story.id}) }}>
+                            <td><a href={{ path('story_edit', {'id': story.id}) }}>
                                     <button>edit</button>
                                 </a></td>
                             <td><a href={{ path('story_delete', {'id': story.id}) }}>

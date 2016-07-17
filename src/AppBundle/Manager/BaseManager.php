@@ -8,6 +8,7 @@
  */
 namespace AppBundle\Manager;
 
+use AppBundle\Entity\Blog;
 use AppBundle\Entity\Wedding;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\PersistentCollection;
@@ -95,7 +96,9 @@ abstract class BaseManager
 
     public function uploadPictures($data)
     {
-        if ($data->getPictures() instanceof PersistentCollection && !$data instanceof Wedding) {
+        if ($data->getPictures() instanceof PersistentCollection
+            && !$data instanceof Wedding
+            && !$data instanceof Blog) {
             foreach ($data->getPictures() as $picture) {
                 if ($picture->getId() == null) {
                     $data->addPicture($picture);

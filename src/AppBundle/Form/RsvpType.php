@@ -25,6 +25,10 @@ class RsvpType extends AbstractType
                 'label'  => false,
                 'attr' => array('placeholder' => 'Prénom et nom')
             ))
+            ->add('email', TextType::class, array(
+                'label'  => false,
+                'attr' => array('placeholder' => 'Adresse mail')
+            ))
             ->add('guestNumber', ChoiceType::class, array(
                 'choices'  => array(
                     '1 personne' => 1,

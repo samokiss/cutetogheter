@@ -63,18 +63,23 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                {{ form_row(form.message) }}
+                                {{ form_row(form.email) }}
                             </div>
                             <div class="form-group">
-                                {{ form_row(form.submit , { 'attr': {'class': 'btn default-btn btn-block'} }) }}
+                                {{ form_row(form.message) }}
                             </div>
                         </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.submit , { 'attr': {'class': 'btn default-btn btn-block'} }) }}
                     </div>
                     <div id="loader">
                         <img src="{{ asset('images/ajax-loader.gif') }}" alt="loader"/>
                     </div>
-                    <div id="have_sent" class="alert alert-success" role="alert">Merci! Votre message a bien été
-                        envoyé.
+                    <div id="have_sent" class="alert alert-success" role="alert">Merci! Votre inscription a bien été
+                        envrgistrée.
+                    </div>
+                    <div id="exist" class="alert alert-danger" role="alert">Votre nom/email a déjà été enregistré
                     </div>
                     <div class="text-center">
                         <a href={{ path('guestlist') }}>Voir la liste des invités</a>

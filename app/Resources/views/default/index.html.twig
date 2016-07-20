@@ -79,26 +79,32 @@
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
 
     <script charset="UTF-8">
-        $(function() {
-            $("#form_rsvp").submit(function(e){
+        $(function () {
+            $("#form_rsvp").submit(function (e) {
                 e.preventDefault();
                 $("#loader").show();
                 name = $("#rsvp_name").val();
                 guestNumber = $("#rsvp_guestNumber").val();
                 message = $("#rsvp_message").val();
                 user = $("#rsvp_user").val();
-                $.post(Routing.generate('rsvp'),{
-                    name : name,
-                    guestNumber : guestNumber,
-                    message : message,
-                    user : user
-                },function(data){
-
+                email = $("#rsvp_email").val();
+                $.post(Routing.generate('rsvp'), {
+                    name: name,
+                    guestNumber: guestNumber,
+                    message: message,
+                    user: user,
+                    email: email
+                }, function (data) {
                     $("#loader").hide();
                     $("#have_sent").show("slow").delay(3000).hide("slow");
                     name.val("");
                     guestNumber.val("");
                     message.val("");
+                    email.val("");
+                })
+                .fail(function () {
+                    $("#loader").hide();
+                    $("#exist").show("slow").delay(3000).hide("slow");
                 });
             });
         });

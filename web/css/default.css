@@ -1,3 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script);
+
+
 .max_width{ width: 100px;}
 #sticker .droptext{color: black;font-size: 13px;}
 #sticker .dropdown{color: white;font-size: 12px;padding: 5px 8px; text-transform: uppercase;cursor: pointer}
@@ -111,6 +114,12 @@ p.margin{margin-left: 10px;}
     text-align: center;
 }
 
+#exist{
+    display: none;
+    /*margin: -180px auto;*/
+    text-align: center;
+}
+
 div.thumb-img-content.couple-content{
     width:100%;
     margin: 0 auto;
@@ -170,6 +179,12 @@ div.thumb-img-content.couple-content{
     position: absolute;
     top: 50%;
     -webkit-transform: translateY(-50%);
+}
+
+.font-title{
+    font-family: 'Dancing Script', cursive;
+    font-size: 30px;
+    color :#AAAAAA;
 }
 
 /*

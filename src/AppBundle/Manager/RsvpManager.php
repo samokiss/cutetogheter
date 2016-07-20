@@ -22,19 +22,24 @@ class RsvpManager extends BaseManager
 
     public function save($data)
     {
-        $rsvp = new Rsvp();
-        $user = $this->em->getRepository('AppBundle:User')->find($data["user"]);
+        if (is_array($data)) {
+            $rsvp = new Rsvp();
+            $user = $this->em->getRepository('AppBundle:User')->find($data['user']);
 
-        $rsvp->setGuestNumber($data['guestNumber']);
-        $rsvp->setMessage($data['message']);
-        $rsvp->setName($data['name']);
-        $rsvp->setUser($user);
-        parent::save($rsvp);
+            $rsvp->setGuestNumber($data['guestNumber']);
+            $rsvp->setMessage($data['message']);
+            $rsvp->setName($data['name']);
+            $rsvp->setEmail($data['email']);
+            $rsvp->setUser($user);
+            parent::save($rsvp);
+        } else {
+            parent::save($data);
+        }
     }
 
     public function sendMail()
     {
-        
+
     }
 
 }

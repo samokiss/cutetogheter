@@ -12,10 +12,12 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Gallery;
 use AppBundle\Entity\Lovestory;
 use AppBundle\Entity\Role;
+use AppBundle\Entity\Rsvp;
 use AppBundle\Entity\Wedding;
 use AppBundle\Form\GalleryType;
 use AppBundle\Form\LovestoryType;
 use AppBundle\Form\RoleType;
+use AppBundle\Form\RsvpType;
 use AppBundle\Form\WeddingType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -41,7 +43,7 @@ class AdminController extends Controller
         if( $form->isValid() ) {
             $this->get('wedding.manager')->save($wedding);
 
-            $this->redirectToRoute('wedding_edit', [
+            return $this->redirectToRoute('wedding_edit', [
                 'id' => $wedding->getId(),
             ]);
         }
@@ -67,7 +69,7 @@ class AdminController extends Controller
         if( $form->isValid() ) {
             $this->get('wedding.manager')->save($wedding);
 
-            $this->redirectToRoute('wedding_edit', [
+            return $this->redirectToRoute('wedding_edit', [
                'id' => $wedding->getId(),
             ]);
         }
@@ -94,7 +96,7 @@ class AdminController extends Controller
         if( $form->isValid() ) {
             $this->get('lovestory.manager')->save($story);
 
-            $this->redirectToRoute('story_list', [
+            return $this->redirectToRoute('story_list', [
                 'id' => $story->getId(),
             ]);
         }
@@ -119,7 +121,7 @@ class AdminController extends Controller
         if( $form->isValid() ) {
             $this->get('lovestory.manager')->save($story);
 
-            $this->redirectToRoute('story_list', [
+            return $this->redirectToRoute('story_list', [
                 'id' => $story->getId(),
             ]);
         }
@@ -181,7 +183,7 @@ class AdminController extends Controller
         if( $form->isValid() ) {
             $this->get('role.manager')->save($role);
 
-            $this->redirectToRoute('role');
+            return $this->redirectToRoute('role');
         }
 
         return $this->render(':role:list.html.twig', [
@@ -215,7 +217,7 @@ class AdminController extends Controller
         if( $form->isValid() ) {
             $this->get('gallery.manager')->save($gallery);
 
-            $this->redirectToRoute('gallery_edit',[
+            return $this->redirectToRoute('gallery_edit',[
                 'fullGallery' => $fullGallery,
             ]);
         }
@@ -234,5 +236,49 @@ class AdminController extends Controller
         $this->get('gallery.manager')->delete($gallery);
 
         return $this->redirectToRoute('gallery_edit');
+    }
+
+    /**
+     * @Route("/guest/list", name="guest_list")
+     */
+    public function guestListAction()
+    {
+        $couple = $this->getDoctrine()->getRepository('AppBundle:User')->findMarried();
+        $list = $this->getDoctrine()->getRepository('AppBundle:Rsvp')->findAll();
+
+        return $this->render(':Guest:list.html.twig', [
+            'couple' => $couple,
+            'list' => $list,
+        ]);
+    }
+
+    /**
+     * @Route("/guest/delete/{id}", name="guest_delete")
+     */
+    public function guestDeleteAction(Rsvp $rsvp)
+    {
+        $this->get('rsvp.manager')->delete($rsvp);
+
+        return $this->redirectToRoute('guest_list');
+    }
+
+    /**
+     * @Route("/guest/edit/{id}", name="guest_edit")
+     */
+    public function guestEditAction(Rsvp $rsvp, Request $request)
+    {
+        $form = $this->createForm(RsvpType::class, $rsvp);
+
+        $form->handleRequest($request);
+
+        if( $form->isValid() ) {
+            $this->get('rsvp.manager')->save($rsvp);
+
+            return $this->redirectToRoute('guest_list');
+        }
+
+        return $this->render(':guest:edit.html.twig',[
+            'form' => $form->createView(),
+        ]);
     }
 }

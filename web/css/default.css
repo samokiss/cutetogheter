@@ -158,6 +158,20 @@ div.thumb-img-content.couple-content{
     min-width: 1160px;
 }
 
+.img-div{
+    width:250px;
+    margin: 0 auto;
+    overflow:hidden;
+    position: relative;
+    height: 250px;
+}
+
+.img-gal{
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+}
+
 /*
 ========================================================================
 # 3.0 - Couple styles

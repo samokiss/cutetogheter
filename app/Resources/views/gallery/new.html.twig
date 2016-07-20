@@ -18,6 +18,7 @@
         </div>
         <!-- /.color-overlay end -->
     </section>
+
     <section class="blog-content">
         <div class="container">
             <div class="row">
@@ -34,6 +35,31 @@
                     <!-- /.contact-block end -->
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <div class="heading wow animated fadeInUp">
+                    <h3>Suppression de photo</h3>
+                </div>
+                <!-- /.heading end -->
+            </div>
+        </div>
+        <div class="row">
+            {% for image in fullGallery %}
+                <div class="col-sm-6 col-md-4 sm-margin-bottom">
+                    <div class="blog-post wow animated fadeInUp" data-wow-delay="0s" data-wow-duration="1s">
+                        <div class="blog-thumb event-img">
+                            <img class="img-responsive img-gal" src={{ asset(img_url~image.image) }}>
+                            <div class="blog-thumb-hover">
+                                <p>{{ image.description }}</p>
+                            </div>
+                        </div>
+                        <!-- /.blog-thumb -->
+                        <a class="blog-link" href={{ path('gallery_delete', {id:image.id}) }}><i class="fa fa-times"></i></a>
+                    </div>
+                    <!-- /.blog-post -->
+                </div>
+            {% endfor %}
         </div>
     </section>
 

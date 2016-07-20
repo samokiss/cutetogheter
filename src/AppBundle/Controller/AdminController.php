@@ -225,4 +225,14 @@ class AdminController extends Controller
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * @Route("/gallery/delete/{id}", name="gallery_delete")
+     */
+    public function galleryDeleteAction(Gallery $gallery)
+    {
+        $this->get('gallery.manager')->delete($gallery);
+
+        return $this->redirectToRoute('gallery_edit');
+    }
 }

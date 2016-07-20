@@ -35,4 +35,15 @@ class UserRepository extends BaseRepository
 
         return $query->getResult();
     }
+
+    public function findGromm()
+    {
+        $query = $this->createQueryBuilder('u')
+            ->join('u.role', 'r')
+            ->where('r.role = :groom')
+            ->setParameter('groom', 'groom')
+            ->getQuery();
+
+        return $query->getSingleResult();
+    }
 }

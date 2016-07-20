@@ -28,6 +28,7 @@
                     <th>Présentation</th>
                     <th>Description</th>
                     <th>Role</th>
+                    <th>Adresse</th>
                     <th>Téléphone</th>
                     <th>mail</th>
                 </tr>
@@ -41,6 +42,7 @@
                         <td>{{ user.shortDescription }}</td>
                         <td>{{ user.longDescription }}</td>
                         <td>{{ user.role.role }}</td>
+                        <td>{{ user.address~', '~user.city~', '~user.country }}</td>
                         <td>{{ user.phone }}</td>
                         <td>{{ user.mail }}</td>
                         <td><a href={{ path('user_edit', {'id': user.id}) }}>

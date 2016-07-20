@@ -101,6 +101,8 @@ class DefaultController extends Controller
     {
         $rsvp = new Rsvp();
         $form = $this->createForm(RsvpType::class,$rsvp);
+        $groom = $this->getDoctrine()->getRepository('AppBundle:User')->findGromm();
+
 
         $form->handleRequest($request);
 
@@ -114,6 +116,7 @@ class DefaultController extends Controller
         
         return $this->render(':default:rsvp.html.twig',[
             'form' => $form->createView(),
+            'groom' => $groom ,
         ]);
     }
 

@@ -36,6 +36,9 @@ class UserType extends AbstractType
                 },
                 'choice_label' => 'role',
                 ))
+            ->add('address', TextType::class)
+            ->add('city', TextType::class)
+            ->add('country', TextType::class)
             ->add('phone', TextType::class)
             ->add('mail', EmailType::class)
             ->add('facebook', TextType::class, [

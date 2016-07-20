@@ -186,6 +186,9 @@ div.thumb-img-content.couple-content{
     font-size: 30px;
     color :#AAAAAA;
 }
+#couple .thumbnail-detail {
+    background: #555;
+}
 
 /*
 ========================================================================
@@ -247,3 +250,69 @@ div.thumb-img-content.couple-content{
     color: #fff;
 }
 
+/*
+========================================================================
+# 1.0 - General styles
+------------------------------------------------------------------------
+*/
+body, html {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0;
+    background: #fff;
+    color: #424242;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+h1, h2, h3, h4, h5, h6 {
+    padding-bottom: 5px;
+    color: #d44646;
+    line-height: normal;
+    font-weight: normal;
+    margin: 0 0 10px;
+}
+h1 {
+    font-family: 'Lobster', cursive;
+    color: #00a7dd;
+}
+h2, h2, h3 {
+    font-family: 'Lobster', cursive;
+}
+
+h1 { font-size: 60px;}
+h2 { font-size: 48px;}
+h3 { font-size: 36px;}
+h4 { font-size: 26px;}
+h5 { font-size: 18px;}
+h6 { font-size: 14px;}
+
+h2 small {
+    font-size: 24px;
+    line-height: 14px;
+    letter-spacing: 0.025em;
+}
+h4 small {
+    display:block;
+}
+h5 small {
+    display: block;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 16px;
+    color: #e1704b;
+    line-height: 28px;
+    letter-spacing: 0.025em;
+}
+
+p {
+    font-weight: 400;
+}
+
+a {color: #d44646}
+a:hover {color: #d44646; text-decoration: none;}
+a:active {color: #d44646;}
+
+ul, li {
+    list-style: none;
+}

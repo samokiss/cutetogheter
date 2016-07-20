@@ -42,7 +42,7 @@ class BlogController extends Controller
             ]);
         }
 
-        $articles = $this->getDoctrine()->getRepository('AppBundle:Blog')->getLastArticles($blog->getId());
+        $articles = $this->get('blog.manager')->getRandomArticle();
 
         return $this->render(':blog:index.html.twig',[
             'article' => $blog,
@@ -118,5 +118,17 @@ class BlogController extends Controller
         $this->get('blog.manager')->delete($blog);
 
         return $this->redirectToRoute("blog_list");
+    }
+
+    /**
+     * render controller for header admin
+     */
+    public function headerAction()
+    {
+        $wedding = $this->getDoctrine()->getRepository('AppBundle:Wedding')->find(1);
+
+        return $this->render('::header.html.twig', [
+            'wedding' => $wedding,
+        ]);
     }
 }

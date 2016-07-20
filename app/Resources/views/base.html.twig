@@ -61,12 +61,14 @@
 {% set controller = controller[2] %}
 {% set action = action[1] %}
 <body class="greyscale">
-{% if controller == 'adminController' %}
+{% if controller == 'AdminController' %}
     {{ render(controller('AppBundle:Admin:headerAdmin')) }}
-{% elseif controller != 'DefaultController' %}
+{% elseif controller == 'BlogController' and action != 'indexAction'  %}
     {{ render(controller('AppBundle:Admin:headerAdmin')) }}
-{% elseif controller == 'BlogController' %}
-    {% include "header.html.twig" %}
+{% elseif controller == 'BlogController' and action == 'indexAction'%}
+    {{ render(controller('AppBundle:Blog:header')) }}
+{% elseif controller == 'DefaultController' and action != 'indexAction'%}
+    {{ render(controller('AppBundle:Blog:header')) }}
 {% endif %}
 
 {% block body %}{% endblock %}
@@ -78,7 +80,8 @@
 <script src={{ asset("js/jquery.js") }}></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src={{ asset("js/bootstrap.min.js") }}></script>
-<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMg73OJqF1SAI_ELswdZHj2-BQ5VADxiI&callback=initMap"
+        type="text/javascript"></script>
 <script src={{ asset("js/jquery.sticky.js") }}></script>
 <script src={{ asset("js/smoothscroll.js") }}></script>
 <script src={{ asset("js/jquery.scrollTo.min.js") }}></script>

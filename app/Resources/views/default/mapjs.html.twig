@@ -4,7 +4,6 @@
         function findLatLon() {
             // We define our address
             $address = '{{ wedding.address~', '~wedding.city~', '~wedding.country }}';
-            console.log($address);
             $.ajax({
                 url:"http://maps.googleapis.com/maps/api/geocode/json?address="+$address+"&sensor=false",
                 type: "POST",

@@ -65,6 +65,9 @@
                 </div>
                 <div class="col-sm-2 mobile-pos">
                     <ul class="social-icon pull-right">
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li><a href="{{ path('wedding_edit') }}"><i class="fa fa-user"></i></a></li>
+                        {% endif %}
                         <li><a href="{{ wedding.facebook }}"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="{{ wedding.instagram }}"><i class="fa fa-instagram"></i></a></li>
                     </ul>

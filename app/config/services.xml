@@ -39,6 +39,8 @@
             <argument type="service" id="kernel"></argument>
             <argument type="string">AppBundle:Rsvp</argument>
         </service>
+        <service id="date.helper" class="AppBundle\Helper\DateHelper">
+        </service>
         <service id="gedmo.listener.translatable" class="Gedmo\Translatable\TranslatableListener">
             <tag name="doctrine.event_subscribe" connection="default"/>
             <call method="setAnnotationReader">

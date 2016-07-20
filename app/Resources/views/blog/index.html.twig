@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-sm-12 text-center">
                     <div class="blog-title">
-                        <h3>Single Blog Post</h3>
+                        <h3>Notre Blog</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet
                             pharetra
                         </p>
@@ -33,7 +33,7 @@
                     <!-- /.single-blog-image -->
                     <div class="single-blog-meta">
                         <ul>
-                            <li><i class="fa fa-clock-o"></i>{{ article.date|date }}</li>
+                            <li><i class="fa fa-clock-o"></i>{{ date_helper.frenchDate(article.date).fulldate }}</li>
                             {#<li><i class="fa fa-folder-open"></i> Party / Wedding</li>#}
                             {#<li><i class="fa fa-tag"></i> Groom,Maid,Best man</li>#}
                         </ul>
@@ -54,7 +54,7 @@
                                 <li><i class="fa fa-check"></i>Duis aute irure reprehenderit in voluptate velit esse</li>
                             </ul>
                             <!-- /.single-post-item -->
-                            <h4>SOME WONDERFUL MOMENT</h4>
+                            <h4>INSTANT PHOTO</h4>
                             <ul class="single-post-thumnail">
                                 {% for picture in article.pictures %}
                                     {% if loop.index != 1 %}
@@ -74,18 +74,20 @@
                         {#<a href="#"><i class="fa fa-share-alt"></i></a>#}
                     {#</div>#}
                     <div class="comment-block">
-                        <h5>COMMENTS</h5>
+                        <h5>COMMENTAIRES</h5>
                         <ul id="myList" class="media-list">
                             {% for comment in article.comments %}
                             <li class="media">
                                 <div class="media-body">
-                                    <h4 class="media-heading">{{ comment.name }}<small>{{ comment.date|date }}</small></h4>
+                                    <h4 class="media-heading">{{ comment.name }}<small>{{ date_helper.frenchDate(comment.date).fulldate }}}</small></h4>
                                     <p>{{ comment.message }}</p>
                                 </div>
                             </li>
 
                             {% endfor %}
-                            {% if article.comments|length > 3 %}
+                            {% if article.comments|length == 0 %}
+                                <div>Il n'y a pas de commentaire pour cet article</div>
+                            {% elseif article.comments|length > 3 %}
                                 <div id="loadMore">Load more</div>
                                 <div id="showLess">Show less</div>
                             {% endif %}
@@ -93,23 +95,23 @@
                     </div>
                     <!-- /.comment-block -->
                     <div class="reply-block">
-                        <h5>LEAVE A REPLY</h5>
+                        <h5>LAISSEZ UN COMMENTAIRE</h5>
                         <div class="contact">
                             {{ form_start(form) }}
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            {{ form_row(form.name, {'attr': {'placeholder': 'Your name'}}) }}
+                                            {{ form_row(form.name, {'attr': {'placeholder': 'Nom'}}) }}
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            {{ form_row(form.email, {'attr': {'placeholder': 'Your email'}}) }}
+                                            {{ form_row(form.email, {'attr': {'placeholder': 'Email'}}) }}
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            {{ form_row(form.message, {'attr': {'placeholder': 'Write your message'}}) }}
+                                            {{ form_row(form.message, {'attr': {'placeholder': 'Ecrivez votre message'}}) }}
                                         </div>
                                     </div>
                                     <div class="col-sm-12 text-right">
@@ -152,7 +154,7 @@
                                     <img class="img-responsive" src={{ asset('uploads/pictures/'~article.pictures.0.image) }} alt="post image">
                                     {#<img class="img-responsive" src={{ asset('uploads/pictures/0d7257aaf3983be7860ec2c4c92feb3e.jpg') }}" alt="post image">#}
                                 </div>
-                                <p class="margin">{{ article.title }}<span> {{ article.date|date }} </span> </p>
+                                <p class="margin">{{ article.title }}<span> {{ date_helper.frenchDate(article.date).fulldate }} </span> </p>
                             </li>
                             {% endfor %}
                         </ul>

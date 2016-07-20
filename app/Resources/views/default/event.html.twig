@@ -19,7 +19,7 @@
                             <div class="blog-meta">
                                 <ul>
                                     <li>{{ article.user.firstname }} </li>
-                                    <li>{{ article.date|date("m/d") }}</li>
+                                    <li>{{ date_helper.frenchDate(article.date).date }}</li>
                                     <li>
                                         <a href={{ path('blog_index', {id:article.id}) }}>
                                             {{ article.comments|length }} commentaire(s)

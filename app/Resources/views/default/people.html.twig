@@ -31,7 +31,11 @@
                             <div class="col-sm-4">
                                 <div class="people-thumb-img">
                                     <img class="img-responsive"
-                                         src={{ asset('images/people_maid_of_honor.jpg') }} alt="MaidOfHonor">
+                                            {% if user.image == null %}
+                                         src={{ asset('images/people_bestman.jpg') }} alt="important_people">
+                                    {% else %}
+                                        src={{ asset(img_url~user.image) }} alt="BestMan">
+                                    {% endif %}
                                 </div>
                                 <!-- /.people-thumb-img -->
                             </div>
@@ -44,7 +48,11 @@
                             <div class="col-sm-4">
                                 <div class="people-thumb-img">
                                     <img class="img-responsive"
-                                         src={{ asset('images/people_bestman.jpg') }} alt="BestMan">
+                                            {% if user.image == null %}
+                                         src={{ asset('images/people_bestman.jpg') }} alt="important_people">
+                                    {% else %}
+                                        src={{ asset(img_url~user.image) }} alt="BestMan">
+                                    {% endif %}
                                 </div>
                                 <!-- /.people-thumb-img -->
                             </div>

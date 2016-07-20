@@ -62,16 +62,16 @@
 {% set action = action[1] %}
 <body class="greyscale">
 {% if controller == 'adminController' %}
-    {% include "::header_admin.html.twig" %}
+    {{ render(controller('AppBundle:Admin:headerAdmin')) }}
 {% elseif controller != 'DefaultController' %}
-    {% include "::header_admin.html.twig" %}
+    {{ render(controller('AppBundle:Admin:headerAdmin')) }}
 {% elseif controller == 'BlogController' %}
     {% include "header.html.twig" %}
 {% endif %}
 
 {% block body %}{% endblock %}
 
-{% include "::footer.html.twig" %}
+{{ render(controller('AppBundle:Default:footer')) }}
 
 <script src={{ asset("js/style.js") }}></script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -91,6 +91,7 @@
 <script src={{ asset("js/jquery.magnific-popup.js") }}></script>
 <script src={{ asset("js/jquery.placeholder.js") }}></script>
 <script src={{ asset("js/wow.js") }}></script>
+<script src={{ asset("js/tinymce/js/tinymce/tinymce.min.js") }}></script>
 
 
 {% if controller == 'DefaultController' %}

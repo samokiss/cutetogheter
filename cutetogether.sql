@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # https://github.com/sequelpro/sequelpro
 #
-# Hôte: 127.0.0.1 (MySQL 5.5.49-37.9)
+# Hôte: 127.0.0.1 (MySQL 5.7.12-0ubuntu1.1)
 # Base de données: cutetogether
-# Temps de génération: 2016-07-20 7:24:33 AM +0000
+# Temps de génération: 2016-07-20 16:12:25 +0000
 # ************************************************************
 
 
@@ -281,8 +281,8 @@ VALUES
 	(61,'6d0d1332949f0830ce18db3e3438928b.jpg',NULL,'picture',NULL,NULL),
 	(65,'e12553d7fff228d84e58335c78d97897.JPG',NULL,'picture',NULL,NULL),
 	(66,'7c505014515df93f003f7a85f9cf1ff2.jpg',NULL,'picture',NULL,NULL),
-	(67,'0d994d4e6206afbb8c914bf27b9f84a7.jpg','/tmp/phpMTPxoJ','picture',NULL,NULL),
-	(68,'31a3a34147c7fe9c18aaff89f25133ba.jpg','/tmp/phpFIXzi7','picture',NULL,NULL);
+	(67,'0d994d4e6206afbb8c914bf27b9f84a7.jpg',NULL,'picture',NULL,NULL),
+	(68,'31a3a34147c7fe9c18aaff89f25133ba.jpg',NULL,'picture',NULL,NULL);
 
 /*!40000 ALTER TABLE `picture` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -327,97 +327,12 @@ CREATE TABLE `rsvp` (
   `guestNumber` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `user_id` int(11) DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_9FA5CE4E5E237E06` (`name`),
+  UNIQUE KEY `UNIQ_9FA5CE4EE7927C74` (`email`),
   KEY `IDX_9FA5CE4EA76ED395` (`user_id`),
   CONSTRAINT `FK_9FA5CE4EA76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-LOCK TABLES `rsvp` WRITE;
-/*!40000 ALTER TABLE `rsvp` DISABLE KEYS */;
-
-INSERT INTO `rsvp` (`id`, `message`, `guestNumber`, `name`, `user_id`)
-VALUES
-	(1,'test',2,'test',2),
-	(2,'test',2,'test',2),
-	(3,'test',2,'test',2),
-	(4,'test',2,'test',2),
-	(5,'test',2,'test',2),
-	(6,'test',2,'test',2),
-	(7,'test',1,'test',2),
-	(8,'test',1,'test',2),
-	(9,'test',1,'test',2),
-	(10,'test',1,'test',2),
-	(11,'test',1,'test',2),
-	(12,'test',1,'test',2),
-	(13,'test',1,'test',2),
-	(14,'test',1,'test',2),
-	(15,'test',1,'test',2),
-	(16,'test',1,'test',2),
-	(17,'test',1,'test',2),
-	(18,'test',1,'test',2),
-	(19,'test',1,'test',2),
-	(20,'test',1,'test',2),
-	(21,'test',1,'samuel Gomis',2),
-	(22,'test',1,'test',1),
-	(23,'test',1,'test',1),
-	(24,'test',1,'test',1),
-	(25,'test',1,'test',1),
-	(26,'test',1,'test',1),
-	(27,'test',1,'test',1),
-	(28,'test',1,'test',1),
-	(29,'test',1,'test',1),
-	(30,'test',1,'test',1),
-	(31,'test',1,'test',1),
-	(32,'test',1,'test',1),
-	(33,'test',1,'test',1),
-	(34,'test',1,'test',1),
-	(35,'test',1,'test',1),
-	(36,'test',1,'test',1),
-	(37,'test',1,'test',1),
-	(38,'test',1,'test',1),
-	(39,'test',1,'test',1),
-	(40,'test',1,'test',1),
-	(41,'test',1,'test',1),
-	(42,'test',1,'test',1),
-	(43,'test',1,'test',1),
-	(44,'test',1,'tst',1),
-	(45,'test',1,'tst',1),
-	(46,'test',1,'test',1),
-	(47,'test',1,'test',1),
-	(48,'test',1,'test',1),
-	(49,'test',1,'test',1),
-	(50,'test',1,'test',1),
-	(51,'test',1,'test',1),
-	(52,'test',1,'test',1),
-	(53,'test',1,'test',1),
-	(54,'test',1,'test',1),
-	(55,'test',1,'test',1),
-	(56,'test',1,'test',1),
-	(57,'test',1,'test',1),
-	(58,'test',1,'test',1),
-	(59,'laiailaui',1,'laialia',1),
-	(60,'test',1,'test',1),
-	(61,'laifeizfjoezf',1,'lailia',1),
-	(62,'laifeizfjoezf',1,'lailia',1),
-	(63,'test',1,'samokiss',1);
-
-/*!40000 ALTER TABLE `rsvp` ENABLE KEYS */;
-UNLOCK TABLES;
-
-
-# Affichage de la table rsvp_event
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `rsvp_event`;
-
-CREATE TABLE `rsvp_event` (
-  `rsvp_id` int(11) NOT NULL,
-  `event_id` int(11) NOT NULL,
-  PRIMARY KEY (`rsvp_id`,`event_id`),
-  KEY `IDX_5E1BCD67EF80C8C2` (`rsvp_id`),
-  KEY `IDX_5E1BCD6771F7E88B` (`event_id`),
-  CONSTRAINT `FK_5E1BCD6771F7E88B` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `FK_5E1BCD67EF80C8C2` FOREIGN KEY (`rsvp_id`) REFERENCES `rsvp` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
@@ -440,6 +355,9 @@ CREATE TABLE `user` (
   `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `imageFile` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `facebook` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `city` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `country` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_8D93D649D60322AC` (`role_id`),
   CONSTRAINT `FK_8D93D649D60322AC` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`)
@@ -448,12 +366,12 @@ CREATE TABLE `user` (
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 
-INSERT INTO `user` (`id`, `role_id`, `lastname`, `firstname`, `birthdate`, `short_description`, `long_description`, `phone`, `mail`, `image`, `imageFile`, `facebook`)
+INSERT INTO `user` (`id`, `role_id`, `lastname`, `firstname`, `birthdate`, `short_description`, `long_description`, `phone`, `mail`, `image`, `imageFile`, `facebook`, `address`, `city`, `country`)
 VALUES
-	(1,3,'Gomis','Samuel','1988-02-23','Le marié','Le marié le plus beau','0631093136','gomis.samuel@gmail.com','0f9d70a9be8cd87a7c9acc0ea86661ce.jpg',NULL,NULL),
-	(2,4,'Martorell Carrasco','Laia','1985-12-21','La mariée','La mariée la plus belle','0617550472','laia_marto@hotmail.com','1f7e2e90fb02b91f833ab5c9295ed815.jpg',NULL,NULL),
-	(3,9,'Pepin','Alex','1990-04-25','l\'homme de Dieu','père spirituel','0617550000','alextos@hotmail.com',NULL,NULL,NULL),
-	(4,10,'Munsosa','Fanny','1987-12-06','Femme spirituel','Femme de Dieu','0612345678','fanyto@gmail.com','66ca41bcfdb7f84cde3ea36b7caada49.png',NULL,NULL);
+	(1,3,'Gomis','Samuel','1988-02-23','Le marié','Le marié le plus beau','0631093136','gomis.samuel@gmail.com','0f9d70a9be8cd87a7c9acc0ea86661ce.jpg',NULL,NULL,'1 rue Jean Catelas','78210','Saint-Cyr-l\'Ecole'),
+	(2,4,'Martorell Carrasco','Laia','1985-12-21','La mariée','La mariée la plus belle','0617550472','laia_marto@hotmail.com','1f7e2e90fb02b91f833ab5c9295ed815.jpg',NULL,NULL,'','',''),
+	(3,9,'Pepin','Alex','1990-04-25','l\'homme de Dieu','père spirituel','0617550000','alextos@hotmail.com',NULL,NULL,NULL,'','',''),
+	(4,10,'Munsosa','Fanny','1987-12-06','Femme spirituel','Femme de Dieu','0612345678','fanyto@gmail.com','66ca41bcfdb7f84cde3ea36b7caada49.png',NULL,NULL,'','','');
 
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -486,15 +404,18 @@ CREATE TABLE `wedding` (
   `country` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `verse` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `presence` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `facebook` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `google` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `instagram` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 LOCK TABLES `wedding` WRITE;
 /*!40000 ALTER TABLE `wedding` DISABLE KEYS */;
 
-INSERT INTO `wedding` (`id`, `date`, `address`, `city`, `country`, `verse`, `presence`)
+INSERT INTO `wedding` (`id`, `date`, `address`, `city`, `country`, `verse`, `presence`, `facebook`, `google`, `instagram`)
 VALUES
-	(1,'2016-10-22 00:00:00','N-II, 08349 Cabrera de Mar','Barcelona','Espagne','Qu\'est-ce l\'amour?1 Corinthiens 13: L\'amour est patient, il est plein de bonté; l\'amour n\'est pas envieux; l\'amour ne se vante pas,il ne s\'enfle pas d’orgueil, il ne fait rien de malhonnête, il ne cherche pas son intérêt, il ne s\'irrite pas, il ne soupçon','N\'oubliez pas de vous inscrire');
+	(1,'2016-10-22 00:00:00','N-II, 08349 Cabrera de Mar','Barcelona','Espagne','Qu\'est-ce l\'amour?1 Corinthiens 13: L\'amour est patient, il est plein de bonté; l\'amour n\'est pas envieux; l\'amour ne se vante pas,il ne s\'enfle pas d’orgueil, il ne fait rien de malhonnête, il ne cherche pas son intérêt, il ne s\'irrite pas, il ne soupçon','N\'oubliez pas de vous inscrire','https://www.facebook.com/samuel.gomis','https://plus.google.com/u/1/111229600770637809523/posts?hl=fr','https://www.instagram.com/laiaysamo/');
 
 /*!40000 ALTER TABLE `wedding` ENABLE KEYS */;
 UNLOCK TABLES;

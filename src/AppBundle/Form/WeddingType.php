@@ -23,6 +23,9 @@ class WeddingType extends AbstractType
             ->add('country', TextType::class)
             ->add('presence', TextType::class)
             ->add('verse', TextType::class)
+            ->add('facebook', TextType::class)
+            ->add('google', TextType::class)
+            ->add('instagram', TextType::class)
             ->add('pictures', CollectionType::class, array(
                 'entry_type'   => PictureType::class,
                 'allow_add'    => true,

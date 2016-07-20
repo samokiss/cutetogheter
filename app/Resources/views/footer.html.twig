@@ -1,40 +1,36 @@
 <!-- footer start -->
 <footer class="img_background_footer"
-        {% if wedding is defined %}
-            style="background:url({{ asset(img_url~wedding.pictures.3.image) }}) no-repeat fixed center center;"
-            {% else %}
-            style="background: black"
-        {% endif %}
+        style="background:url({{ asset(img_url~wedding.pictures.3.image) }}) no-repeat fixed center center;"
 >
     <div class="color-overlay">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 text-center">
 	        				<span class="footer-logo">
-	        					Johne & Jane
+	        					Laia & Samo
 	        				</span>
                 </div>
                 <div class="col-sm-offset-3 col-sm-6">
-                    <a href="#" class="wow animated rollIn"><i class="fa fa-facebook"></i></a>
-                    <a href="#" class="wow animated rollIn"><i class="fa fa-twitter"></i></a>
-                    <a href="#" class="wow animated rollIn"><i class="fa fa-google"></i></a>
+                    <a href={{ wedding.facebook }} class="wow animated rollIn"><i class="fa fa-facebook"></i></a>
+                    {#<a href="#" class="wow animated rollIn"><i class="fa fa-twitter"></i></a>#}
+                    <a href={{ wedding.google }} class="wow animated rollIn"><i class="fa fa-google"></i></a>
                     {#<a href="#" class="wow animated rollIn"><i class="fa fa-share-alt"></i></a>#}
-                    <a href="#" class="wow animated rollIn"><i class="fa fa-instagram"></i></a>
+                    <a href={{ wedding.instagram }} class="wow animated rollIn"><i class="fa fa-instagram"></i></a>
                     {#<a href="#" class="wow animated rollIn"><i class="fa fa-whatsapp"></i></a>#}
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12 text-center">
                     <ul class="nav nav-pills">
-                        <li role="presentation"><a href="#banner">HOME</a></li>
-                        <li role="presentation"><a href="#gallery">GALLERY</a></li>
+                        <li role="presentation"><a href="#banner">ACCUEIL</a></li>
+                        <li role="presentation"><a href="#gallery">GALLERIE</a></li>
                         <li role="presentation"><a href="#blog">BLOG</a></li>
-                        <li role="presentation"><a href="#contact">RSVP</a></li>
+                        <li role="presentation"><a href="#contact">RESERVATIONS</a></li>
                     </ul>
                     <!-- footer nav end -->
                 </div>
                 <div class="col-sm-12 text-center">
-                    <p class="copyright"><i class="fa fa-copyright"></i> 2014 John&amp;Jane - One Page Wedding Template By CodePassanger</p>
+                    <p class="copyright"><i class="fa fa-copyright"></i> 2016 #ExprimeTaFoi</p>
                 </div>
             </div>
         </div>

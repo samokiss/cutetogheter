@@ -149,5 +149,17 @@ class DefaultController extends Controller
         ]);
     }
 
+    /**
+     * render controller for footer
+     */
+    public function footerAction()
+    {
+        $wedding = $this->getDoctrine()->getRepository('AppBundle:Wedding')->find(1);
+
+        return $this->render('::footer.html.twig', [
+            'wedding' => $wedding,
+        ]);
+    }
+
     
 }

@@ -74,6 +74,27 @@ class Wedding
      * @ORM\Column(type="string")
      */
     private $presence;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="facebook", type="string", length=255)
+     */
+    private $facebook;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="google", type="string", length=255)
+     */
+    private $google;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="instagram", type="string", length=255)
+     */
+    private $instagram;
     
 
     /**
@@ -255,6 +276,55 @@ class Wedding
     {
         $this->presence = $presence;
     }
-    
+
+    /**
+     * @return string
+     */
+    public function getFacebook()
+    {
+        return $this->facebook;
+    }
+
+    /**
+     * @param string $facebook
+     */
+    public function setFacebook($facebook)
+    {
+        $this->facebook = $facebook;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGoogle()
+    {
+        return $this->google;
+    }
+
+    /**
+     * @param string $google
+     */
+    public function setGoogle($google)
+    {
+        $this->google = $google;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInstagram()
+    {
+        return $this->instagram;
+    }
+
+    /**
+     * @param string $instagram
+     */
+    public function setInstagram($instagram)
+    {
+        $this->instagram = $instagram;
+    }
+
+
     
 }

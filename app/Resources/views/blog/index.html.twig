@@ -66,13 +66,13 @@
                         <!-- /.single-blog-lower -->
                     </div>
                     <!-- /.single-blog-detail -->
-                    <div class="social-block">
-                        <span>Share</span>
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-google"></i></a>
-                        <a href="#"><i class="fa fa-share-alt"></i></a>
-                    </div>
+                    {#<div class="social-block">#}
+                        {#<span>Share</span>#}
+                        {#<a href="#"><i class="fa fa-facebook"></i></a>#}
+                        {#<a href="#"><i class="fa fa-twitter"></i></a>#}
+                        {#<a href="#"><i class="fa fa-google"></i></a>#}
+                        {#<a href="#"><i class="fa fa-share-alt"></i></a>#}
+                    {#</div>#}
                     <div class="comment-block">
                         <h5>COMMENTS</h5>
                         <ul id="myList" class="media-list">
@@ -85,8 +85,10 @@
                             </li>
 
                             {% endfor %}
-                            <div id="loadMore">Load more</div>
-                            <div id="showLess">Show less</div>
+                            {% if article.comments|length > 3 %}
+                                <div id="loadMore">Load more</div>
+                                <div id="showLess">Show less</div>
+                            {% endif %}
                         </ul>
                     </div>
                     <!-- /.comment-block -->
@@ -142,7 +144,7 @@
                     </div>
                     <!-- /.sidebar-single-post -->
                     <div class="popular-post">
-                        <h5>POPULAR POST</h5>
+                        <h5>AUTRES ARTICLES</h5>
                         <ul>
                             {% for article in articles %}
                             <li>
@@ -156,10 +158,11 @@
                         </ul>
                     </div>
                     <div class="wedding-video">
-                        <h5>WEDDING VIDEO</h5>
-                        <p>Odio dignissimos ducimus qui bldiesentium voluptatum delenitiatque corrupti d et quas prodent, similique sunt in culpa.</p>
+                        <h5>VIDEO</h5>
+                        <p>Une vidéo de nous est à venir, pour le moment je vous invite à découvrir la chanson "Amour injuste" de Gwen Dressaire</p>
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="http://player.vimeo.com/video/105381943?color=0c9bdf" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/YjF7vSAauD4" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            {#<iframe class="embed-responsive-item" src="http://player.vimeo.com/video/105381943?color=0c9bdf" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>#}
                         </div>
                     </div>
                 </sidebar>

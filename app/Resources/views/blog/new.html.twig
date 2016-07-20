@@ -29,7 +29,7 @@
                 <div class="col-sm-9">
                     <div class="contact-block">
                         <div class="row">
-                            <div class="col-sm-offset-1 col-sm-6">
+                            <div class="col-sm-9">
                                 {{ form_errors(form) }}
                                 {{ form_start(form) }}
                                 {{ form_row(form.pictures) }}
@@ -50,5 +50,11 @@
 
 {% block javascripts %}
     <script src={{ asset("js/addpicture.js") }}></script>
+    <script>
+        tinymce.init({
+            selector: '#blog_description',
+            height: 200
+        });
+    </script>
 
 {% endblock %}

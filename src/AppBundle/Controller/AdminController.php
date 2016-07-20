@@ -281,4 +281,16 @@ class AdminController extends Controller
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * render controller for header admin
+     */
+    public function headerAdminAction()
+    {
+        $wedding = $this->getDoctrine()->getRepository('AppBundle:Wedding')->find(1);
+
+        return $this->render('::header_admin.html.twig', [
+            'wedding' => $wedding,
+        ]);
+    }
 }

@@ -80,7 +80,9 @@
 <script src={{ asset("js/jquery.js") }}></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src={{ asset("js/bootstrap.min.js") }}></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMg73OJqF1SAI_ELswdZHj2-BQ5VADxiI&callback=initMap"
+{#<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMg73OJqF1SAI_ELswdZHj2-BQ5VADxiI&callback=initMap"#}
+        {#type="text/javascript"></script>#}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMg73OJqF1SAI_ELswdZHj2-BQ5VADxiI"
         type="text/javascript"></script>
 <script src={{ asset("js/jquery.sticky.js") }}></script>
 <script src={{ asset("js/smoothscroll.js") }}></script>

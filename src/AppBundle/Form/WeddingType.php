@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -22,7 +23,7 @@ class WeddingType extends AbstractType
             ->add('city', TextType::class)
             ->add('country', TextType::class)
             ->add('presence', TextType::class)
-            ->add('verse', TextType::class)
+            ->add('verse', TextareaType::class)
             ->add('facebook', TextType::class)
             ->add('google', TextType::class)
             ->add('instagram', TextType::class)

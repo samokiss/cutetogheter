@@ -121,6 +121,13 @@ class User
      */
     private $facebook;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="instagram", type="string", length=255, nullable=true)
+     */
+    private $instagram;
+
     /*
      * @ORM\OneToMany(targetEntity="Blog", mappedBy="user")
      */
@@ -447,6 +454,22 @@ class User
     public function setCountry($country)
     {
         $this->country = $country;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInstagram()
+    {
+        return $this->instagram;
+    }
+
+    /**
+     * @param string $instagram
+     */
+    public function setInstagram($instagram)
+    {
+        $this->instagram = $instagram;
     }
 
 }

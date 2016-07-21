@@ -46,6 +46,10 @@
 {% endblock %}
 {% block javascripts %}
     <script>
+        tinymce.init({
+            selector: '#wedding_verse',
+            height: 150
+        });
         $(document).ready(function(){
             var $container = $('div#wedding_pictures');
             var i = $container.attr('length');

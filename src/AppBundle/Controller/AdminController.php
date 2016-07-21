@@ -303,22 +303,71 @@ class AdminController extends Controller
      */
     public function websiteTextListAction(Request $request)
     {
-        $websiteText = new WebsiteText();
         $texts = $this->getDoctrine()->getRepository('AppBundle:WebsiteText')->findAll();
         
+        return $this->render(':websitetext:list.html.twig', [
+            'texts' => $texts,
+        ]);
+    }
+
+    /**
+     * modify website title and description section
+     *
+     * @Route("/text/new/", name="text_new")
+     */
+    public function websiteTextNewAction(Request $request)
+    {
+        $websiteText = new WebsiteText();
+        $texts = $this->getDoctrine()->getRepository('AppBundle:WebsiteText')->findAll();
+
         $form = $this->createForm(WebsiteTextType::class,$websiteText);
-        
+
         $form->handleRequest($request);
-        
+
         if ($form->isValid() ) {
             $this->get('websitetext.manager')->save($websiteText);
 
-            return $this->redirectToRoute('text_edit');
+            return $this->redirectToRoute('text_list');
         }
-        
+
         return $this->render(':websitetext:edit.html.twig', [
             'form' => $form->createView(),
             'texts' => $texts,
         ]);
+    }
+
+    /**
+     * modify website title and description section
+     *
+     * @Route("/text/edit/{id}", name="text_edit")
+     */
+    public function websiteTextEditAction(Request $request, WebsiteText $websiteText)
+    {
+        $texts = $this->getDoctrine()->getRepository('AppBundle:WebsiteText')->findAll();
+
+        $form = $this->createForm(WebsiteTextType::class,$websiteText);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid() ) {
+            $this->get('websitetext.manager')->save($websiteText);
+
+            return $this->redirectToRoute('text_list');
+        }
+
+        return $this->render(':websitetext:edit.html.twig', [
+            'form' => $form->createView(),
+            'texts' => $texts,
+        ]);
+    }
+
+    /**
+     * @Route("/text/delete/{id}", name="text_delete")
+     */
+    public function textDeleteAction(WebsiteText $websiteText)
+    {
+        $this->get('websitetext.manager')->delete($websiteText);
+
+        return $this->redirectToRoute('text_list');
     }
 }

@@ -46,16 +46,22 @@
         </service>
         <service id="date.helper" class="AppBundle\Helper\DateHelper">
         </service>
-        <service id="gedmo.listener.translatable" class="Gedmo\Translatable\TranslatableListener">
-            <tag name="doctrine.event_subscribe" connection="default"/>
+        <!--<service id="gedmo.listener.translatable" class="Gedmo\Translatable\TranslatableListener">-->
+            <!--<tag name="doctrine.event_subscribe" connection="default"/>-->
+            <!--<call method="setAnnotationReader">-->
+                <!--<argument type="service" id="annotation_reader"></argument>-->
+            <!--</call>-->
+            <!--<call method="setDefaultLocale">-->
+                <!--<argument type="string">en</argument>-->
+            <!--</call>-->
+            <!--<call method="setTranslationFallback">-->
+                <!--<argument type="string">true</argument>-->
+            <!--</call>-->
+        <!--</service>-->
+        <service id="gedmo.listener.translatable" class="Gedmo\Sluggable\SluggableListener">
+            <tag name="doctrine.event_subscriber" connection="default"/>
             <call method="setAnnotationReader">
                 <argument type="service" id="annotation_reader"></argument>
-            </call>
-            <call method="setDefaultLocale">
-                <argument type="string">en</argument>
-            </call>
-            <call method="setTranslationFallback">
-                <argument type="string">true</argument>
             </call>
         </service>
     </services>

@@ -36,41 +36,6 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-12 text-center">
-                <div class="heading wow animated fadeInUp">
-                    <h3>Edition de text</h3>
-                </div>
-                <!-- /.heading end -->
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-offset-5 col-sm-6">
-                <table class="table">
-                    <tr>
-                        <th>titre</th>
-                        <th>Description</th>
-                        <th>Slug</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    {% for text in texts %}
-                        <tr>
-                            <td>{{ text.title }}</td>
-                            <td>{{ text.description }}</td>
-                            <td>{{ text.slug }}</td>
-                            <td><a href={{ path('text_edit', {'id': role.id}) }}>
-                                    <button>remove</button>
-                                </a></td>
-                            <td><a href={{ path('text_delete', {'id': role.id}) }}>
-                                    <button>remove</button>
-                                </a></td>
-                        </tr>
-                    {% endfor %}
-                </table>
-                {{ form(form) }}
-            </div>
-        </div>
     </section>
 
 {% endblock %}

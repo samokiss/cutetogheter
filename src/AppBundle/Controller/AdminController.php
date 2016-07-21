@@ -13,11 +13,13 @@ use AppBundle\Entity\Gallery;
 use AppBundle\Entity\Lovestory;
 use AppBundle\Entity\Role;
 use AppBundle\Entity\Rsvp;
+use AppBundle\Entity\WebsiteText;
 use AppBundle\Entity\Wedding;
 use AppBundle\Form\GalleryType;
 use AppBundle\Form\LovestoryType;
 use AppBundle\Form\RoleType;
 use AppBundle\Form\RsvpType;
+use AppBundle\Form\WebsiteTextType;
 use AppBundle\Form\WeddingType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -291,6 +293,32 @@ class AdminController extends Controller
 
         return $this->render('::header_admin.html.twig', [
             'wedding' => $wedding,
+        ]);
+    }
+    
+    /**
+     * modify website title and description section
+     *
+     * @Route("/text/list", name="text_list")
+     */
+    public function websiteTextListAction(Request $request)
+    {
+        $websiteText = new WebsiteText();
+        $texts = $this->getDoctrine()->getRepository('AppBundle:WebsiteText')->findAll();
+        
+        $form = $this->createForm(WebsiteTextType::class,$websiteText);
+        
+        $form->handleRequest($request);
+        
+        if ($form->isValid() ) {
+            $this->get('websitetext.manager')->save($websiteText);
+
+            return $this->redirectToRoute('text_edit');
+        }
+        
+        return $this->render(':websitetext:edit.html.twig', [
+            'form' => $form->createView(),
+            'texts' => $texts,
         ]);
     }
 }

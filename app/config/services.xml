@@ -39,6 +39,11 @@
             <argument type="service" id="kernel"></argument>
             <argument type="string">AppBundle:Rsvp</argument>
         </service>
+        <service id="websitetext.manager" class="AppBundle\Manager\WebsiteTextManager">
+            <argument type="service" id="doctrine.orm.entity_manager"></argument>
+            <argument type="service" id="kernel"></argument>
+            <argument type="string">AppBundle:Rsvp</argument>
+        </service>
         <service id="date.helper" class="AppBundle\Helper\DateHelper">
         </service>
         <service id="gedmo.listener.translatable" class="Gedmo\Translatable\TranslatableListener">

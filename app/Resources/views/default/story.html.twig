@@ -4,9 +4,8 @@
         <div class="row">
             <div class="col-sm-12 text-center">
                 <div class="heading wow animated fadeInUp">
-                    <h3>Notre Histoire</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra <br>nunc,  non scelerisque ligula.
-                        Crasveljusto nulla Vestibuluma.</p>
+                    <h3>{{ text_helper.getWebSiteText('notre-histoire').title }}</h3>
+                    {{ text_helper.getWebSiteText('notre-histoire').description|raw }}
                 </div>
                 <!-- /.heading end -->
             </div>

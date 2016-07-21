@@ -143,9 +143,11 @@ class DefaultController extends Controller
     public function peopleAction()
     {
         $list = $this->getDoctrine()->getRepository('AppBundle:User')->findImportantPeople();
-        
+        $pastor = $this->getDoctrine()->getRepository('AppBundle:User')->findPastor();
+         
         return $this->render(':default:people.html.twig', [
             'list' => $list,
+            'pastor' => $pastor,
         ]);
     }
 

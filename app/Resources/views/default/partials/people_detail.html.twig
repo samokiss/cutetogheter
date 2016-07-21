@@ -1,0 +1,68 @@
+{% for user in list %}
+    {% if user.enabled %}
+        {% if user.sex %}
+            <div class="col-sm-6 left-content">
+                <div class="row wow animated fadeInLeft" data-wow-delay="0s" data-wow-duration="1s">
+                    <div class="col-sm-8">
+                        <div class="profile">
+                            <h5>{{ user.firstname ~' '~user.lastname }}
+                                <small>{{ user.role.role }}</small>
+                            </h5>
+                            <p>{{ user.longDescription }}</p>
+                            {% if user.facebook != "" %}
+                                <ul class="social-icon">
+                                    <li><a href="{{ user.facebook }}"><i class="fa fa-facebook"></i></a>
+                                    </li>
+                                </ul>
+                            {% endif %}
+                            <!-- /.social-icon end -->
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="people-thumb-img">
+                            <img class="img-responsive"
+                                    {% if user.image == null %}
+                                 src={{ asset('images/people_bestman.jpg') }} alt="important_people">
+                            {% else %}
+                                src={{ asset(img_url~user.image) }} alt="oint">
+                            {% endif %}
+                        </div>
+                        <!-- /.people-thumb-img -->
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        {% if not user.sex %}
+            <div class="col-sm-6 right-content">
+                <div class="row wow animated fadeInRight" data-wow-delay="0s" data-wow-duration="1s">
+                    <div class="col-sm-4">
+                        <div class="people-thumb-img">
+                            <img class="img-responsive"
+                                    {% if user.image == null %}
+                                 src={{ asset('images/people_bestman.jpg') }} alt="important_people">
+                            {% else %}
+                                src={{ asset(img_url~user.image) }} alt="ointe">
+                            {% endif %}
+                        </div>
+                        <!-- /.people-thumb-img -->
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="profile">
+                            <h5>{{ user.firstname ~' '~user.lastname }}
+                                <small>{{ user.role.role }}</small>
+                            </h5>
+                            <p>{{ user.longDescription }}</p>
+                            {% if user.facebook != "" %}
+                                <ul class="social-icon">
+                                    <li><a href="{{ user.facebook }}"><i class="fa fa-facebook"></i></a>
+                                    </li>
+                                </ul>
+                            {% endif %}
+                            <!-- /.social-icon end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endif %}
+{% endfor %}

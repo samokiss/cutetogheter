@@ -65,6 +65,8 @@
     {{ render(controller('AppBundle:Admin:headerAdmin')) }}
 {% elseif controller == 'BlogController' and action != 'indexAction'  %}
     {{ render(controller('AppBundle:Admin:headerAdmin')) }}
+{% elseif controller == 'UserController'  %}
+    {{ render(controller('AppBundle:Admin:headerAdmin')) }}
 {% elseif controller == 'BlogController' and action == 'indexAction'%}
     {{ render(controller('AppBundle:Blog:header')) }}
 {% elseif controller == 'DefaultController' and action != 'indexAction'%}

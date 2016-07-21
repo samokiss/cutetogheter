@@ -40,19 +40,7 @@ class UserController extends Controller
             'form' => $form->createView(),
         ]);
     }
-
-    /**
-     * @Route("/show/{id}", name="user_show")
-     *
-     * @Method("GET")
-     */
-    public function showAction(User $user)
-    {
-        return $this->render(':user:show.html.twig', [
-            'user' => $user
-        ]);
-        
-    }
+    
 
     /**
      * @Route("/list", name="user_list")
@@ -78,7 +66,7 @@ class UserController extends Controller
         if( $form->isSubmitted() && $form->isValid()) {
             $this->get('user.manager')->save($user);
 
-            return $this->redirectToRoute('user_show', [
+            return $this->redirectToRoute('user_list', [
                'id' => $user->getId(),
             ]);
         }

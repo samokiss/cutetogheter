@@ -57,7 +57,9 @@ class RsvpType extends AbstractType
                 'label'  => false,
                 'attr' => array('placeholder' => 'Message (Falcultatif)')
             ))
-            ->add('submit',SubmitType::class)
+            ->add('submit',SubmitType::class, array(
+                'label' => 'Envoyer'
+            ))
         ;
     }
     

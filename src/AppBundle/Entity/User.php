@@ -68,35 +68,35 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="phone", type="string", length=255)
+     * @ORM\Column(name="phone", type="string", length=255, nullable=true)
      */
     private $phone;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="address", type="string", length=255)
+     * @ORM\Column(name="address", type="string", length=255, nullable=true)
      */
     private $address;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="city", type="string", length=100)
+     * @ORM\Column(name="city", type="string", length=100, nullable=true)
      */
     private $city;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="country", type="string", length=50)
+     * @ORM\Column(name="country", type="string", length=50, nullable=true)
      */
     private $country;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="mail", type="string", length=255)
+     * @ORM\Column(name="mail", type="string", length=255, nullable=true)
      */
     private $mail;
 
@@ -128,10 +128,20 @@ class User
      */
     private $instagram;
 
-    /*
-     * @ORM\OneToMany(targetEntity="Blog", mappedBy="user")
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="enabled", type="boolean", options={"default" : 1})
      */
-    private $blogs;
+    private $enabled;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="sex", type="boolean")
+     */
+    private $sex;
+    
     
 
     /**
@@ -471,6 +481,40 @@ class User
     {
         $this->instagram = $instagram;
     }
+
+    /**
+     * @return boolean
+     */
+    public function isEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * @param boolean $enabled
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isSex()
+    {
+        return $this->sex;
+    }
+
+    /**
+     * @param boolean $sex
+     */
+    public function setSex($sex)
+    {
+        $this->sex = $sex;
+    }
+
+    
 
 }
 

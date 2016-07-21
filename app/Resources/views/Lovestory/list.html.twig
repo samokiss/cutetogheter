@@ -36,10 +36,10 @@
                             <td>{{ story.title }}</td>
                             <td>{{ story.description }}</td>
                             <td><a href={{ path('story_edit', {'id': story.id}) }}>
-                                    <button>edit</button>
+                                    <button><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                 </a></td>
                             <td><a href={{ path('story_delete', {'id': story.id}) }}>
-                                    <button>remove</button>
+                                    <button><i class="fa fa-times" aria-hidden="true"></i></button>
                                 </a></td>
                         </tr>
                     {% endfor %}

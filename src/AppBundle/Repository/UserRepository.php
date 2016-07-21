@@ -29,8 +29,10 @@ class UserRepository extends BaseRepository
             ->join('u.role', 'r')
             ->where('r.role != :groom')
             ->AndWhere('r.role != :bride')
+            ->AndWhere('r.role != :pasteur')
             ->setParameter('groom', 'groom')
             ->setParameter('bride', 'bride')
+            ->setParameter('pasteur', 'Pasteur')
             ->getQuery();
 
         return $query->getResult();
@@ -45,5 +47,16 @@ class UserRepository extends BaseRepository
             ->getQuery();
 
         return $query->getSingleResult();
+    }
+
+    public function findPastor()
+    {
+        $query = $this->createQueryBuilder('u')
+            ->join('u.role', 'r')
+            ->where('r.role = :pasteur')
+            ->setParameter('pasteur', 'Pasteur')
+            ->getQuery();
+
+        return $query->getResult();
     }
 }

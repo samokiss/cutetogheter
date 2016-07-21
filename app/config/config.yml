@@ -37,6 +37,7 @@ twig:
     globals:
         img_url : uploads/pictures/
         date_helper: "@date.helper"
+        text_helper: "@text.helper"
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     form_themes: ['bootstrap_3_layout.html.twig']

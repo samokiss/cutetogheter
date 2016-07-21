@@ -31,6 +31,8 @@
                     <th>Adresse</th>
                     <th>Téléphone</th>
                     <th>mail</th>
+                    <th>Sexe</th>
+                    <th>Activé</th>
                 </tr>
                 {% for user in users %}
                     <tr>
@@ -45,11 +47,13 @@
                         <td>{{ user.address~', '~user.city~', '~user.country }}</td>
                         <td>{{ user.phone }}</td>
                         <td>{{ user.mail }}</td>
+                        <td>{{ user.sex }}</td>
+                        <td>{{ user.enabled }}</td>
                         <td><a href={{ path('user_edit', {'id': user.id}) }}>
-                                <button>edit</button>
+                                <button><i class="fa fa-pencil" aria-hidden="true"></i></button>
                             </a></td>
                         <td><a href={{ path('user_delete', {'id': user.id}) }}>
-                                <button>remove</button>
+                                <button><i class="fa fa-times" aria-hidden="true"></i></button>
                             </a></td>
                     </tr>
                 {% endfor %}

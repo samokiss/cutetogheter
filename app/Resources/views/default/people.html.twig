@@ -4,74 +4,15 @@
         <div class="row">
             <div class="col-sm-12 text-center">
                 <div class="heading wow animated fadeInUp">
-                    <h3>Important People</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra <br> nunc,
-                        non scelerisque ligula. Crasveljusto nulla Vestibuluma.</p>
+                    <h3>{{ text_helper.getWebSiteText('invites-d-honneur').title }}</h3>
+                    {{ text_helper.getWebSiteText('invites-d-honneur').description|raw }}
                 </div>
                 <!-- /.heading end -->
             </div>
         </div>
         <div class="row">
-            {% for user in list %}
-                {% if loop.index is odd %}
-                    <div class="col-sm-6 left-content">
-                        <div class="row wow animated fadeInLeft" data-wow-delay="0s" data-wow-duration="1s">
-                            <div class="col-sm-8">
-                                <div class="profile">
-                                    <h5>{{ user.firstname ~' '~user.lastname }}
-                                        <small>{{ user.role.role }}</small>
-                                    </h5>
-                                    <p>{{ user.longDescription }}</p>
-                                    <ul class="social-icon">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    </ul>
-                                    <!-- /.social-icon end -->
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="people-thumb-img">
-                                    <img class="img-responsive"
-                                            {% if user.image == null %}
-                                         src={{ asset('images/people_bestman.jpg') }} alt="important_people">
-                                    {% else %}
-                                        src={{ asset(img_url~user.image) }} alt="BestMan">
-                                    {% endif %}
-                                </div>
-                                <!-- /.people-thumb-img -->
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
-                {% if loop.index is even %}
-                    <div class="col-sm-6 right-content">
-                        <div class="row wow animated fadeInRight" data-wow-delay="0s" data-wow-duration="1s">
-                            <div class="col-sm-4">
-                                <div class="people-thumb-img">
-                                    <img class="img-responsive"
-                                            {% if user.image == null %}
-                                         src={{ asset('images/people_bestman.jpg') }} alt="important_people">
-                                    {% else %}
-                                        src={{ asset(img_url~user.image) }} alt="BestMan">
-                                    {% endif %}
-                                </div>
-                                <!-- /.people-thumb-img -->
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="profile">
-                                    <h5>{{ user.firstname ~' '~user.lastname }}
-                                        <small>{{ user.role.role }}</small>
-                                    </h5>
-                                    <p>{{ user.longDescription }}</p>
-                                    <ul class="social-icon">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    </ul>
-                                    <!-- /.social-icon end -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
+            {{ include('default/partials/people_detail.html.twig', { 'list' : pastor }) }}
+            {{ include('default/partials/people_detail.html.twig', { 'list' : list }) }}
         </div>
 
     </div>

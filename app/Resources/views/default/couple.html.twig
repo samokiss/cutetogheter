@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-sm-12 text-center">
                 <div class="heading wow animated fadeInUp">
-                    <h3>{{ "couple_presentation_title" | trans }}</h3>
-                    <p>{{ "couple_presentation_desc" | trans }}</p>
+                    <h3>{{ text_helper.getWebSiteText('notre-presentation').title }}</h3>
+                    {{ text_helper.getWebSiteText('notre-presentation').description|raw }}
                 </div>
                 <!-- /.heading end -->
             </div>

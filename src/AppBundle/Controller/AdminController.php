@@ -177,7 +177,16 @@ class AdminController extends Controller
     {
         $roles = $this->getDoctrine()->getRepository("AppBundle:Role")->findAll();
 
-        $role = new Role();
+        return $this->render(':role:list.html.twig', [
+            'roles' => $roles,
+        ]);
+    }
+
+    /**
+     * @Route("/role/new", name="role_new")
+     */
+    public function roleNewAction(Request $request)
+    {
         $form = $this->createForm(RoleType::class, $role);
 
         $form->handleRequest($request);
@@ -188,8 +197,29 @@ class AdminController extends Controller
             return $this->redirectToRoute('role');
         }
 
-        return $this->render(':role:list.html.twig', [
-            'roles' => $roles,
+        return $this->render(':role:new.html.twig', [
+
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/role/edit/{id}", name="role_edit")
+     */
+    public function roleEditAction(Request $request, Role $role)
+    {
+        $form = $this->createForm(RoleType::class, $role);
+
+        $form->handleRequest($request);
+
+        if( $form->isValid() ) {
+            $this->get('role.manager')->save($role);
+
+            return $this->redirectToRoute('role');
+        }
+
+        return $this->render(':role:new.html.twig', [
+            
             'form' => $form->createView(),
         ]);
     }

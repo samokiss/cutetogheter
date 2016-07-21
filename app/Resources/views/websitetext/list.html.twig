@@ -44,10 +44,10 @@
                             <td>{{ text.description }}</td>
                             <td>{{ text.slug }}</td>
                             <td><a href={{ path('text_edit', {'id': text.id}) }}>
-                                    <button>remove</button>
+                                    <button><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                 </a></td>
                             <td><a href={{ path('text_delete', {'id': text.id}) }}>
-                                    <button>remove</button>
+                                    <button><i class="fa fa-times" aria-hidden="true"></i></button>
                                 </a></td>
                         </tr>
                     {% endfor %}

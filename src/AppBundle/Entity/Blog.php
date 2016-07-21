@@ -54,7 +54,7 @@
         /**
          * @var int
          *
-         * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="blogs")
+         * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
          * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
          */
         private $user;

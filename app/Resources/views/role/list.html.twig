@@ -26,18 +26,22 @@
                                     <tr>
                                         <th>id</th>
                                         <th>Nom</th>
+                                        <th></th>
+                                        <th></th>
                                     </tr>
                                     {% for role in roles %}
                                         <tr>
                                             <td>{{ role.id }}</td>
                                             <td>{{ role.role }}</td>
+                                            <td><a href={{ path('role_edit', {'id': role.id}) }}>
+                                                    <button><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                                </a></td>
                                             <td><a href={{ path('role_delete', {'id': role.id}) }}>
-                                                    <button>remove</button>
+                                                    <button><i class="fa fa-times" aria-hidden="true"></i></button>
                                                 </a></td>
                                         </tr>
                                     {% endfor %}
                                 </table>
-                                {{ form(form) }}
                             </div>
                         </div>
                     </div>

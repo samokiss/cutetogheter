@@ -8,10 +8,8 @@
             <div class="row">
                 <div class="col-sm-12 text-center">
                     <div class="blog-title">
-                        <h3>Notre Blog</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet
-                            pharetra
-                        </p>
+                        <h3>{{ text_helper.getWebSiteText('notre-blog').title }}</h3>
+                        {{ text_helper.getWebSiteText('notre-blog').description|raw }}
                     </div>
                 </div>
             </div>

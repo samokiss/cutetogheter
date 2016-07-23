@@ -33,7 +33,7 @@
                         <div class="blog-thumb event-img">
                             <img class="img-responsive blog-img" src={{ asset('uploads/pictures/'~article.pictures.0.image) }}  alt="Blog image">
                             <div class="blog-thumb-hover">
-                                <p>{{ article.description }}</p>
+                                {{ article.description |raw}}
                             </div>
                         </div>
                         <!-- /.blog-thumb -->

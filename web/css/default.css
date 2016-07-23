@@ -21,18 +21,25 @@ p.margin{margin-left: 10px;}
 #myList li{ display:none;
 }
 #loadMore {
-    color:green;
-    cursor:pointer;
+    background:transparent;
+    border: 1px solid black;
+    color: black;
+    margin-left: 15px;
+
 }
 #loadMore:hover {
-    color:black;
+    background:black;
+    color:whitesmoke;
 }
 #showLess {
-    color:red;
-    cursor:pointer;
+    background:transparent;
+    border: 1px solid black;
+    color: black;
+
 }
 #showLess:hover {
-    color:black;
+    background:black;
+    color:whitesmoke;
 }
 
 .login {
@@ -188,6 +195,39 @@ div.thumb-img-content.couple-content{
 }
 #couple .thumbnail-detail {
     background: #555;
+}
+
+.single-post-item li .fa {
+    margin-right: 0px;
+}
+.single-post-item li {
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.thumbnail {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+.thumbnail img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    width: auto;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+.thumbnail img.portrait {
+    width: 100%;
+    height: auto;
+}
+
+.img-thumbnail {
+     padding: 0;
 }
 
 /*

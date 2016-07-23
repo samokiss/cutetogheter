@@ -30,10 +30,16 @@
                     <div class="contact-block">
                         <div class="row">
                             <div class="col-sm-9">
+                                {{ form_row(form.pictures) }}
+                                <a href="#" id="add_picture">Ajouter une photo</a></br>
                                 {{ form_errors(form) }}
                                 {{ form_start(form) }}
-                                {{ form_row(form.pictures) }}
-                                <a href="#" id="add_picture">Add a picture</a>
+                                {{ form_row(form.title) }}
+                                {{ form_row(form.description) }}
+                                {{ form_row(form.verse) }}
+                                {{ form_row(form.user) }}
+                                {{ form_row(form.tags) }}
+                                <a href="#" id="add_tag">Ajouter un tag</a>
                                 {#{% if form.vars.value.pictures is not null %}#}
                                 {#<img class="img-responsive" src={{ asset('uploads/pictures/'~form.vars.value.image) }}>#}
                                 {#{% endif %}#}
@@ -49,7 +55,8 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script src={{ asset("js/addpicture.js") }}></script>
+    <script src={{ asset("js/cutetogether/addpicture.js") }}></script>
+    <script src={{ asset("js/cutetogether/addtag.js") }}></script>
     <script>
         tinymce.init({
             selector: '#blog_description',

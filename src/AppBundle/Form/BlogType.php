@@ -37,6 +37,10 @@ class BlogType extends AbstractType
                 'entry_type'   => PictureType::class,
                 'allow_add'    => true,
             ))
+            ->add('tags', CollectionType::class, array(
+                'entry_type'   => TagType::class,
+                'allow_add'    => true,
+            ))
             ->add('Submit', SubmitType::class)
         ;
     }

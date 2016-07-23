@@ -51,14 +51,16 @@
                         <!-- blockquote end -->
                         <div class="single-blog-lower">
                             <ul class="single-post-item">
-                                <li><i class="fa fa-check"></i>Duis aute irure reprehenderit in voluptate velit esse</li>
+                                {% for tag in article.tags %}
+                                <li><i class="fa fa-hashtag"></i>{{ tag.tag }}</li>
+                                {% endfor %}
                             </ul>
                             <!-- /.single-post-item -->
                             <h4>INSTANT PHOTO</h4>
                             <ul class="single-post-thumnail">
                                 {% for picture in article.pictures %}
                                     {% if loop.index != 1 %}
-                                        <li><a class="gallery-popup" href={{ asset('uploads/pictures/'~picture.image) }}><img class="img-thumbnail img-responsive" src={{ asset('uploads/pictures/'~picture.image) }} alt="image"></a></li>
+                                        <li class="thumbnail"><a class="gallery-popup" href={{ asset('uploads/pictures/'~picture.image) }}><img class="img-thumbnail img-responsive" src={{ asset('uploads/pictures/'~picture.image) }} alt="image"></a></li>
                                     {% endif %}
                                 {% endfor %}
                             </ul>
@@ -79,7 +81,7 @@
                             {% for comment in article.comments %}
                             <li class="media">
                                 <div class="media-body">
-                                    <h4 class="media-heading">{{ comment.name }}<small>{{ date_helper.frenchDate(comment.date).fulldate }}}</small></h4>
+                                    <h4 class="media-heading">{{ comment.name }}<small>{{ date_helper.frenchDate(comment.date).fulldate }}</small></h4>
                                     <p>{{ comment.message }}</p>
                                 </div>
                             </li>
@@ -88,8 +90,8 @@
                             {% if article.comments|length == 0 %}
                                 <div>Il n'y a pas de commentaire pour cet article</div>
                             {% elseif article.comments|length > 3 %}
-                                <div id="loadMore">Load more</div>
-                                <div id="showLess">Show less</div>
+                                <div id="loadMore" class="btn default-btn btn">Afficher plus</div>
+                                <div id="showLess" class="btn default-btn btn">Cacher</div>
                             {% endif %}
                         </ul>
                     </div>
@@ -178,6 +180,7 @@
 {% endblock %}
 
 {% block javascripts %}
+    {{ parent() }}
     <script>
         $(document).ready(function() {
             "use strict";

@@ -71,6 +71,17 @@
         private $pictures;
 
         /**
+         * @var ArrayCollection
+         *
+         * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Tag", cascade={"persist"})
+         * @ORM\JoinTable(name="blog_tag",
+         *      joinColumns={@ORM\JoinColumn(name="blog_id", referencedColumnName="id")},
+         *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id", unique=true)}
+         *      )
+         */
+        private $tags;
+
+        /**
          * @var int
          *
          * @ORM\OneToMany(targetEntity="AppBundle\Entity\Comment", mappedBy="blog")
@@ -260,4 +271,62 @@
         }
 
 
+    
+    /**
+     * Add tag
+     *
+     * @param \AppBundle\Entity\Tag $tag
+     *
+     * @return Blog
+     */
+    public function addTag(\AppBundle\Entity\Tag $tag)
+    {
+        $this->tags[] = $tag;
+
+        return $this;
     }
+
+    /**
+     * Remove tag
+     *
+     * @param \AppBundle\Entity\Tag $tag
+     */
+    public function removeTag(\AppBundle\Entity\Tag $tag)
+    {
+        $this->tags->removeElement($tag);
+    }
+
+    /**
+     * Get tags
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * Add comment
+     *
+     * @param \AppBundle\Entity\Comment $comment
+     *
+     * @return Blog
+     */
+    public function addComment(\AppBundle\Entity\Comment $comment)
+    {
+        $this->comments[] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \AppBundle\Entity\Comment $comment
+     */
+    public function removeComment(\AppBundle\Entity\Comment $comment)
+    {
+        $this->comments->removeElement($comment);
+    }
+}

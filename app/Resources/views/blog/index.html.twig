@@ -150,11 +150,13 @@
                         <ul>
                             {% for article in articles %}
                             <li>
+                                <a class="link-article" href={{ path("blog_index",{id : article.id}) }}>
                                 <div class="popular-img">
                                     <img class="img-responsive" src={{ asset('uploads/pictures/'~article.pictures.0.image) }} alt="post image">
                                     {#<img class="img-responsive" src={{ asset('uploads/pictures/0d7257aaf3983be7860ec2c4c92feb3e.jpg') }}" alt="post image">#}
                                 </div>
                                 <p class="margin">{{ article.title }}<span> {{ date_helper.frenchDate(article.date).fulldate }} </span> </p>
+                                </a>
                             </li>
                             {% endfor %}
                         </ul>

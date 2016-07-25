@@ -37,7 +37,7 @@
                                 </div>
                             {% endif %}
                             {{ form_errors(form) }}
-                            {{ form_start(form) }}
+                            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
                             {% if form.vars.value.image is not null %}
                                 <img class="img-responsive"
                                      src={{ asset('uploads/pictures/'~form.vars.value.image) }}>

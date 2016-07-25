@@ -230,6 +230,14 @@ div.thumb-img-content.couple-content{
      padding: 0;
 }
 
+.link-article {
+    color: black;
+}
+.link-article:hover {
+    color: red;
+}
+
+
 /*
 ========================================================================
 # 3.0 - Couple styles

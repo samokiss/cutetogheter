@@ -30,10 +30,10 @@
                     <div class="contact-block">
                         <div class="row">
                             <div class="col-sm-9">
+                                {{ form_errors(form) }}
+                                {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
                                 {{ form_row(form.pictures) }}
                                 <a href="#" id="add_picture">Ajouter une photo</a></br>
-                                {{ form_errors(form) }}
-                                {{ form_start(form) }}
                                 {{ form_row(form.title) }}
                                 {{ form_row(form.description) }}
                                 {{ form_row(form.verse) }}

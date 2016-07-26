@@ -42,7 +42,7 @@ class BlogController extends Controller
             ]);
         }
 
-        $articles = $this->get('blog.manager')->getRandomArticle();
+        $articles = $this->get('blog.manager')->getRandomResult(3);
 
         return $this->render(':blog:index.html.twig',[
             'article' => $blog,

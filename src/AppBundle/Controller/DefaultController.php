@@ -85,7 +85,7 @@ class DefaultController extends Controller
      */
     public function galleryAction()
     {
-        $gallery = $this->getDoctrine()->getRepository('AppBundle:Gallery')->findAll();
+        $gallery = $this->get('gallery.manager')->getRandomResult();
         return $this->render(':default:gallery.html.twig', [
             'gallery' => $gallery,
         ]);

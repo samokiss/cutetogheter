@@ -98,7 +98,8 @@ abstract class BaseManager
     {
         if ($data->getPictures() instanceof PersistentCollection
             && !$data instanceof Wedding
-            && !$data instanceof Blog) {
+            && !$data instanceof Blog
+        ) {
             foreach ($data->getPictures() as $picture) {
                 if ($picture->getId() == null) {
                     $data->addPicture($picture);
@@ -115,6 +116,23 @@ abstract class BaseManager
         }
         return $data;
 
+    }
+
+    /**
+     * Get random article
+     */
+    public function getRandomResult($number = null)
+    {
+        $results = array();
+        $values = $this->em->getRepository($this->className)->findAll();
+        if ($number == null) {
+            $number = count($values);
+        }
+        shuffle($values);
+        for ($i = 0; $i < $number; $i++) {
+            $results[] = $values[$i];
+        }
+        return $results;
     }
 
 }

@@ -140,6 +140,6 @@ class BlogController extends Controller
     {
         $this->get('picture.manager')->delete($picture);
 
-        return $this->redirectToRoute("blog_edit");
+        return $this->redirectToRoute("picture_edit");
     }
 }

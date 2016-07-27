@@ -50,7 +50,10 @@ class RsvpType extends AbstractType
                         ->orderBy('u.firstname', 'ASC')
                         ;
                 },
-                'choice_label' => 'firstname',
+                'choice_label' => function ($user = 'firstname') {
+                    $text = 'Pour la liste de ';
+                    return $text.$user->getFirstname();
+                },
                 'label'  => false
             ))
             ->add('message',TextareaType::class, array(

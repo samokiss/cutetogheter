@@ -59,7 +59,18 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li><a href="{{ path('gallery_edit') }}">{{ "Gallerie"|trans }}</a></li>
+                            <li>
+                                <div class="dropdown">
+                                    <span class="drop-menu" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                        {{ "Photos"|trans }}
+                                        <span class="caret"></span>
+                                    </span>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                        <li role="presentation"><a class="droptext" role="menuitem" tabindex="-1" href="{{ path('gallery_edit') }}">{{ "Gallerie"|trans }}</a></li>
+                                        <li role="presentation"><a class="droptext" role="menuitem" tabindex="-1" href="{{ path('picture_edit')}}">{{ "Photo d'article"|trans }}</a></li>
+                                    </ul>
+                                </div>
+                            </li>
                             <li><a href="{{ path('guest_list') }}">{{ "Invités"|trans }}</a></li>
                             <li>
                                 <div class="dropdown">

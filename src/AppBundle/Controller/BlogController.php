@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Blog;
 use AppBundle\Entity\Comment;
+use AppBundle\Entity\Picture;
 use AppBundle\Form\BlogType;
 use AppBundle\Form\CommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -130,5 +131,15 @@ class BlogController extends Controller
         return $this->render('::header.html.twig', [
             'wedding' => $wedding,
         ]);
+    }
+
+    /**
+     * @Route("/deletepicture/{id}", name="picture_delete")
+     */
+    public function deletePictureAction(Picture $picture)
+    {
+        $this->get('picture.manager')->delete($picture);
+
+        return $this->redirectToRoute("blog_edit");
     }
 }

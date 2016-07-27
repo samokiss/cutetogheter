@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-sm-12 text-center">
                         <div class="blog-title">
-                            <h3>{{ 'Ajouter des photos'|trans }}</h3>
+                            <h3>{{ 'Supprimer photo de la zone blog'|trans }}</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet
                                 pharetra
                             </p>
@@ -20,22 +20,6 @@
     </section>
 
     <section class="blog-content">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-9">
-                    <div class="contact-block">
-                        <div class="row">
-                            <div class="col-sm-offset-5 col-sm-6">
-                                {{ form_errors(form) }}
-                                {{ form_start(form) }}
-                                {{ form_end(form) }}
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.contact-block end -->
-                </div>
-            </div>
-        </div>
         <div class="row">
             <div class="col-sm-12 text-center">
                 <div class="heading wow animated fadeInUp">
@@ -50,12 +34,9 @@
                     <div class="blog-post wow animated fadeInUp" data-wow-delay="0s" data-wow-duration="1s">
                         <div class="blog-thumb event-img">
                             <img class="img-responsive img-gal" src={{ asset(img_url~image.image) }}>
-                            <div class="blog-thumb-hover">
-                                <p>{{ image.description }}</p>
-                            </div>
                         </div>
                         <!-- /.blog-thumb -->
-                        <a class="blog-link" href={{ path('gallery_delete', {id:image.id}) }}><i class="fa fa-times"></i></a>
+                        <a class="blog-link" href={{ path('picture_delete', {id:image.id}) }}><i class="fa fa-times"></i></a>
                     </div>
                     <!-- /.blog-post -->
                 </div>

@@ -29,6 +29,11 @@
             <argument type="service" id="kernel"></argument>
             <argument type="string">AppBundle:Role</argument>
         </service>
+        <service id="picture.manager" class="AppBundle\Manager\PictureManager">
+            <argument type="service" id="doctrine.orm.entity_manager"></argument>
+            <argument type="service" id="kernel"></argument>
+            <argument type="string">AppBundle:Picture</argument>
+        </service>
         <service id="gallery.manager" class="AppBundle\Manager\GalleryManager">
             <argument type="service" id="doctrine.orm.entity_manager"></argument>
             <argument type="service" id="kernel"></argument>

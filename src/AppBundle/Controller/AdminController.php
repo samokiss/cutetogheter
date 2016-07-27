@@ -11,6 +11,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Gallery;
 use AppBundle\Entity\Lovestory;
+use AppBundle\Entity\Picture;
 use AppBundle\Entity\Role;
 use AppBundle\Entity\Rsvp;
 use AppBundle\Entity\WebsiteText;
@@ -400,4 +401,27 @@ class AdminController extends Controller
 
         return $this->redirectToRoute('text_list');
     }
+
+    /**
+     * @Route("/picture", name="picture_edit")
+     */
+    public function pictureEditAction(Request $request)
+    {
+        $fullGallery = $this->getDoctrine()->getRepository("AppBundle:Picture")->findAll();
+
+        return $this->render(':gallery:editpicture.html.twig',[
+            'fullGallery' => $fullGallery,
+        ]);
+    }
+
+    /**
+     * @Route("/picture/delete/{id}", name="picture_delete")
+     */
+    public function pictureDeleteAction(Picture $picture)
+    {
+        $this->get('picture.manager')->delete($picture);
+
+        return $this->redirectToRoute('picture_edit');
+    }
+
 }

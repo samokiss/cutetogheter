@@ -75,7 +75,7 @@
          *
          * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Tag", cascade={"persist"})
          * @ORM\JoinTable(name="blog_tag",
-         *      joinColumns={@ORM\JoinColumn(name="blog_id", referencedColumnName="id")},
+         *      joinColumns={@ORM\JoinColumn(name="blog_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")},
          *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id", unique=true)}
          *      )
          */

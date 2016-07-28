@@ -408,7 +408,6 @@ class AdminController extends Controller
     public function pictureEditAction(Request $request)
     {
         $fullGallery = $this->getDoctrine()->getRepository("AppBundle:Picture")->findAll();
-
         return $this->render(':gallery:editpicture.html.twig',[
             'fullGallery' => $fullGallery,
         ]);

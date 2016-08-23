@@ -37,6 +37,20 @@ class RsvpManager extends BaseManager
         }
     }
 
+    /**
+     * @param Rsvp $rsvps
+     */
+    public function getTotal($rsvps)
+    {
+        $total = 0;
+        /** @var Rsvp $rsvp */
+        foreach ($rsvps as $rsvp) {
+            $total += $rsvp->getGuestNumber();
+        }
+        
+        return $total;
+    }
+
     public function sendMail()
     {
 

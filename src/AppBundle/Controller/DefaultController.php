@@ -130,10 +130,13 @@ class DefaultController extends Controller
         $couple = $this->getDoctrine()->getRepository('AppBundle:User')->findMarried();
 
         $list = $this->getDoctrine()->getRepository('AppBundle:Rsvp')->findAll();
+        
+        $total = $this->get('rsvp.manager')->getTotal($list);
 
         return $this->render(':default:guestlist.html.twig', [
             'list' => $list,
             'couple' => $couple,
+            'total' => $total,
         ]);
     }    
     

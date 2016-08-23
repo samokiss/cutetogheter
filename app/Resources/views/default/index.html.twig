@@ -57,7 +57,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <blockquote>
-                            {{ wedding.verse |raw}}
+                            {{ wedding.verse |raw }}
                         </blockquote>
                         <!-- blockquote end -->
                     </div>
@@ -73,45 +73,45 @@
     {% include ":default:map.html.twig" %}
 {% endblock %}
 
-{% block javascripts %}
-    {% include ":default:mapjs.html.twig" %}
-    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    {% block javascripts %}
+        {% include ":default:mapjs.html.twig" %}
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
 
-    <script charset="UTF-8">
-        $(document).ready(function () {
-            $(".textDiv_Days>h4").text('Jours');
-            $(".textDiv_Hours>h4").text('Heures');
-            $(".textDiv_Seconds>h4").text('Secondes');
-        });
-        $(function () {
-            $("#form_rsvp").submit(function (e) {
-                e.preventDefault();
-                $("#loader").show();
-                name = $("#rsvp_name").val();
-                guestNumber = $("#rsvp_guestNumber").val();
-                message = $("#rsvp_message").val();
-                user = $("#rsvp_user").val();
-                email = $("#rsvp_email").val();
-                $.post(Routing.generate('rsvp'), {
-                    name: name,
-                    guestNumber: guestNumber,
-                    message: message,
-                    user: user,
-                    email: email
-                }, function (data) {
-                    $("#loader").hide();
-                    $("#have_sent").show("slow").delay(3000).hide("slow");
-                    name.val("");
-                    guestNumber.val("");
-                    message.val("");
-                    email.val("");
-                })
-                .fail(function () {
-                    $("#loader").hide();
-                    $("#exist").show("slow").delay(3000).hide("slow");
+        <script charset="UTF-8">
+            $(document).ready(function () {
+                $(".textDiv_Days>h4").text('Jours');
+                $(".textDiv_Hours>h4").text('Heures');
+                $(".textDiv_Seconds>h4").text('Secondes');
+            });
+            $(function () {
+                $("#form_rsvp").submit(function (e) {
+                    e.preventDefault();
+                    $("#loader").show();
+                    name = $("#rsvp_name").val();
+                    guestNumber = $("#rsvp_guestNumber").val();
+                    message = $("#rsvp_message").val();
+                    user = $("#rsvp_user").val();
+                    email = $("#rsvp_email").val();
+                    $.post(Routing.generate('rsvp'), {
+                        name: name,
+                        guestNumber: guestNumber,
+                        message: message,
+                        user: user,
+                        email: email
+                    }, function (data) {
+                        $("#loader").hide();
+                        $("#have_sent").show("slow").delay(3000).hide("slow");
+                        name.val("");
+                        guestNumber.val("");
+                        message.val("");
+                        email.val("");
+                    })
+                            .fail(function () {
+                                $("#loader").hide();
+                                $("#exist").show("slow").delay(3000).hide("slow");
+                            });
                 });
             });
-        });
-    </script>
-{% endblock %}
+        </script>
+    {% endblock %}

@@ -4,7 +4,8 @@
         <div id="background-carousel">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="item item-no1 active"><img class="img-responsive img-intro" src={{ asset(img_url~wedding.pictures.0.image) }}></div>
+                    <div class="item item-no1 active"><img class="img-responsive img-intro"
+                                                           src={{ asset(img_url~wedding.pictures.0.image) }}></div>
                     {#<div class="item item-no2"><img class="img-responsive" src={{ asset(img_url~wedding.image) }}></div>#}
                     {#<div class="item item-no3"><img class="img-responsive" src={{ asset(img_url~wedding.image) }}></div>#}
                 </div>
@@ -14,19 +15,33 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 text-center">
-		    				<span class="banner-logo">
-		    					<h2>{{ 'Laia et Samuel'|trans  }}<small>{{ "Mr et Ms Gomis" | trans}}</small></h2>
-		    				</span>
+                    <span class="banner-logo">
+                        <h2>{{ 'Laia et Samuel'|trans }}
+                            <small>{{ "Mr et Ms Gomis" | trans }}</small></h2>
+                    </span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-offset-3 col-sm-7">
+
                     <div class="timing circle">
                         <div id="count-down" style="height:140px;" data-date={{ wedding.date| date("Y-m-d") }}>
 
                         </div>
                     </div>
                     <!-- /.timing -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 text-center">
+                    <h4 class="date">
+                        Rendez-vous le {{ date_helper.frenchDate(wedding.date).fulldate }}
+                        à {{ wedding.address }}, {{ wedding.city }}, {{ wedding.country }}
+                    </h4>
+                    <h4 class="date underline">
+                        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                        Date limite d'inscription le 1 septembre !
+                    </h4>
                 </div>
             </div>
         </div>

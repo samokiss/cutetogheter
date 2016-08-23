@@ -365,3 +365,16 @@ a:active {color: #d44646;}
 ul, li {
     list-style: none;
 }
+
+.date {
+    font-family: 'Lobster', cursive;
+    color: whitesmoke;
+    font-size: 23px;
+}
+
+.underline {
+    text-decoration: underline;
+    color : red;
+    padding-bottom: 0;
+    margin: 0
+}

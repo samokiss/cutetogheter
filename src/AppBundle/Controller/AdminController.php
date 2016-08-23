@@ -279,7 +279,7 @@ class AdminController extends Controller
         $couple = $this->getDoctrine()->getRepository('AppBundle:User')->findMarried();
         $list = $this->getDoctrine()->getRepository('AppBundle:Rsvp')->findAll();
 
-        return $this->render(':Guest:list.html.twig', [
+        return $this->render(':guest:list.html.twig', [
             'couple' => $couple,
             'list' => $list,
         ]);

@@ -85,7 +85,7 @@
                                         <tr class="info">
                                             <th>Nom</th>
                                             <th>Nombre</th>
-                                            <th>Mail</th>
+                                            {#<th>Mail</th> #}
                                             <th>Message</th>
                                             <th></th>
                                             <th></th>
@@ -95,7 +95,7 @@
                                                 <tr>
                                                     <td>{{ guest.name }}</td>
                                                     <td>{{ guest.guestNumber }}</td>
-                                                    <td>{{ guest.email }}</td>
+                                                    {#<td>{{ guest.email }}</td>#}
                                                     <td>{{ guest.message }}</td>
                                                     <td><a href={{ path('guest_edit', {'id': guest.id}) }}>
                                                             <button><i class="fa fa-pencil" aria-hidden="true"></i></button>
@@ -113,7 +113,7 @@
                                         <tr class="danger">
                                             <th>Nom</th>
                                             <th>Nombre</th>
-                                            <th>Mail</th>
+                                            {#<th>Mail</th>#}
                                             <th>Message</th>
                                             <th></th>
                                             <th></th>
@@ -123,7 +123,7 @@
                                                 <tr>
                                                     <td>{{ guest.name }}</td>
                                                     <td>{{ guest.guestNumber }}</td>
-                                                    <td>{{ guest.email }}</td>
+                                                    {#<td>{{ guest.email }}</td>#}
                                                     <td>{{ guest.message }}</td>
                                                     <td><a href={{ path('guest_edit', {'id': guest.id}) }}>
                                                             <button><i class="fa fa-pencil" aria-hidden="true"></i></button>

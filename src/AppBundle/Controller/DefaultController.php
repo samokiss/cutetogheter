@@ -112,6 +112,7 @@ class DefaultController extends Controller
             $this->get('rsvp.manager')->save($data);
 
             return new Response(json_encode(array('status'=>'success')));
+            $this->get('rsvp.manager')->sendMail();
         }
         
         return $this->render(':default:rsvp.html.twig',[

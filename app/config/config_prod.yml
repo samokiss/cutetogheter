@@ -32,8 +32,9 @@ parameters:
     database_name: cutetogether
     database_user: root
     database_password: VJ8ieSnKeRQL
-    mailer_transport: smtp
-    mailer_host: 127.0.0.1
-    mailer_user: null
-    mailer_password: null
-    secret: ThisTokenIsNotSoSecretChangeIt
+    mailer_transport:  smtp
+    mailer_auth_mode:  login
+    mailer_host:       smtp.exprimetafoi.com
+    mailer_port:       587
+    mailer_user:       contact@exprimetafoi.com
+    mailer_password:   devinez^^

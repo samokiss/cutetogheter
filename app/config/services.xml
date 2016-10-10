@@ -42,6 +42,8 @@
         <service id="rsvp.manager" class="AppBundle\Manager\RsvpManager">
             <argument type="service" id="doctrine.orm.entity_manager"></argument>
             <argument type="service" id="kernel"></argument>
+            <argument type="service" id="twig"></argument>
+            <argument type="service" id="mailer"></argument>
             <argument type="string">AppBundle:Rsvp</argument>
         </service>
         <service id="websitetext.manager" class="AppBundle\Manager\WebsiteTextManager">

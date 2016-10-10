@@ -15,9 +15,15 @@ use Symfony\Component\HttpKernel\Kernel;
 
 class RsvpManager extends BaseManager
 {
-    public function __construct(EntityManager $em, Kernel $kernel, $className)
+    private $twig;
+    private $mailer;
+
+    public function __construct(EntityManager $em, Kernel $kernel, \Twig_Environment $twig, \Swift_Mailer $mailer,$className)
     {
         parent::__construct($em, $kernel, $className);
+
+        $this->twig = $twig;
+        $this->mailer = $mailer;
     }
 
     public function save($data)
@@ -53,6 +59,16 @@ class RsvpManager extends BaseManager
 
     public function sendMail()
     {
+        $message = \Swift_Message::newInstance()
+            ->setSubject('Votre inscription a bien été enregistré')
+            ->setFrom('samylaia@cutetogether.com')
+            ->setTo('gomis.samuel@gmail.com')
+            ->setBody(
+                $this->twig->render(':email:rsvp.html.twig')
+            );
+
+        $this->mailer->send($message);
+
 
     }
 

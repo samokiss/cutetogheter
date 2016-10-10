@@ -28,8 +28,20 @@ class RsvpType extends AbstractType
             ->add('email', TextType::class, array(
                 'label'  => false,
                 'attr' => array('placeholder' => 'Adresse mail')
-            ))
-            ->add('guestNumber', ChoiceType::class, array(
+            ));
+        if (in_array('ROLE_ADMIN',$options['user']->getRoles())) {
+            $builder->add('guestNumber', ChoiceType::class, array(
+                'choices'  => array(
+                    '0 personne' => 0,
+                    '1 personne' => 1,
+                    '2 personnes' => 2,
+                    '3 personnes' => 3,
+                    '4 personnes' => 4,
+                ),
+                'label'  => false,
+            ));
+        } else {
+            $builder->add('guestNumber', ChoiceType::class, array(
                 'choices'  => array(
                     '1 personne' => 1,
                     '2 personnes' => 2,
@@ -37,8 +49,9 @@ class RsvpType extends AbstractType
                     '4 personnes' => 4,
                 ),
                 'label'  => false,
-            ))
-            ->add('user', EntityType::class,array(
+            ));
+        }
+        $builder->add('user', EntityType::class,array(
                 'class' => 'AppBundle:User',
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('u')
@@ -72,7 +85,8 @@ class RsvpType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Rsvp'
+            'data_class' => 'AppBundle\Entity\Rsvp',
+            'user' => null
         ));
     }
 }

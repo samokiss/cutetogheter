@@ -300,7 +300,7 @@ class AdminController extends Controller
      */
     public function guestEditAction(Rsvp $rsvp, Request $request)
     {
-        $form = $this->createForm(RsvpType::class, $rsvp);
+        $form = $this->createForm(RsvpType::class, $rsvp, array('user' => $this->getUser()));
 
         $form->handleRequest($request);
 

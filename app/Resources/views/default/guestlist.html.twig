@@ -84,7 +84,11 @@
                                     </tr>
                                     {% for guest in list %}
                                         {% if guest.user.role.role == 'groom' %}
-                                            <tr>
+                                            {% if guest.guestNumber == 0 %}
+                                                <tr class="red_text">
+                                            {% else %}
+                                                <tr>
+                                            {% endif %}
                                                 <td>{{ guest.name }}</td>
                                                 <td>{{ guest.guestNumber }}</td>
                                             </tr>
@@ -100,7 +104,11 @@
                                     </tr>
                                     {% for guest in list %}
                                         {% if guest.user.role.role == 'bride' %}
-                                            <tr>
+                                            {% if guest.guestNumber == 0 %}
+                                                <tr class="red_text">
+                                            {% else %}
+                                                <tr>
+                                            {% endif %}
                                                 <td>{{ guest.name }}</td>
                                                 <td>{{ guest.guestNumber }}</td>
                                             </tr>

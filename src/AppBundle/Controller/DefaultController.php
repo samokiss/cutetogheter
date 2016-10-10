@@ -39,10 +39,10 @@ class DefaultController extends Controller
     {
         $wedding = $this->getDoctrine()->getRepository('AppBundle:Wedding')->find(1);
         return $this->render(':default:intro.html.twig', [
-           'wedding' => $wedding, 
+            'wedding' => $wedding,
         ]);
     }
-    
+
     /**
      * render controller use in the view index
      */
@@ -53,9 +53,9 @@ class DefaultController extends Controller
             'users' => $users,
         ]);
     }
-    
+
     /**
-     * render controller use in the view index 
+     * render controller use in the view index
      *
      * @return mixed
      */
@@ -100,29 +100,28 @@ class DefaultController extends Controller
     public function rsvpAction(Request $request)
     {
         $rsvp = new Rsvp();
-        $form = $this->createForm(RsvpType::class,$rsvp);
+        $form = $this->createForm(RsvpType::class, $rsvp, ['user' => $this->getUser()]);
         $groom = $this->getDoctrine()->getRepository('AppBundle:User')->findGromm();
 
 
         $form->handleRequest($request);
 
-        if( $request->isMethod('POST') ) {
+        if ($request->isMethod('POST')) {
             $data = $request->request->all();
-            
+
             $this->get('rsvp.manager')->save($data);
 
-            return new Response(json_encode(array('status'=>'success')));
+            return new Response(json_encode(array('status' => 'success')));
             $this->get('rsvp.manager')->sendMail();
         }
-        
-        return $this->render(':default:rsvp.html.twig',[
+
+        return $this->render(':default:rsvp.html.twig', [
             'form' => $form->createView(),
-            'groom' => $groom ,
+            'groom' => $groom,
         ]);
     }
 
 
-    
     /**
      * @Route("/guestlist", name="guestlist")
      */
@@ -131,7 +130,7 @@ class DefaultController extends Controller
         $couple = $this->getDoctrine()->getRepository('AppBundle:User')->findMarried();
 
         $list = $this->getDoctrine()->getRepository('AppBundle:Rsvp')->findAll();
-        
+
         $total = $this->get('rsvp.manager')->getTotal($list);
 
         return $this->render(':default:guestlist.html.twig', [
@@ -139,8 +138,8 @@ class DefaultController extends Controller
             'couple' => $couple,
             'total' => $total,
         ]);
-    }    
-    
+    }
+
     /**
      * render controller use in the view
      */
@@ -148,7 +147,7 @@ class DefaultController extends Controller
     {
         $list = $this->getDoctrine()->getRepository('AppBundle:User')->findImportantPeople();
         $pastor = $this->getDoctrine()->getRepository('AppBundle:User')->findPastor();
-         
+
         return $this->render(':default:people.html.twig', [
             'list' => $list,
             'pastor' => $pastor,
@@ -167,5 +166,5 @@ class DefaultController extends Controller
         ]);
     }
 
-    
+
 }

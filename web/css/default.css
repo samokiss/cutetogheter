@@ -378,3 +378,7 @@ ul, li {
     padding-bottom: 0;
     margin: 0
 }
+
+.red_text {
+    color: red;
+}

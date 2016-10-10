@@ -92,17 +92,21 @@
                                         </tr>
                                         {% for guest in list %}
                                             {% if guest.user.role.role == 'groom' %}
-                                                <tr>
-                                                    <td>{{ guest.name }}</td>
-                                                    <td>{{ guest.guestNumber }}</td>
-                                                    {#<td>{{ guest.email }}</td>#}
-                                                    <td>{{ guest.message }}</td>
-                                                    <td><a href={{ path('guest_edit', {'id': guest.id}) }}>
-                                                            <button><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                                                        </a></td>
-                                                    <td><a href={{ path('guest_delete', {'id': guest.id}) }}>
-                                                            <button><i class="fa fa-times" aria-hidden="true"></i></button>
-                                                        </a></td>
+                                                {% if guest.guestNumber == 0 %}
+                                                    <tr class="red_text">
+                                                {% else %}
+                                                    <tr>
+                                                {% endif %}
+                                                <td>{{ guest.name }}</td>
+                                                <td>{{ guest.guestNumber }}</td>
+                                                {#<td>{{ guest.email }}</td>#}
+                                                <td>{{ guest.message }}</td>
+                                                <td><a href={{ path('guest_edit', {'id': guest.id}) }}>
+                                                        <button><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                                    </a></td>
+                                                <td><a href={{ path('guest_delete', {'id': guest.id}) }}>
+                                                        <button><i class="fa fa-times" aria-hidden="true"></i></button>
+                                                    </a></td>
                                                 </tr>
                                             {% endif %}
                                         {% endfor %}
@@ -120,16 +124,22 @@
                                         </tr>
                                         {% for guest in list %}
                                             {% if guest.user.role.role == 'bride' %}
-                                                <tr>
+                                                {% if guest.guestNumber == 0 %}
+                                                    <tr class="red_text">
+                                                {% else %}
+                                                    <tr>
+                                                {% endif %}
                                                     <td>{{ guest.name }}</td>
                                                     <td>{{ guest.guestNumber }}</td>
                                                     {#<td>{{ guest.email }}</td>#}
                                                     <td>{{ guest.message }}</td>
                                                     <td><a href={{ path('guest_edit', {'id': guest.id}) }}>
-                                                            <button><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                                            <button><i class="fa fa-pencil" aria-hidden="true"></i>
+                                                            </button>
                                                         </a></td>
                                                     <td><a href={{ path('guest_delete', {'id': guest.id}) }}>
-                                                            <button><i class="fa fa-times" aria-hidden="true"></i></button>
+                                                            <button><i class="fa fa-times" aria-hidden="true"></i>
+                                                            </button>
                                                         </a></td>
                                                 </tr>
                                             {% endif %}

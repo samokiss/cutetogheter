@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-sm-12 text-center">
                         <div class="blog-title">
-                            <h3>{{ 'Supprimer photo de la zone blog'|trans }}</h3>
+                            <h3>{{ 'Supprimer photo'|trans }}</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet
                                 pharetra
                             </p>
@@ -28,12 +28,17 @@
                 <!-- /.heading end -->
             </div>
         </div>
+        <a href="{{ path('picture_load',{load:1}) }}">charger les photos</a>
         <div class="row">
             {% for image in fullGallery %}
                 <div class="col-sm-4 col-md-3 sm-margin-bottom">
                     <div class="blog-post wow animated fadeInUp" data-wow-delay="0s" data-wow-duration="1s">
                         <div class="blog-thumb event-img">
-                            <img class="img-responsive img-gal" src={{ asset(img_url~image.image) }}>
+                            {% if type == 'wedding' %}
+                                <img class="img-responsive img-gal" src={{ asset(img_mariage_url~image.image) }}>
+                            {% else %}
+                                <img class="img-responsive img-gal" src={{ asset(img_url~image.image) }}>
+                            {% endif %}
                         </div>
                         <!-- /.blog-thumb -->
                         <a class="blog-link" href={{ path('picture_delete', {id:image.id}) }}><i class="fa fa-times"></i></a>

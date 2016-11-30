@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PictureRepository")
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="type", type="string")
- * @ORM\DiscriminatorMap({"picture" = "Picture", "gallery" = "Gallery"})
+ * @ORM\DiscriminatorMap({"picture" = "Picture", "gallery" = "Gallery", "wedding_gallery" = "WeddingGallery"})
  */
 class Picture
 {
@@ -38,7 +38,6 @@ class Picture
      * @ORM\Column(type="string", nullable=true)
      */
     protected $imageFile;
-    
     
 
     /**

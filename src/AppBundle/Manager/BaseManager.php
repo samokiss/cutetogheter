@@ -26,9 +26,9 @@ abstract class BaseManager
     /**
      * @var string
      */
-    private $className;
+    protected $className;
 
-    private $kernel;
+    protected $kernel;
 
     /**
      * BaseManager constructor.

@@ -16,6 +16,7 @@ use AppBundle\Entity\Role;
 use AppBundle\Entity\Rsvp;
 use AppBundle\Entity\WebsiteText;
 use AppBundle\Entity\Wedding;
+use AppBundle\Enum\DataEnum;
 use AppBundle\Form\GalleryType;
 use AppBundle\Form\LovestoryType;
 use AppBundle\Form\RoleType;
@@ -421,6 +422,30 @@ class AdminController extends Controller
         $this->get('picture.manager')->delete($picture);
 
         return $this->redirectToRoute('picture_edit');
+    }
+    
+    /**
+     * @Route("/picture/wedding/{load}", name="picture_load", defaults={"load":0}, requirements={
+     *     "id": "\d+"
+     * }))
+     */
+    public function pictureWedding($load)
+    {
+        if($load == 1){
+            $this->get('picture.manager')->loadPictures();
+        }
+
+        $fullGallery = $this->getDoctrine()->getRepository("AppBundle:WeddingGallery")->findBy(
+            ['title' => 'Photo du mariage'],
+            null,
+            10
+        );
+        
+        return $this->render(':gallery:editpicture.html.twig',[
+            'fullGallery' => $fullGallery,
+            'type' => DataEnum::$data[DataEnum::WEDDING]
+        ]);
+
     }
 
 }

@@ -426,7 +426,7 @@ class AdminController extends Controller
     
     /**
      * @Route("/picture/wedding/{load}", name="picture_load", defaults={"load":0}, requirements={
-     *     "id": "\d+"
+     *     "load": "\d+"
      * }))
      */
     public function pictureWedding($load)
@@ -437,8 +437,7 @@ class AdminController extends Controller
 
         $fullGallery = $this->getDoctrine()->getRepository("AppBundle:WeddingGallery")->findBy(
             ['title' => 'Photo du mariage'],
-            null,
-            10
+            null
         );
         
         return $this->render(':gallery:editpicture.html.twig',[

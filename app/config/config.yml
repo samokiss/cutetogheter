@@ -36,7 +36,7 @@ framework:
 twig:
     globals:
         img_url : uploads/pictures/
-        img_mariage_url : uploads/wedding/
+        img_mariage_url : uploads/wedding/espagne/
         date_helper: "@date.helper"
         text_helper: "@text.helper"
     debug:            "%kernel.debug%"
@@ -99,3 +99,16 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+
+# LiipImagine Configuration
+liip_imagine:
+    resolvers:
+        default:
+            web_path: ~
+    filter_sets:
+        cache: ~
+        my_thumb:
+            quality: 50
+            filters:
+                thumbnail: { size: [370.75, 196], mode: outbound }

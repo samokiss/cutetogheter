@@ -35,9 +35,9 @@
                     <div class="blog-post wow animated fadeInUp" data-wow-delay="0s" data-wow-duration="1s">
                         <div class="blog-thumb event-img">
                             {% if type == 'wedding' %}
-                                <img class="img-responsive img-gal" src={{ asset(img_mariage_url~image.image) }}>
+                                <img class="img-responsive img-gal" src={{ asset(img_mariage_url~image.image) | imagine_filter('my_thumb') }}>
                             {% else %}
-                                <img class="img-responsive img-gal" src={{ asset(img_url~image.image) }}>
+                                <img class="img-responsive img-gal" src={{ asset(img_url~image.image) | imagine_filter('my_thumb') }}>
                             {% endif %}
                         </div>
                         <!-- /.blog-thumb -->

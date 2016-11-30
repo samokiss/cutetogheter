@@ -44,3 +44,6 @@ parameters:
     mailer_user: null
     mailer_password: null
     secret: ThisTokenIsNotSoSecretChangeIt
+
+web_profiler:
+    intercept_redirects: false

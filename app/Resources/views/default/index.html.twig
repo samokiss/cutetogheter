@@ -27,24 +27,23 @@
     {{ render(controller('AppBundle:Default:people')) }}
     {{ render(controller('AppBundle:Default:event')) }}
 
-    <!-- .rsvpLink start -->
-    <section id="rsvpLink" class="rsvpLink img_background"
-             style="background:url({{ asset(img_url~wedding.pictures.2.image) }}) repeat fixed center center;"
+    <section id="quote" class="quote img_background"
+             style="background:url({{ asset(img_url~wedding.pictures.1.image) }}) repeat fixed center center;"
     >
         <div class="color-overlay">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-12 text-center">
-                        <span class="rsvpLink-title">{{ wedding.presence }}</span>
-                        <a href="#contact" class="btn default-btn">RESERVATIONS</a>
-                        <a href="#map" class="btn default-btn">MAP</a>
+                    <div class="col-sm-12">
+                        <blockquote>
+                            {{ text_helper.getWebSiteText('remerciement').description|raw}}
+                        </blockquote>
+                        <!-- blockquote end -->
                     </div>
                 </div>
             </div>
         </div>
         <!-- /.color-overlay end -->
     </section>
-    <!-- .rsvpLink end -->
 
     {{ render(controller('AppBundle:Default:gallery')) }}
 
@@ -68,7 +67,7 @@
     </section>
     <!-- .quote end -->
 
-    {{ render(controller('AppBundle:Default:rsvp', {'request':app.request})) }}
+    {#{{ render(controller('AppBundle:Default:rsvp', {'request':app.request})) }}#}
 
     {% include ":default:map.html.twig" %}
 {% endblock %}

@@ -166,5 +166,15 @@ class DefaultController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/wedding/day", name="wedding_picture")
+     */
+    public function weddingDayAction()
+    {
+        $gallery = $this->getDoctrine()->getRepository('AppBundle:WeddingGallery')->findAll();
+        return $this->render(':default:weddingday.html.twig', [
+            'gallery' => $gallery,
+        ]);
+    }
 
 }

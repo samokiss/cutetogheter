@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!-- gallery start -->
+    <section id="gallery" class="gallery lightsmoke">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <div class="heading wow animated fadeInUp">
+                        <h3>{{ text_helper.getWebSiteText('gallerie-photo').title }}</h3>
+                        {{ text_helper.getWebSiteText('gallerie-photo').description|raw }}
+                    </div>
+                    <!-- /.heading end -->
+                </div>
+            </div>
+            <div class="row">
+                <div id="photo-gallery" class="photo-gallery">
+                    {% for picture in gallery %}
+                        <div class="item">
+                            <img src={{ asset(img_mariage_url~picture.image) | imagine_filter('my_thumb') }} alt="gallery
+                                 image">
+                            <a href={{ asset(img_mariage_url~picture.image) }} class="caption gallery-popup">
+                            <h5>{{ picture.title }}</h5>
+                            <span class="img_category">{{ picture.description }}</span>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+                <!-- /.photo-gallery end -->
+            </div>
+        </div>
+    </section>
+    <!-- gallery end -->
+{% endblock %}

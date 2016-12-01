@@ -36,7 +36,7 @@ framework:
 twig:
     globals:
         img_url : uploads/pictures/
-        img_mariage_url : uploads/wedding/espagne/
+        img_wedding_url : uploads/wedding/
         date_helper: "@date.helper"
         text_helper: "@text.helper"
     debug:            "%kernel.debug%"

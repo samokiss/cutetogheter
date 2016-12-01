@@ -161,19 +161,46 @@ class DefaultController extends Controller
     {
         $wedding = $this->getDoctrine()->getRepository('AppBundle:Wedding')->find(1);
 
-        return $this->render('::footer.html.twig', [
+        return $this->render('  ::footer.html.twig', [
             'wedding' => $wedding,
         ]);
     }
 
     /**
-     * @Route("/wedding/day", name="wedding_picture")
+     * @Route("/wedding/{folder}", name="wedding_picture")
      */
-    public function weddingDayAction()
+    public function weddingDayAction($folder)
     {
-        $gallery = $this->getDoctrine()->getRepository('AppBundle:WeddingGallery')->findAll();
+        $gallery = $this->getDoctrine()->getRepository('AppBundle:WeddingGallery')->findBy(
+            ['title' => $folder],
+            null,
+            10
+        );
         return $this->render(':default:weddingday.html.twig', [
             'gallery' => $gallery,
+            'folder' => $folder,
+        ]);
+    }
+
+    /**
+     * @Route("/ajax/loadpicture", name="ajax/load/picture ")
+     * @param Request $request
+     */
+    public function ajaxLoadPicture(Request $request)
+    {
+        $folder = $request->get('offset');
+        $offset = $request->get('offset');
+        $limit = $request->get('limit');
+
+        $gallery = $this->getDoctrine()->getRepository('AppBundle:WeddingGallery')->findBy(
+            ['title' => $folder],
+            null,
+            $limit,
+            $offset
+        );
+        return $this->render(':default:weddingday.html.twig', [
+            'gallery' => $gallery,
+            'folder' => $folder,
         ]);
     }
 

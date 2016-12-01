@@ -1,5 +1,5 @@
-$(document).ready(function() {
-    $('.js-datepicker').datepicker({
-        format: 'yyyy-mm-dd'
-    });
-});
+// $(document).ready(function() {
+//     $('.js-datepicker').datepicker({
+//         format: 'yyyy-mm-dd'
+//     });
+// });

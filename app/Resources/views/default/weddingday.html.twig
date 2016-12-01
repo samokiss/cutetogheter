@@ -39,19 +39,22 @@
     <script charset="UTF-8">
         $(document).ready(function () {
             var win = $(window);
+            var $footerOffsetTop = $('[data-footer]').offset().top;
+            var $sticker = $('#sticker').outerHeight();
 
+            console.log($sticker);
             // Each time the user scrolls
             win.scroll(function () {
                 var scrollTop = $(this).scrollTop();
+                var winHeight = $(this).height();
 
+                var total = scrollTop + winHeight + $sticker;
+console.log(total);
 
-
-
-//                // End of the document reached?
-//                if ($(document).height() - win.height() == win.scrollTop()) {
-//                console.log(win.height());
-//                console.log($(document).height());
-//                console.log(offsetTop());
+                //console.log(scrollTop + $(this).height() + $sticker);
+                //if (scrollTop + $(this).height() + $sticker > $footerOffsetTop) {
+                  //  console.log('fdfsdfs');
+                    //console.log(scrollTop+' / '+$footerOffsetTop);
 //                    $('#loading').show();
 //                    $.ajax({
 //                        url: 'get-post.php',
@@ -59,10 +62,19 @@
 //                        success: function (html) {
 //                            $('#posts').append(html);
 //                            $('#loading').hide();
-//                        }
+//                        },
 //                    });
-//                }
+                //}
+
+
+
             });
+//                // End of the document reached?
+//                if ($(document).height() - win.height() == win.scrollTop()) {
+//                console.log(win.height());
+//                console.log($(document).height());
+//                console.log(offsetTop());
+//                }
         });
     </script>
 {% endblock %}

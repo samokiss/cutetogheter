@@ -43,9 +43,9 @@ class PictureManager extends BaseManager
             }
             $exist = $this->em->getRepository('AppBundle:WeddingGallery')->findOneBy([
                 'image' => $weddingPic->getImage(),
-                'title' => $weddingPic->getDescription(),
+                'description' => $weddingPic->getDescription(),
             ]);
-            if(null != $exist) {
+            if(null == $exist) {
                 $this->save($weddingPic);
             }
         }

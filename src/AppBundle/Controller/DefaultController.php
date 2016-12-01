@@ -161,7 +161,7 @@ class DefaultController extends Controller
     {
         $wedding = $this->getDoctrine()->getRepository('AppBundle:Wedding')->find(1);
 
-        return $this->render('  ::footer.html.twig', [
+        return $this->render('::footer.html.twig', [
             'wedding' => $wedding,
         ]);
     }

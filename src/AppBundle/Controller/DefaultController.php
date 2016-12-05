@@ -174,7 +174,7 @@ class DefaultController extends Controller
         $gallery = $this->getDoctrine()->getRepository('AppBundle:WeddingGallery')->findBy(
             ['title' => $folder],
             null,
-            10
+            12
         );
         return $this->render(':default:weddingday.html.twig', [
             'gallery' => $gallery,
@@ -183,12 +183,13 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/ajax/loadpicture", name="ajax/load/picture ")
+     * @Route("/ajax/loadpicture", name="ajax_load_picture", options={"expose"=true})
      * @param Request $request
+     * @Method("POST"))
      */
     public function ajaxLoadPicture(Request $request)
     {
-        $folder = $request->get('offset');
+        $folder = $request->get('folder');
         $offset = $request->get('offset');
         $limit = $request->get('limit');
 
@@ -198,7 +199,7 @@ class DefaultController extends Controller
             $limit,
             $offset
         );
-        return $this->render(':default:weddingday.html.twig', [
+        return $this->render(':default/partials:picture.html.twig', [
             'gallery' => $gallery,
             'folder' => $folder,
         ]);

@@ -26,9 +26,12 @@
                     </div>
                 </div>
             </div>
+            <div id="loader">
+                <img src="{{ asset('images/ajax-loader.gif') }}" alt="loader"/>
+            </div>
             <!-- /.color-overlay end -->
-            <div class="ajax-load">
-                {% include ":default/partials:picture.html.twig" %}
+            {% include ":default/partials:picture.html.twig" %}
+            <div class="container ajax-load">
             </div>
         </div>
     </section>
@@ -36,10 +39,15 @@
 {% endblock %}
 
 {% block javascripts %}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
     <script charset="UTF-8">
         $(document).ready(function () {
             var $sticker = $('#sticker').outerHeight();
             var isBottom = false;
+            var offset = $('.first').attr("offset");
+            var limit = $('.last').attr("limit");
+            var folder = $('#photo-gallery').attr("folder");
 
             // Each time the user scrolls
             $(window).scroll(function () {
@@ -49,7 +57,36 @@
                 if ($this.scrollTop() + $this.height() > $footerOffsetTop) {
                     if (true === isBottom) return;
                     isBottom = true;
-                    console.log('fdfsdfs');
+                    console.log(offset + '-' + limit + '-' + folder);
+                    $("#loader").show();
+                    offset = parseInt(offset) + 12;
+                    limit = parseInt(limit) + 12;
+
+                    $('.ajax-load').load(Routing.generate('ajax_load_picture'), {
+                        offset: offset,
+                        folder: folder,
+                        limit: limit
+                    }, function (data) {
+                        $("#loader").hide();
+                        isBottom = false;
+                    });
+
+                    $.ajax({
+                        url: "http://fiddle.jshell.net/favicon.png",
+                        dataType: 'html',
+                    })
+                    .done(function (data) {
+                        if (console && console.log) {
+                            console.log("Sample of data:", data.slice(0, 100));
+                        }
+                    });
+//                            .done(function () {
+//                                isBottom = false;
+//                                $("#loader").hide();
+//                            })
+//                            .fail(function () {
+//                                console.log('fail');
+//                            });
                     //remettre a false dans le success de la requete ajax
                 }
             });

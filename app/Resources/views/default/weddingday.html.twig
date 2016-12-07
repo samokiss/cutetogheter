@@ -62,32 +62,31 @@
                     offset = parseInt(offset) + 12;
                     limit = parseInt(limit) + 12;
 
-                    $('.ajax-load').load(Routing.generate('ajax_load_picture'), {
-                        offset: offset,
-                        folder: folder,
-                        limit: limit
-                    }, function (data) {
-                        $("#loader").hide();
-                        isBottom = false;
-                    });
 
                     $.ajax({
-                        url: "http://fiddle.jshell.net/favicon.png",
+                        method: "POST",
+                        url: Routing.generate('ajax_load_picture'),
                         dataType: 'html',
+                        data: {offset: offset, folder: folder, limit: limit}
                     })
-                    .done(function (data) {
-                        if (console && console.log) {
-                            console.log("Sample of data:", data.slice(0, 100));
-                        }
-                    });
-//                            .done(function () {
-//                                isBottom = false;
-//                                $("#loader").hide();
-//                            })
-//                            .fail(function () {
-//                                console.log('fail');
-//                            });
-                    //remettre a false dans le success de la requete ajax
+                            .done(function (data) {
+                                isBottom = false;
+                                $("#loader").hide();
+//                                console.log(Masonry.data($('#photo-gallery')[0]));
+                                var $grid = Masonry.data($('#photo-gallery')[0]);
+//                                var $content = $( data );
+                                console.log($grid);
+                                $grid.append( data )
+                                // add and lay out newly appended items
+                                        .masonry( 'appended', data );
+//                                $grid.append(data);
+                            })
+                            .fail(function () {
+                                isBottom = false;
+                                $("#loader").hide();
+                                console.log('fail');
+                            });
+
                 }
             });
         });

@@ -30,8 +30,13 @@
                 <img src="{{ asset('images/ajax-loader.gif') }}" alt="loader"/>
             </div>
             <!-- /.color-overlay end -->
-            {% include ":default/partials:picture.html.twig" %}
-            <div class="container ajax-load">
+            <div class="row">
+                <div id="photo-gallery" class="photo-gallery" folder="{{ folder }}">
+                    {% include ":default/partials:picture.html.twig" %}
+                    <div class="container ajax-load">
+                    </div>
+                </div>
+                <!-- /.photo-gallery end -->
             </div>
         </div>
     </section>
@@ -48,6 +53,8 @@
             var offset = $('.first').attr("offset");
             var limit = $('.last').attr("limit");
             var folder = $('#photo-gallery').attr("folder");
+
+            var $grid = $('#photo-gallery');
 
             // Each time the user scrolls
             $(window).scroll(function () {
@@ -72,14 +79,8 @@
                             .done(function (data) {
                                 isBottom = false;
                                 $("#loader").hide();
-//                                console.log(Masonry.data($('#photo-gallery')[0]));
-                                var $grid = Masonry.data($('#photo-gallery')[0]);
-//                                var $content = $( data );
-                                console.log($grid);
-                                $grid.append( data )
-                                // add and lay out newly appended items
-                                        .masonry( 'appended', data );
-//                                $grid.append(data);
+
+                                $grid.append(data);
                             })
                             .fail(function () {
                                 isBottom = false;

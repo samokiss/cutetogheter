@@ -3,6 +3,7 @@
 {% block body %}
     <!-- gallery start -->
     <section id="gallery" class="gallery lightsmoke">
+        <div class="loading">Loading&#8230;</div>
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 text-center">
@@ -13,26 +14,29 @@
                     <!-- /.heading end -->
                 </div>
             </div>
-            <div class="color-overlay">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12 text-center">
-                            <a href={{ path('wedding_picture', {folder:'mairie'}) }} class="btn default-btn">Mairie</a>
-                            <a href={{ path('wedding_picture', {folder:'espagne'}) }} class="btn default-btn">Espagne -
-                            Fabrice H.</a>
-                            <a href={{ path('wedding_picture', {folder:'jp'}) }} class="btn default-btn">'Espagne -
-                            JP</a>
-                        </div>
+            {#<div class="color-overlay">#}
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center gallery-pic">
+                        <a href={{ path('wedding_picture', {folder:'mairie'}) }}
+                           class="btn default-btn {% if (folder=='mairie') %} active {% endif %}">Mairie</a>
+                        <a href={{ path('wedding_picture', {folder:'espagne'}) }}
+                           class="btn default-btn {% if (folder=='espagne') %} active {% endif %}">Espagne - Fabrice
+                        H.</a>
+                        <a href={{ path('wedding_picture', {folder:'jp'}) }}
+                           class="btn default-btn {% if (folder=='jp') %} active {% endif %}">Espagne - JP</a>
                     </div>
                 </div>
             </div>
+            <br>
+            {#</div>#}
             <div id="loader">
                 <img src="{{ asset('images/ajax-loader.gif') }}" alt="loader"/>
             </div>
             <!-- /.color-overlay end -->
             <div class="row">
                 <div id="photo-gallery" class="photo-gallery" folder="{{ folder }}">
-                    {% include ":default/partials:picture.html.twig" %}
+                    {#{% include ":default/partials:picture.html.twig" %}#}
                     <div class="container ajax-load">
                     </div>
                 </div>
@@ -48,48 +52,74 @@
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
     <script charset="UTF-8">
         $(document).ready(function () {
+            $('.loading').hide();
             var $sticker = $('#sticker').outerHeight();
             var isBottom = false;
-            var offset = $('.first').attr("offset");
-            var limit = $('.last').attr("limit");
             var folder = $('#photo-gallery').attr("folder");
 
-            var $grid = $('#photo-gallery');
-
-            // Each time the user scrolls
+            var $grid = window.msnry;
+            var page = 0;
+            var finish = false;
+            if (page == 0) loadImage();
+            // Each time the user scroll
             $(window).scroll(function () {
+                if (finish) return;
+
                 var $footerOffsetTop = $('[data-footer]').offset().top;
                 var $this = $(this);
 
                 if ($this.scrollTop() + $this.height() > $footerOffsetTop) {
+                    $('.loading').show();
                     if (true === isBottom) return;
                     isBottom = true;
-                    console.log(offset + '-' + limit + '-' + folder);
-                    $("#loader").show();
-                    offset = parseInt(offset) + 12;
-                    limit = parseInt(limit) + 12;
-
-
+                    loadImage();
+                }
+            });
+            function loadImage() {
+                setTimeout(function () {
                     $.ajax({
                         method: "POST",
                         url: Routing.generate('ajax_load_picture'),
                         dataType: 'html',
-                        data: {offset: offset, folder: folder, limit: limit}
+                        data: {page: page, folder: folder}
                     })
                             .done(function (data) {
+                                $('.loading').hide();
+                                var $data = $(data);
                                 isBottom = false;
-                                $("#loader").hide();
+                                ++page;
+                                $grid.append($data).masonry('appended', $data);
+                                $grid.imagesLoaded(function () {
+                                    $grid.masonry('reloadItems');
+                                    $grid.masonry('layout');
+                                    $('.gallery-popup').magnificPopup({
+                                        type: 'image',
+                                        closeBtnInside: true,
+                                        removalDelay: 300,
+                                        gallery: {
+                                            enabled: true, // set to true to enable gallery
+                                            preload: [0, 2], // read about this option in next Lazy-loading section
+                                            navigateByImgClick: true,
+                                            arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>', // markup of an arrow button
+                                            closeMarkup: '<button title="%title%" class="mfp-close"><i class="mfp-close-icn">&times;</i></button>',
+                                            tPrev: 'Previous (Left arrow key)', // title for left button
+                                            tNext: 'Next (Right arrow key)', // title for right button
+                                        }
+                                    });
 
-                                $grid.append(data);
+                                });
+
+                                if (0 === $data.length) {
+                                    finish = true;
+                                }
                             })
                             .fail(function () {
                                 isBottom = false;
-                                $("#loader").hide();
+                                $('.loading').hide();
                                 console.log('fail');
                             });
-
-                }
-            });
+                }, 2000);
+            }
         });
     </script>
 {% endblock %}

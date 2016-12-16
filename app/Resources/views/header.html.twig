@@ -27,14 +27,21 @@
                             <li><a href="{{ path('homepage') }}#gallery">Gallerie</a></li>
                             <li>
                                 <div class="dropdown">
-                                    <span class="drop-menu" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                    <span class="drop-menu" id="dropdownMenu1 wedding-pic" data-toggle="dropdown"
+                                          aria-expanded="true">
                                         {{ "Photos de mariage"|trans }}
-                                        <span class="caret"></span>
+                                        <span class=""></span>
                                     </span>
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                        <li role="presentation"><a class="droptext" role="menuitem" tabindex="-1" href="{{ path('wedding_picture', {folder:'mairie'}) }}">{{ "Mairie"|trans }}</a></li>
-                                        <li role="presentation"><a class="droptext" role="menuitem" tabindex="-1" href="{{ path('wedding_picture', {folder:'espagne'}) }}">{{ "Espagne - Fabrice H."|trans }}</a></li>
-                                        <li role="presentation"><a class="droptext" role="menuitem" tabindex="-1" href="{{ path('wedding_picture', {folder:'jp'}) }}">{{ "Espagne - JP Heuzé"|trans }}</a></li>
+                                        <li role="presentation"><a class="droptext menu-link" role="menuitem" tabindex="-1"
+                                                                   href="{{ path('wedding_picture', {folder:'mairie'}) }}">{{ "Mairie"|trans }}</a>
+                                        </li>
+                                        <li role="presentation"><a class="droptext menu-link" role="menuitem" tabindex="-1"
+                                                                   href="{{ path('wedding_picture', {folder:'espagne'}) }}">{{ "Espagne - Fabrice H."|trans }}</a>
+                                        </li>
+                                        <li role="presentation"><a class="droptext menu-link" role="menuitem" tabindex="-1"
+                                                                   href="{{ path('wedding_picture', {folder:'jp'}) }}">{{ "Espagne - JP Heuzé"|trans }}</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>

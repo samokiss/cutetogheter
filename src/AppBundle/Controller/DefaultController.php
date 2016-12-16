@@ -18,6 +18,7 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class DefaultController extends Controller
 {
+    CONST LIMIT = 12;
 
     /**
      * @Route("/", name="homepage")
@@ -190,14 +191,13 @@ class DefaultController extends Controller
     public function ajaxLoadPicture(Request $request)
     {
         $folder = $request->get('folder');
-        $offset = $request->get('offset');
-        $limit = $request->get('limit');
+        $page = intval($request->get('page'));
 
         $gallery = $this->getDoctrine()->getRepository('AppBundle:WeddingGallery')->findBy(
             ['title' => $folder],
-            null,
-            $limit,
-            $offset
+            ['id' => 'ASC'],
+            self::LIMIT,
+            $page*self::LIMIT
         );
         return $this->render(':default/partials:picture.html.twig', [
             'gallery' => $gallery,

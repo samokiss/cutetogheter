@@ -47,3 +47,8 @@ parameters:
 
 web_profiler:
     intercept_redirects: false
+
+swiftmailer:
+    transport: gmail
+    username: laiaysamo@gmail
+    password: 22102016

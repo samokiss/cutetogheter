@@ -55,7 +55,7 @@ $('a.scrollto').bind('click.smoothscroll', function (event) {
 //----------------------------------------------------
 //------------Scroll to Next Section------------------
 //----------------------------------------------------
-  
+
   $('.next-arrow a').on( "click",function() {
     $('html,body').animate({scrollTop:$('#story').offset().top - 76}, 750);
  return false;
@@ -74,7 +74,7 @@ $('a.scrollto').bind('click.smoothscroll', function (event) {
 //----------------------------------------------------
 
 $("#count-down").TimeCircles(
-   {   
+   {
      circle_bg_color: "#fd6e6e",
      use_background: true,
      bg_width: 1,
@@ -89,7 +89,7 @@ $("#count-down").TimeCircles(
 );
 
 $(".pink #count-down").TimeCircles(
-   {   
+   {
      circle_bg_color: "#fa4b74",
      use_background: true,
      bg_width: 1,
@@ -104,7 +104,7 @@ $(".pink #count-down").TimeCircles(
 );
 
 $(".greyscale #count-down").TimeCircles(
-   {   
+   {
      circle_bg_color: "#454545",
      use_background: true,
      bg_width: 1,
@@ -119,7 +119,7 @@ $(".greyscale #count-down").TimeCircles(
 );
 
  $("#count-down-2").TimeCircles(
-       {   
+       {
          circle_bg_color: "#fefeee",
          use_background: false,
          bg_width: .0000001,
@@ -147,7 +147,7 @@ $(window).scroll(function() {
     }
 });
 
-  
+
 $('#go-to-top a').on( "click",function(){
   $("html,body").animate({ scrollTop: 0 }, 750);
   return false;
@@ -157,17 +157,14 @@ $('#go-to-top a').on( "click",function(){
 //------------------- Massonary ---------------------
 //---------------------------------------------------
 
-	var container = document.querySelector('#photo-gallery');
-	var msnry;
-// initialize Masonry after all images have loaded
-	imagesLoaded( container, function() {
-	  msnry = new Masonry( container, {
-	  // options
-	  columnWidth: 0,
-	  itemSelector: '.item',
-	  "gutter": 30
-	});
-});
+    // var container = document.querySelector('#photo-gallery');
+    var msnry = $('#photo-gallery').masonry({
+        columnWidth: 0,
+        itemSelector: '.item',
+        "gutter": 30
+    });
+    window.msnry = msnry;
+
 
 //---------------------------------------------------
 //------------------- Placeholder -------------------
@@ -196,21 +193,21 @@ $(function () {
         closeBtnInside:true,
         // Delay in milliseconds before popup is removed
         removalDelay: 300,
-    
+
         // Class that is added to popup wrapper and background
         // make it unique to apply your CSS animations just to this exact popup
         //mainClass: 'mfp-fade',
         gallery: {
           enabled: true, // set to true to enable gallery
-    
+
           preload: [0,2], // read about this option in next Lazy-loading section
-    
+
           navigateByImgClick: true,
-    
+
           arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>', // markup of an arrow button
-    
+
           closeMarkup: '<button title="%title%" class="mfp-close"><i class="mfp-close-icn">&times;</i></button>',
-    
+
           tPrev: 'Previous (Left arrow key)', // title for left button
           tNext: 'Next (Right arrow key)', // title for right button
           //tCounter: '<span class="mfp-counter">%curr% of %total%</span>' // markup of counter
@@ -227,7 +224,7 @@ $(function () {
     );
     wow.init();
 
-	
+
   // --------------RSVP Form Ajax request-----------------------
 
     $('.contact_form').on('submit', function(event){
@@ -263,8 +260,8 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
     document.createTextNode(
       '@-ms-viewport{width:auto!important}'
     )
-  )
+  );
   document.querySelector('head').appendChild(msViewportStyle)
 }
-  
+
 });

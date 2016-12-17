@@ -157,7 +157,6 @@ $('#go-to-top a').on( "click",function(){
 //------------------- Massonary ---------------------
 //---------------------------------------------------
 
-    // var container = document.querySelector('#photo-gallery');
     var msnry = $('#photo-gallery').masonry({
         columnWidth: 0,
         itemSelector: '.item',

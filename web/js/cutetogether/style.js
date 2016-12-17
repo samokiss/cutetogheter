@@ -5,4 +5,5 @@ $(document).ready(function () {
     $('.menu-link').click(function () {
         window.location.href = $(this).attr("href");
     });
+    window.msnry.masonry('layout');
 });

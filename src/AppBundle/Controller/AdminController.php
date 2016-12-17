@@ -425,10 +425,16 @@ class AdminController extends Controller
     }
     
     /**
-     * @Route("/picture/wedding", name="picture_load")
+     * @Route("/picture/wedding/{load}", name="picture_load", defaults={"load":0}, requirements={
+     *     "load": "\d+"
+     * }))
      */
     public function pictureWedding($load)
     {
+        if($load == 1){
+            $this->get('picture.manager')->loadPictures();
+        }
+
         $fullGallery = $this->getDoctrine()->getRepository("AppBundle:WeddingGallery")->findBy(
             ['title' => 'Photo du mariage'],
             null

@@ -1,8 +1,6 @@
 {% for picture in gallery %}
     <div class="item">
-        <img src={{ asset(img_wedding_url~folder~'/'~picture.image) }} | imagine_filter('my_thumb')
-        }} alt="gallery
-        image">
+        <img src={{ asset(img_wedding_url~folder~'/'~picture.image) | imagine_filter('my_thumb') }} alt="gallery image">
         <a href={{ asset(img_wedding_url~folder~'/'~picture.image) }} class="caption gallery-popup">
         <h5>{{ picture.title }}</h5>
         <span class="img_category">{{ picture.description }}</span>

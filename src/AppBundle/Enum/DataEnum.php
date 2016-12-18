@@ -14,11 +14,13 @@ class DataEnum
     const ESPAGNE = 2;
     const MAIRIE = 3;
     const JP = 4;
+    const GALA = 5;
 
     public static $data = [
         self::WEDDING => "wedding",
         self::ESPAGNE => "espagne",
         self::MAIRIE => "mairie",
         self::JP => "jp",
+        self::GALA => "gala",
     ];
 }

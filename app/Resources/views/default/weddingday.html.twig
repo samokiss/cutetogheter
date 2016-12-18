@@ -18,14 +18,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 text-center gallery-pic">
-                        <a href={{ path('wedding_picture', {folder:'mairie'}) }}
+                        <a id="mairie" href={{ path('wedding_picture', {folder:'mairie'}) }}
                            class="btn default-btn {% if (folder=='mairie') %} active {% endif %}">Mairie</a>
-                        <a href={{ path('wedding_picture', {folder:'espagne'}) }}
+                        <a id="espagne" href={{ path('wedding_picture', {folder:'espagne'}) }}
                            class="btn default-btn {% if (folder=='espagne') %} active {% endif %}">Espagne - Fabrice
                         H.</a>
-                        <a href={{ path('wedding_picture', {folder:'jp'}) }}
+                        <a id="jp" href={{ path('wedding_picture', {folder:'jp'}) }}
                            class="btn default-btn {% if (folder=='jp') %} active {% endif %}">Espagne - JP</a>
-                        <a href={{ path('wedding_picture', {folder:'gala'}) }}
+                        <a id="gala" href={{ path('wedding_picture', {folder:'gala'}) }}
                            class="btn default-btn {% if (folder=='gala') %} active {% endif %}">Espagne - Gala</a>
                     </div>
                 </div>
@@ -55,7 +55,6 @@
     <script charset="UTF-8">
         $(document).ready(function () {
             $('.loading').hide();
-            var $sticker = $('#sticker').outerHeight();
             var isBottom = false;
             var folder = $('#photo-gallery').attr("folder");
 
@@ -77,6 +76,17 @@
                     loadImage();
                 }
             });
+            $.ajax({
+                method: "POST",
+                url: Routing.generate('ajax_count_picture'),
+                dataType: 'json'
+            })
+                        .done(function (data) {
+                            $("#mairie").append(' (' + data.mairie + ')');
+                            $("#espagne").append(' (' + data.espagne+ ')');
+                            $("#jp").append(' (' + data.jp+ ')');
+                            $("#gala").append(' (' + data.gala+ ')');
+                        });
             function loadImage() {
                 setTimeout(function () {
                     $.ajax({

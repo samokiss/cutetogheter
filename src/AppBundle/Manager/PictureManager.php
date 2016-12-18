@@ -31,7 +31,6 @@ class PictureManager extends BaseManager
         $finder = new Finder();
         $picturesDir = $this->kernel->getRootDir() . '/../web/uploads/wedding';
         $finder->files()->in($picturesDir);
-        $fs = new Filesystem();
         foreach ($finder as $file) {
             $weddingPic = new WeddingGallery();
             $weddingPic->setImage($file->getFilename());
@@ -49,6 +48,33 @@ class PictureManager extends BaseManager
                 $this->save($weddingPic);
             }
         }
+    }
+
+    /**
+     * to count picture in folder wedding
+     */
+    public function countPicture()
+    {
+        $finder = new Finder();
+        $picturesDir = $this->kernel->getRootDir() . '/../web/uploads/wedding';
+        $finder->files()->in($picturesDir);
+        $countPicByFolder = array();
+        $i = $j = $k = $l =  1;
+        foreach ($finder as $file) {
+            if ($file->getRelativePath() == DataEnum::$data[DataEnum::ESPAGNE]){
+                $countPicByFolder[DataEnum::$data[DataEnum::ESPAGNE]] = $i++;
+            }
+            if ($file->getRelativePath() == DataEnum::$data[DataEnum::JP]){
+                $countPicByFolder[DataEnum::$data[DataEnum::JP]] = $j++;
+            }
+            if ($file->getRelativePath() == DataEnum::$data[DataEnum::MAIRIE]){
+                $countPicByFolder[DataEnum::$data[DataEnum::MAIRIE]] = $k++;
+            }
+            if ($file->getRelativePath() == DataEnum::$data[DataEnum::GALA]){
+                $countPicByFolder[DataEnum::$data[DataEnum::GALA]] = $l++;
+            }
+        }
+        return $countPicByFolder;
     }
 
 }

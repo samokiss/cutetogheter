@@ -205,4 +205,13 @@ class DefaultController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/picture/count", name="ajax_count_picture", options={"expose"=true})
+     * @Method("POST"))
+     */
+    public function ajaxCountPicture()
+    {
+        return new JsonResponse($this->get('picture.manager')->countPicture());
+    }
+
 }

@@ -31,7 +31,7 @@
                             <h5><a href={{ path('blog_index', {id:article.id}) }}>{{ article.title }}</a></h5>
                         </div>
                         <div class="blog-thumb event-img">
-                            <img class="img-responsive blog-img" src={{ asset(article.pictures.0.image~img_url | imagine_filter('my_thumb')) }}  alt="Blog image">
+                            <img class="img-responsive blog-img" src={{ asset(img_url~article.pictures.0.image) }}  alt="Blog image">
                             <div class="blog-thumb-hover">
                                 {{ article.description |raw}}
                             </div>

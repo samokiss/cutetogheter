@@ -8,8 +8,6 @@
                     <div class="col-sm-12 text-center">
                         <div class="blog-title">
                             <h3>{{ 'Supprimer photo'|trans }}</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet
-                                pharetra
                             </p>
                         </div>
                     </div>
@@ -28,16 +26,28 @@
                 <!-- /.heading end -->
             </div>
         </div>
-        <a href="{{ path('picture_load',{load:1}) }}">charger les photos</a>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center gallery-pic">
+                    <a id="mairie" href={{ path('picture_edit', {type:'Picture'}) }}
+                    class="btn default-btn {% if (type=='picture') %} active {% endif %}">Picture</a>
+                    <a id="espagne" href={{ path('picture_edit', {type:'Gallery'}) }}
+                    class="btn default-btn {% if (type=='gallery') %} active {% endif %}">Gallery</a>
+                    <a id="jp" href={{ path('picture_edit', {type:'WeddingGallery'}) }}
+                    class="btn default-btn {% if (type=='WeddingGallery') %} active {% endif %}">Wedding Gallery</a>
+                </div>
+            </div>
+        </div>
+        {#<a href="{{ path('picture_load',{load:1}) }}">charger les photos</a>#}
         <div class="row">
             {% for image in fullGallery %}
                 <div class="col-sm-4 col-md-3 sm-margin-bottom">
                     <div class="blog-post wow animated fadeInUp" data-wow-delay="0s" data-wow-duration="1s">
                         <div class="blog-thumb event-img">
-                            {% if type == 'wedding' %}
-                                <img class="img-responsive img-gal" src={{ asset(img_mariage_url~image.image) | imagine_filter('my_thumb') }}>
+                            {% if (type == 'picture' or type == 'gallery' ) %}
+                            <img class="img-responsive img-gal" src={{ asset(img_url~image.image) | imagine_filter('my_thumb') }}>
                             {% else %}
-                                <img class="img-responsive img-gal" src={{ asset(img_url~image.image) | imagine_filter('my_thumb') }}>
+                            <img class="img-responsive img-gal" src={{ asset(img_wedding_url~image.image) | imagine_filter('my_thumb') }}>
                             {% endif %}
                         </div>
                         <!-- /.blog-thumb -->
@@ -53,5 +63,4 @@
 
 {% block javascripts %}
     <script src={{ asset("js/cutetogether/addpicture.js") }}></script>
-
 {% endblock %}

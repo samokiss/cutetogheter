@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!-- gallery start -->
+    <section id="gallery" class="gallery lightsmoke">
+        <div class="loading">Loading&#8230;</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <div class="heading wow animated fadeInUp">
+                        <h3>{{ text_helper.getWebSiteText('gallerie-photo').title }}</h3>
+                        {{ text_helper.getWebSiteText('gallerie-photo').description|raw }}
+                    </div>
+                    <!-- /.heading end -->
+                </div>
+            </div>
+            {#<div class="color-overlay">#}
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center gallery-pic">
+                        <a id="mairie" href={{ path('wedding_picture', {folder:'mairie'}) }}
+                           class="btn default-btn {% if (folder=='mairie') %} active {% endif %}">Mairie</a>
+                        <a id="espagne" href={{ path('wedding_picture', {folder:'espagne'}) }}
+                           class="btn default-btn {% if (folder=='espagne') %} active {% endif %}">Espagne - Fabrice
+                        H.</a>
+                        <a id="jp" href={{ path('wedding_picture', {folder:'jp'}) }}
+                           class="btn default-btn {% if (folder=='jp') %} active {% endif %}">Espagne - JP</a>
+                        <a id="gala" href={{ path('wedding_picture', {folder:'gala'}) }}
+                           class="btn default-btn {% if (folder=='gala') %} active {% endif %}">Espagne - Gala</a>
+                    </div>
+                </div>
+            </div>
+            <br>
+            {#</div>#}
+            <div id="loader">
+                <img src="{{ asset('images/ajax-loader.gif') }}" alt="loader"/>
+            </div>
+            <!-- /.color-overlay end -->
+            <div class="row">
+                <div id="photo-gallery" class="photo-gallery" folder="{{ folder }}">
+                    {#{% include ":default/partials:picture.html.twig" %}#}
+                    <div class="container ajax-load">
+                    </div>
+                </div>
+                <!-- /.photo-gallery end -->
+            </div>
+        </div>
+    </section>
+    <!-- gallery end -->
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    <script src="{{ asset('js/cutetogether/loadMansoryImage.js') }}"></script>
+{% endblock %}

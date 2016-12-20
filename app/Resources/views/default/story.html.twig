@@ -27,7 +27,7 @@
 	 										{#{{ story.date|date }}#}
 	 									</span>
                                 <div class="timeline-thumbnail wow animated fadeInLeft" data-wow-delay="0s" data-wow-duration="1s">
-                                    <img class="img-thumbnail story-img" src={{ asset(img_url~story.image) }} alt="Love Story">
+                                    <img class="img-thumbnail story-img" src={{ asset(img_url~story.image) | imagine_filter('my_thumb') }} alt="Love Story">
                                 </div>
                             </div>
                         </div>

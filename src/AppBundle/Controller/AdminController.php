@@ -404,13 +404,14 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/picture", name="picture_edit")
+     * @Route("/picture/{type}", name="picture_edit")
      */
-    public function pictureEditAction(Request $request)
+    public function pictureEditAction($type = null)
     {
-        $fullGallery = $this->getDoctrine()->getRepository("AppBundle:Picture")->findAll();
+        $fullGallery = $this->getDoctrine()->getRepository('AppBundle:'.ucfirst($type))->findAll();
         return $this->render(':gallery:editpicture.html.twig',[
             'fullGallery' => $fullGallery,
+            'type' => $type,
         ]);
     }
 
